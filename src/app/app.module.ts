@@ -14,6 +14,7 @@ import { FooterModule } from './shared/footer/footer.module';
 import { NavbarModule} from './shared/navbar/navbar.module';
 import { AdminLayoutComponent } from './layouts/admin/admin-layout.component';
 import { AuthLayoutComponent } from './layouts/auth/auth-layout.component';
+//import { LoginComponent } from './login/login.component';
 import { AppRoutes } from './app.routing';
 import {} from '@angular/core/index'
 @NgModule({
@@ -29,7 +30,9 @@ import {} from '@angular/core/index'
     declarations: [
         AppComponent,
         AdminLayoutComponent,
-        AuthLayoutComponent
+        AuthLayoutComponent,
+        
+        
     ],
     bootstrap:    [ AppComponent ]
 })

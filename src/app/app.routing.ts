@@ -2,14 +2,16 @@ import { Routes } from '@angular/router';
 
 import { AdminLayoutComponent } from './layouts/admin/admin-layout.component';
 import { AuthLayoutComponent } from './layouts/auth/auth-layout.component';
+//import {LoginComponent} from './login/login.component';
 
 export const AppRoutes: Routes = [
     {
-      path: '',
-      redirectTo: 'dashboard',
-      pathMatch: 'full',
-    },
-    {
+        path: '',
+        loadChildren: './login/login.module#LoginModule'
+      }, {
+        path: 'register',
+        loadChildren: './register/register.module#RegisterModule'
+      }, {
       path: '',
       component: AdminLayoutComponent,
       children: [
@@ -19,7 +21,9 @@ export const AppRoutes: Routes = [
     },{
         path: 'components',
         loadChildren: './components/components.module#ComponentsModule'
-    },{
+    },
+    
+    {
         path: 'forms',
         loadChildren: './forms/forms.module#Forms'
     },{
