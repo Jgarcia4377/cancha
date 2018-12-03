@@ -57,7 +57,9 @@ export class LoginComponent implements OnInit{
 
     	$.notify({
         	icon: "notifications",
-        	message: "Te has logueado correctamente"
+            message: "Te has logueado correctamente",
+            type:'success',
+            
 
         },{
             type: type[color],
