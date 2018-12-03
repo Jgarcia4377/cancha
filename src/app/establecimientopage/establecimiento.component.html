@@ -1,0 +1,173 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header card-header-icon" data-background-color="blue">
+                        <i class="material-icons">business</i>
+                    </div>
+                    <div class="card-content">
+                        <h4 class="card-title">Establecimiento
+                            <br>
+                            <small class="category">Completa los datos del establecimiento</small>
+                        </h4>
+                        <form #registerEstablecimientoForm="ngForm" (ngSubmit)="onSubmit(registerEstablecimientoForm)"> 
+                                <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="establecimiento._id">
+                            <!--<div class="row">
+                                <div class="col-md-5">
+                                    <div class="form-group label-floating">
+                                        <label class="control-label">Company (disabled)</label>
+                                        <input type="text" class="form-control" disabled>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group label-floating">
+                                        <label class="control-label">Username</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group label-floating">
+                                        <label class="control-label">Email address</label>
+                                        <input type="email" class="form-control">
+                                    </div>
+                                </div>
+                            </div>-->
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group label-floating">
+                                        <label class="control-label">Razón Social</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group label-floating">
+                                        <label class="control-label">Propietario</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                        <div class="form-group label-floating">
+                                            <label class="control-label">Gerente</label>
+                                            <input type="text" class="form-control">
+                                        </div>
+                                    </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group label-floating">
+                                        <label class="control-label">País</label>
+                                        <select class="form-control form-control-sm">
+                                                <option>Seleccione</option>
+                                              </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group label-floating">
+                                        <label class="control-label">Provincia</label>
+                                        <select class="form-control form-control-sm">
+                                                <option>Seleccione</option>
+                                              </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group label-floating">
+                                        <label class="control-label">Ciudad</label>
+                                        <select class="form-control form-control-sm">
+                                                <option>Seleccione</option>
+                                              </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group label-floating">
+                                            <label class="control-label">Calle Principal</label>
+                                            <input type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group label-floating">
+                                                <label class="control-label">Calle Secundaria</label>
+                                                <input type="text" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                                <h3> <span class="label label-primary">Redes Sociales</span></h3>
+                                        </div>
+                                    </div>
+                                       <div class="row">
+                                            <div class="col-md-4">
+                                               <div class="form-group label-floating">
+                                                  <label class="control-label">Sitio Web</label>
+                                                       <input type="text" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                    <div class="form-group label-floating">
+                                                       <label class="control-label">Facebook</label>
+                                                            <input type="text" class="form-control">
+                                                     </div>
+                                                 </div>
+                                                 <div class="col-md-4">
+                                                        <div class="form-group label-floating">
+                                                           <label class="control-label">Instagram</label>
+                                                                <input type="text" class="form-control">
+                                                         </div>
+                                                     </div>                                        
+                                        </div>
+                                        <div class="row">
+                                                <div class="col-md-4">
+                                                   <div class="form-group label-floating">
+                                                      <label class="control-label">Twitter</label>
+                                                           <input type="text" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                        <div class="form-group label-floating">
+                                                           <label class="control-label">Youtube</label>
+                                                                <input type="text" class="form-control">
+                                                         </div>
+                                                     </div>
+                                                     <div class="col-md-4">
+                                                            <div class="form-group label-floating">
+                                                               <label class="control-label">Snapchat</label>
+                                                                    <input type="text" class="form-control">
+                                                             </div>
+                                                         </div>                                        
+                                            </div>
+                                    
+
+                                            <br>
+                            <button type="submit" class="btn pull-right" data-background-color="blue">Guardar</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card card-profile">
+                    <div class="card-avatar">
+        
+                            <img src="../../assets/img/default-avatar.png" title="" />
+                            
+                            
+                        
+                    </div>
+                    <a class="btn btn-rose btn-round" data-background-color="blue">Cambiar Logo</a>
+                    <div class="card-content">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
