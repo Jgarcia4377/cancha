@@ -47,7 +47,7 @@ import {EstablecimientoService} from '../services/establecimiento.service';
         }
       
         onSubmit(form){
-            this._EstablecimientoService.register(this.establecimiento).subscribe(
+            this._EstablecimientoService.registrarEstablecimiento(this.establecimiento).subscribe(
               response=>{
                 if(response.establecimiento && response.user._id){
                   console.log(response.establecimiento);

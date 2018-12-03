@@ -49,12 +49,14 @@
     "nouislider": "^9.2.0",
     "rxjs": "~6.3.3",
     "rxjs-compat": "^6.3.3",
+    "tslib": "^1.9.0",
     "twitter-bootstrap-wizard": "^1.2.0",
     "validate": "^3.0.1",
     "web-animations-js": "^2.2.2",
     "zone.js": "^0.7.6"
   },
   "devDependencies": {
+    "@angular-devkit/build-angular": "~0.11.0",
     "@angular/cli": "7.1.0",
     "@angular/compiler-cli": "7.1.1",
     "@types/bootstrap": "^3.3.32",

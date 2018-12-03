@@ -14,12 +14,12 @@ export class EstablecimientoService{
         this.url = GLOBAL.url;
     }
 
-    register(establecimiento: Establecimiento): Observable <any>{
+    registrarEstablecimiento(establecimiento: Establecimiento): Observable <any>{
         
         let params= JSON.stringify(establecimiento);
         let headers = new HttpHeaders().set('Content-Type','application/json');
         
-        return this._http.post(this.url+'register', params, {headers:headers});        
+        return this._http.post(this.url+'Registrar-Establecimiento', params, {headers:headers});        
         //console.log(user_to_register);
         //console.log(this.url);
     }

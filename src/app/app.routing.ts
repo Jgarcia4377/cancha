@@ -32,9 +32,6 @@ export const AppRoutes: Routes = [
         path: 'widgets',
         loadChildren: './widgets/widgets.module#WidgetsModule'
     },{
-        path: 'charts',
-        loadChildren: './charts/charts.module#ChartsModule'
-    },{
         path: 'calendar',
         loadChildren: './calendar/calendar.module#CalendarModule'
     },{
