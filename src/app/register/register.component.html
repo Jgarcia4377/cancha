@@ -132,30 +132,37 @@
                                                 <br>
                                                 <div class="input-group">
                                                         <span class="input-group-addon">
-                                                            <i class="material-icons">date_range</i>
+                                                            <i class="material-icons">wc</i>
                                                         </span>
                                                         <div class="radio">
                                                                 <label>
-                                                                    <input type="radio" value="hombre" name="sexo" #sexo="ngModel" [(ngModel)]="user.sexo" name="optionsRadios" > Hombre
+                                                                    <input type="radio" class="radio-inline" value="hombre" name="sexo" #sexo="ngModel" [(ngModel)]="user.sexo" > Hombre
                                                                 </label>
                                                             </div>
                                                             <div class="radio">
                                                                 <label>
-                                                                    <input type="radio" value="mujer" name="sexo" #sexo="ngModel" [(ngModel)]="user.sexo" name="optionsRadios"> Mujer
+                                                                    <input type="radio" class="radio-inline" value="mujer" name="sexo" #sexo="ngModel" [(ngModel)]="user.sexo" > Mujer
                                                                 </label>
                                                             </div>
                                                         
                                                     </div>
+                                                    <hr />
                                             <!-- If you want to add a checkbox to this form, uncomment this code -->
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox" name="optionsCheckboxes" checked> I agree to the
-                                                    <a href="#something">terms and conditions</a>.
-                                                </label>
+                                            <div class="input-group">
+                                            <div class="tim-typo"  style="padding-left: 5%; top: -7px;" ALIGN="Justify">
+                                                    
+                                                    <blockquote style="font-size: 13.5px; border-left-color: #9c27b066;" >
+                                                        <small > 
+                                                                Al hacer clic en Empezar, aceptas las Condiciones, la Politica de datos y la Politica
+                                                                de cookies. Es posible que te enviemos notificaciones por SMS que podras desactivar cuando
+                                                                quieras.
+                                                        </small>
+                                                    </blockquote>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="footer text-center">
-                                            <a href="#pablo" class="btn btn-primary btn-round">Empezar</a>
+                                            <input  type="submit" class="btn btn-primary btn-round" value="Empezar"/>
                                         </div>
                                     </form>
                                 </div>
@@ -168,17 +175,17 @@
                 <div class="container">
                     <nav class="pull-left">
                         <ul>
-                            <li>
+                           <!-- <li>
                                 <a href="#">
                                     Home
                                 </a>
-                            </li>
+                            </li>-->
                             <li>
                                 <a href="#">
                                     Company
                                 </a>
                             </li>
-                            <li>
+                            <!--<li>
                                 <a href="#">
                                     Portfolio
                                 </a>
@@ -187,13 +194,13 @@
                                 <a href="#">
                                     Blog
                                 </a>
-                            </li>
+                            </li>-->
                         </ul>
                     </nav>
-                    <p class="copyright pull-right">
+                    <p class="copyright pull-left">
                         &copy;
                         {{test | date: 'yyyy'}}
-                        <a href="https://www.creative-tim.com">Creative Tim</a>, made with love for a better web
+                        <a href="#">CacicusTech</a>
                     </p>
                 </div>
             </footer>

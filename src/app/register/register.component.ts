@@ -104,11 +104,12 @@ export class RegisterComponent implements OnInit{
           response=>{
             if(response.user && response.user._id){
               console.log(response.user);
-            this.status ='error';
-            form.reset();
+           // this.status ='error';
+              form.reset();
             }
             else{
-            this.status='success';
+            //this.status='success';
+            console.log(response.user);
             form.reset();
            }
           },
