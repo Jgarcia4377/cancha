@@ -4,7 +4,7 @@ export const ROUTES: RouteInfo[] = [
     { path: '/dashboard', title: 'Dashboard', icon: 'material-icons' },
 
     { path: '/pages/timeline', title: 'Timeline Page', icon:'material-icons' },
-    { path: '/pages/user', title: 'User Page', icon:'material-icons' },
+    { path: '/perfil', title: 'Mi Perfil', icon:'material-icons' },
 
     { path: '/components/buttons', title: 'Buttons', icon:'pe-7s-plugin' },
     { path: '/components/grid', title: 'Grid System', icon:'pe-7s-plugin' },

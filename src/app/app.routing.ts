@@ -5,19 +5,20 @@ import { AuthLayoutComponent } from './layouts/auth/auth-layout.component';
 import { UsuarioGuard } from './services/usuario.guard';
 
 export const AppRoutes: Routes = [
+    { path: '',loadChildren: './login/login.module#LoginModule'},
     { path: 'login',loadChildren: './login/login.module#LoginModule'}, 
     { path: 'register',loadChildren: './register/register.module#RegisterModule'}, 
     { path: '',component: AdminLayoutComponent,
                 children: 
                 [
-                    {path: '',loadChildren: './dashboard/dashboard.module#DashboardModule'},
+                    {path: 'dashboard',loadChildren: './dashboard/dashboard.module#DashboardModule'},
                     {path: 'components',loadChildren: './components/components.module#ComponentsModule'},
                     {path: 'forms',loadChildren: './forms/forms.module#Forms'},
                     {path: 'establecimiento',loadChildren: './establecimientopage/establecimiento.module#EstablecimientoModule'},
                     {path: 'tables',loadChildren: './tables/tables.module#TablesModule'},
                     {path: 'widgets',loadChildren: './widgets/widgets.module#WidgetsModule'},
                     {path: 'calendar',loadChildren: './calendar/calendar.module#CalendarModule'},
-                    {path: '',loadChildren: './userpage/user.module#UserModule'},
+                    {path: 'perfil',loadChildren: './userpage/user.module#UserModule'},
                     {path: '',loadChildren: './timeline/timeline.module#TimelineModule'}
                 ],canActivate:[UsuarioGuard]
     },

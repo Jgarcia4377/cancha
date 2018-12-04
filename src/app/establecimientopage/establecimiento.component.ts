@@ -43,7 +43,7 @@ import {EstablecimientoService} from '../services/establecimiento.service';
         '');
         }
         ngOnInit(){
-          console.log('componente de login cargado');
+          console.log('componente de establecimiento cargado');
         }
       
         onSubmit(form){
