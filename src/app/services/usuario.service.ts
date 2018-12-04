@@ -6,7 +6,7 @@ import {GLOBAL} from './global';
 
 
 @Injectable()
-export class LoginService{
+export class UsuarioService{
     
     public url:string;
     public identity;
@@ -16,14 +16,13 @@ export class LoginService{
         this.url = GLOBAL.url;
     }
     login(user:User, token=null): Observable <any>{
-        if(token == null){
+        if(token != null){
            user.gettoken = token;
         }
         let params= JSON.stringify(user); 
         let headers = new HttpHeaders().set('Content-Type','application/json');
         return this._http.post(this.url+'login', params, {headers:headers});        
     }
-
     getIdentity(){
         let identity = JSON.parse(localStorage.getItem('identity'));
         if(identity != "undefined"){
