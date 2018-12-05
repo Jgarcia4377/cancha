@@ -23,21 +23,13 @@ export class NavbarComponent implements OnInit,DoCheck{
     private toggleButton;
     private sidebarVisible: boolean;
     public identity;
-<<<<<<< HEAD
-
-=======
->>>>>>> ae345b9bdbbf15933cd1b3044791b9a80ee61546
 
     @ViewChild("navbar-cmp") button;
 
     constructor(location:Location, private renderer : Renderer, private element : ElementRef,
         private _route: ActivatedRoute,
-<<<<<<< HEAD
-        private _router: Router) {
-=======
         private _router: Router,
         private _UsuarioService: UsuarioService) {
->>>>>>> ae345b9bdbbf15933cd1b3044791b9a80ee61546
         this.location = location;
         this.nativeElement = element.nativeElement;
         this.sidebarVisible = false;
@@ -83,14 +75,6 @@ export class NavbarComponent implements OnInit,DoCheck{
     ngDoCheck(){
         this.identity = this._UsuarioService.getIdentity();
     }
-
-    logout(){
-        localStorage.clear();
-        this.identity= null;
-        this._router.navigate(['/']);
-    }
-
-
     isMobileMenu(){
         if($(window).width() < 991){
             return false;

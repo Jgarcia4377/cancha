@@ -12,12 +12,8 @@ declare var $:any;
     providers:[UsuarioService]
 })
 
-<<<<<<< HEAD
-export class LoginComponent implements OnInit{
-=======
 
 export class LoginComponent implements OnInit, DoCheck{
->>>>>>> ae345b9bdbbf15933cd1b3044791b9a80ee61546
     test : Date = new Date();
     public title:String;
     public user: User;
