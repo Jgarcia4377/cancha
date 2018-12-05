@@ -5,10 +5,11 @@ import { UserComponent } from './user.component';
 export const UserRoutes: Routes = [
     {
 
-      path: '',
-      children: [ {
-        path: 'pages/user',
-        component: UserComponent
-    }]
+        path: '',
+        children: [ {
+          path: '',
+          component: UserComponent
+      }]
+
 }
 ];

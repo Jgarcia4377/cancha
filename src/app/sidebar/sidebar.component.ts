@@ -1,5 +1,7 @@
-import { Component, OnInit, AfterViewInit, AfterViewChecked, AfterContentInit } from '@angular/core';
+import { Component, OnInit, DoCheck,AfterViewInit, AfterViewChecked, AfterContentInit } from '@angular/core';
 import { ROUTES } from './sidebar-routes.config';
+import {Router, ActivatedRoute, Params} from '@angular/router';
+import {UsuarioService} from '../services/usuario.service';
 
 declare var $:any;
 var sidebarTimer;
@@ -8,10 +10,20 @@ var sidebarTimer;
     moduleId: module.id,
     selector: 'sidebar-cmp',
     templateUrl: 'sidebar.component.html',
+    providers: [UsuarioService]
 })
 
-export class SidebarComponent implements OnInit{
+export class SidebarComponent implements OnInit, DoCheck{
     public menuItems: any[];
+    public identity;
+
+    constructor(
+        private _route: ActivatedRoute,
+        private _router: Router,
+        private _UsuarioService: UsuarioService
+      ){
+
+      }
 
     isNotMobileMenu(){
         if($(window).width() > 991){
@@ -21,6 +33,8 @@ export class SidebarComponent implements OnInit{
     }
 
     ngOnInit() {
+        this.identity = this._UsuarioService.getIdentity();
+        console.log(this.identity);
         var isWindows = navigator.platform.indexOf('Win') > -1 ? true : false;
         if (isWindows){
            // if we are on windows OS we activate the perfectScrollbar function
@@ -37,6 +51,18 @@ export class SidebarComponent implements OnInit{
        } else {
            $('html').addClass('perfect-scrollbar-off');
        }
+
+
+    }
+
+    ngDoCheck(){
+        this.identity = this._UsuarioService.getIdentity();
+    }
+
+    logout(){
+        localStorage.clear();
+        this.identity= null;
+        this._router.navigate(['/']);
     }
 
     ngAfterViewInit(){

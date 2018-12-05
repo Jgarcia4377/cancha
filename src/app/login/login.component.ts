@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,DoCheck } from '@angular/core';
 import {Router, ActivatedRoute, Params} from '@angular/router';
 import {User} from '../models/user';
 import {UsuarioService} from '../services/usuario.service';
@@ -12,7 +12,12 @@ declare var $:any;
     providers:[UsuarioService]
 })
 
+<<<<<<< HEAD
 export class LoginComponent implements OnInit{
+=======
+
+export class LoginComponent implements OnInit, DoCheck{
+>>>>>>> ae345b9bdbbf15933cd1b3044791b9a80ee61546
     test : Date = new Date();
     public title:String;
     public user: User;
@@ -115,18 +120,25 @@ export class LoginComponent implements OnInit{
       );
     }
 
+    
+    ngDoCheck(){
+      this.identity = this._UsuarioService.getIdentity();
+  }
+
     gettoken(){
       this._UsuarioService.login(this.user,'true').subscribe(
         response=>{
           this.token = response.token;
           if(this.token.length <= 0){
+            
             this.status='error';
+            this._router.navigate(['/']);
           }else{
             this.status='success';
             //PERSISTIR EL TOKEN DEL USUARIO
             localStorage.setItem('token',JSON.stringify(this.token));
             //CONSEGUIR LOS CONTADORES O ESTDISTICAS DEL USUARIO
-            this._router.navigate(['/']);
+            this._router.navigate(['/dashboard']);
           }
           this.status='success';
 

@@ -1,7 +1,9 @@
-import { Component, OnInit, Renderer, ViewChild, ElementRef, Directive } from '@angular/core';
+import { Component, OnInit, Renderer, DoCheck, ViewChild, ElementRef, Directive } from '@angular/core';
 import { ROUTES } from '../.././sidebar/sidebar-routes.config';
 import { Router, ActivatedRoute, Params, Route } from '@angular/router';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
+import {UsuarioService} from '../../services/usuario.service';
+
 var misc:any ={
     navbar_menu_visible: 0,
     active_collapse: true,
@@ -14,20 +16,28 @@ declare var $: any;
     templateUrl: 'navbar.component.html'
 })
 
-export class NavbarComponent implements OnInit{
+export class NavbarComponent implements OnInit,DoCheck{
     private listTitles: any[];
     location: Location;
     private nativeElement: Node;
     private toggleButton;
     private sidebarVisible: boolean;
     public identity;
+<<<<<<< HEAD
 
+=======
+>>>>>>> ae345b9bdbbf15933cd1b3044791b9a80ee61546
 
     @ViewChild("navbar-cmp") button;
 
     constructor(location:Location, private renderer : Renderer, private element : ElementRef,
         private _route: ActivatedRoute,
+<<<<<<< HEAD
         private _router: Router) {
+=======
+        private _router: Router,
+        private _UsuarioService: UsuarioService) {
+>>>>>>> ae345b9bdbbf15933cd1b3044791b9a80ee61546
         this.location = location;
         this.nativeElement = element.nativeElement;
         this.sidebarVisible = false;
@@ -35,6 +45,7 @@ export class NavbarComponent implements OnInit{
     }
 
     ngOnInit(){
+        this.identity = this._UsuarioService.getIdentity();
         this.listTitles = ROUTES.filter(listTitle => listTitle);
 
         var navbar : HTMLElement = this.element.nativeElement;
@@ -68,6 +79,18 @@ export class NavbarComponent implements OnInit{
             },1000);
         });
     }
+
+    ngDoCheck(){
+        this.identity = this._UsuarioService.getIdentity();
+    }
+
+    logout(){
+        localStorage.clear();
+        this.identity= null;
+        this._router.navigate(['/']);
+    }
+
+
     isMobileMenu(){
         if($(window).width() < 991){
             return false;

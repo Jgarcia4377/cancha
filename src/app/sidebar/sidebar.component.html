@@ -2,8 +2,8 @@
 
         <div class="logo">
             <div class="logo-normal">
-                <a href="https://www.creative-tim.com" class="simple-text">
-                   Mongol
+                <a href="/dashboard" class="simple-text">
+                   Mangol
                 </a>
             </div>
 
@@ -15,43 +15,44 @@
 
         <div class="sidebar-wrapper">
 
-            <div class="user">
+            <div class="user" *ngIf="identity">
                 <div class="photo">
                     <img src="../assets/img/faces/avatar.jpg" />
+                    {{identity.imagen}}
                 </div>
                 <div class="info">
                     <a data-toggle="collapse" href="#collapseExample" class="collapsed">
                         <span>
-                            Tania Andrew
-                            <b class="caret"></b>
+                            {{identity.correo}}
+                           
                         </span>
                     </a>
                     <div class="collapse" id="collapseExample">
                         <ul class="nav">
-                            <li>
-                                <a href="javascript:void(0)">
+                            <li routerLinkActive="active">
+                                <a href="#"  [routerLink]="[menuItems[2].path]">
                                     <span class="sidebar-mini">MP</span>
-                                    <span class="sidebar-normal">My Profile</span>
+                                    <span class="sidebar-normal">{{menuItems[2].title}}</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="javascript:void(0)">
                                     <span class="sidebar-mini">EP</span>
-                                    <span class="sidebar-normal">Edit Profile</span>
+                                    <span class="sidebar-normal">Editar mi Perfil</span>
                                 </a>
                             </li>
-                            <li>
+                            <!--<li>
                                 <a href="javascript:void(0)">
                                     <span class="sidebar-mini">S</span>
                                     <span class="sidebar-normal">Settings</span>
                                 </a>
-                            </li>
+                            </li>-->
                         </ul>
                     </div>
                 </div>
             </div>
             <div *ngIf="isNotMobileMenu()">
-                <form class="navbar-form navbar-right" role="search">
+               <!-- <form class="navbar-form navbar-right" role="search">
                     <div class="form-group form-search is-empty">
                         <input class="form-control" placeholder="Search" type="text">
                         <span class="material-input"></span>
@@ -62,9 +63,10 @@
                         <div class="ripple-container"></div>
                     </button>
                 </form>
+                -->
                 <ul class="nav nav-mobile-menu">
                     <li class="">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#pablo" aria-expanded="false">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="/dashboard" aria-expanded="false">
                             <i class="material-icons">dashboard</i>
                             <p class="hidden-lg hidden-md">Dashboard</p>
                         <div class="ripple-container"></div></a>
@@ -306,12 +308,13 @@
                                         <span class="sidebar-normal">Lock Screen Page</span>
                                     </a>
                                 </li>
-                                <li routerLinkActive="active">
+                               <!-- <li routerLinkActive="active">
                                     <a  [routerLink]="[menuItems[2].path]">
                                         <span class="sidebar-mini">UP</span>
                                         <span class="sidebar-normal">{{menuItems[2].title}}</span>
                                     </a>
                                 </li>
+                                -->
                             </ul>
                         </div>
                     </li>
