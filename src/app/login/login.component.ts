@@ -3,7 +3,6 @@ import {Router, ActivatedRoute, Params} from '@angular/router';
 import {User} from '../models/user';
 import {UsuarioService} from '../services/usuario.service';
 
-
 declare var $:any;
 
 @Component({
@@ -12,7 +11,6 @@ declare var $:any;
     templateUrl: './login.component.html',
     providers:[UsuarioService]
 })
-
 
 export class LoginComponent implements OnInit{
     test : Date = new Date();

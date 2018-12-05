@@ -1,6 +1,6 @@
 import { Component, OnInit, Renderer, ViewChild, ElementRef, Directive } from '@angular/core';
 import { ROUTES } from '../.././sidebar/sidebar-routes.config';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute, Params, Route } from '@angular/router';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 var misc:any ={
     navbar_menu_visible: 0,
@@ -20,13 +20,18 @@ export class NavbarComponent implements OnInit{
     private nativeElement: Node;
     private toggleButton;
     private sidebarVisible: boolean;
+    public identity;
+
 
     @ViewChild("navbar-cmp") button;
 
-    constructor(location:Location, private renderer : Renderer, private element : ElementRef) {
+    constructor(location:Location, private renderer : Renderer, private element : ElementRef,
+        private _route: ActivatedRoute,
+        private _router: Router) {
         this.location = location;
         this.nativeElement = element.nativeElement;
         this.sidebarVisible = false;
+        
     }
 
     ngOnInit(){
@@ -101,6 +106,12 @@ export class NavbarComponent implements OnInit{
     getPath(){
         // console.log(this.location);
         return this.location.prepareExternalUrl(this.location.path());
+    }
+    logout(){
+        localStorage.clear();
+        this.identity = null;
+        this._router.navigate(['/']);
+        console.log('sesión cerrada');
     }
     
 }

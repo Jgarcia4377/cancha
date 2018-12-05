@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router, ActivatedRoute, Params} from '@angular/router';
 import {User} from '../models/user';
-import {RegisterService} from '../services/register.service';
+import {UsuarioService} from '../services/usuario.service';
 
 declare var $:any;
 
@@ -9,20 +9,19 @@ declare var $:any;
     moduleId:module.id,
     selector: 'register-cmp',
     templateUrl: './register.component.html',
-    providers: [RegisterService],
+    providers: [UsuarioService],
 })
 
 export class RegisterComponent implements OnInit{
     test : Date = new Date();
     public title:String;
-  public user: User;
-  public status:string;
-  
+    public user: User;
+    public status:string;
   
   constructor(
     private _route: ActivatedRoute,
     private _router: Router,
-    private _RegisterService: RegisterService
+    private _UsuarioService: UsuarioService
   ){ 
   
   this.title='Registrate',
@@ -100,7 +99,7 @@ export class RegisterComponent implements OnInit{
        });
     }
     onSubmit(form){
-        this._RegisterService.register(this.user).subscribe(
+        this._UsuarioService.register(this.user).subscribe(
           response=>{
             if(response.user && response.user._id){
               console.log(response.user);

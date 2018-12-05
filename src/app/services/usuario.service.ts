@@ -41,6 +41,14 @@ export class UsuarioService{
         }
         return this.token;
     }
+    register(user: User): Observable <any>{
+        let params= JSON.stringify(user);
+        let token = JSON.parse(localStorage.getItem('token'));
+        let headers = new HttpHeaders().set('Content-Type','application/json');
+        return this._http.post(this.url+'register',params, {headers:headers});        
+        //console.log(user_to_register);
+        //console.log(this.url);
+    }
 
     
 }
