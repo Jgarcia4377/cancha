@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router, ActivatedRoute, Params} from '@angular/router';
 import {User} from '../models/user';
-import {RegisterService} from '../services/register.service';
+import {UsuarioService} from '../services/usuario.service';
 
 declare var $:any;
 
@@ -9,7 +9,7 @@ declare var $:any;
     moduleId:module.id,
     selector: 'registerCancha-cmp',
     templateUrl: './registercancha.component.html',
-    providers: [RegisterService],
+    providers: [UsuarioService],
 })
 
 export class RegisterCanchaComponent implements OnInit{
@@ -22,7 +22,7 @@ export class RegisterCanchaComponent implements OnInit{
   constructor(
     private _route: ActivatedRoute,
     private _router: Router,
-    private _RegisterService: RegisterService
+    private _RegisterService: UsuarioService
   ){ 
   
   this.title='RegistraCancha',
