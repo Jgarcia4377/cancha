@@ -46,134 +46,357 @@
         <div class="full-page register-page" filter-color="black" data-image="../../../assets/img/cancha-login.jpg">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-10 col-md-offset-1">
-                        <div class="card card-signup">
-                            <h2 class="card-title text-center">Registra tu cancha</h2>
-                            <div class="row">
-                                <div class="col-md-5 col-md-offset-1">
-                                    <div class="card-content">
-                                        <div class="info info-horizontal">
-                                            <div class="icon icon-rose">
-                                                <i class="material-icons">timeline</i>
-                                            </div>
-                                            <div class="description">
-                                                <h4 class="info-title">Marketing</h4>
-                                                <p class="description">
-                                                Miles de usuarios desean buscar canchas para jugar, se parte de esta red de canchas   
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="info info-horizontal">
-                                            <div class="icon icon-primary">
-                                                <i class="material-icons">code</i>
-                                            </div>
-                                            <div class="description">
-                                                <h4 class="info-title">Fully Coded in HTML5</h4>
-                                                <p class="description">
-                                                    We've developed the website with HTML5 and CSS3. The client has access to the code using GitHub.
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="info info-horizontal">
-                                            <div class="icon icon-info">
-                                                <i class="material-icons">group</i>
-                                            </div>
-                                            <div class="description">
-                                                <h4 class="info-title">Built Audience</h4>
-                                                <p class="description">
-                                                    There is also a Fully Customizable CMS Admin Dashboard for this product.
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-5">
-                                   <!-- <div class="social text-center">
-                                        <button class="btn btn-just-icon btn-round btn-twitter">
-                                            <i class="fa fa-twitter"></i>
-                                        </button>
-                                        <button class="btn btn-just-icon btn-round btn-dribbble">
-                                            <i class="fa fa-dribbble"></i>
-                                        </button>
-                                        <button class="btn btn-just-icon btn-round btn-facebook">
-                                            <i class="fa fa-facebook"> </i>
-                                        </button>
-                                        <h4> or be classical </h4>
-                                    </div>
-                                    -->
-                                    <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)" >
-                                            <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="user._id">
-                                        <div class="card-content">
-                                            <div class="input-group">
-                                                <span class="input-group-addon">
-                                                    <i class="material-icons">face</i>
-                                                </span>
-                                                <input type="text" class="form-control" name="nombres" #nombres="ngModel" [(ngModel)]="user.nombres" placeholder="Nombre...">
-                                            </div>
-                                            <div class="input-group">
-                                                    <span class="input-group-addon">
-                                                        <i class="material-icons">group</i>
-                                                    </span>
-                                                    <input type="text" class="form-control" name="apellidos" #apellidos="ngModel" [(ngModel)]="user.apellidos" placeholder="Apellidos...">
-                                                </div>
-                                            <div class="input-group">
-                                                <span class="input-group-addon">
-                                                    <i class="material-icons">email</i>
-                                                </span>
-                                                <input type="text" class="form-control" name="correo" #correo="ngModel" [(ngModel)]="user.correo" placeholder="Email...">
-                                            </div>
-                                            <div class="input-group">
-                                                <span class="input-group-addon">
-                                                    <i class="material-icons">lock_outline</i>
-                                                </span>
-                                                <input type="password" name="contrasena" #contrasena="ngModel" [(ngModel)]="user.contrasena" placeholder="Password..." class="form-control" />
-                                            </div>
-                                            <div class="input-group">
-                                                    <span class="input-group-addon">
-                                                        <i class="material-icons">date_range</i>
-                                                    </span>
-                                                    <input type="text" class="form-control datepicker" name="fechaNacimiento" #fechaNacimiento="ngModel" [(ngModel)]="user.fechaNacimiento" placeholder="Fecha de Nacimiento..." />
-                                                </div>
-                                                <br>
-                                                <div class="input-group">
-                                                        <span class="input-group-addon">
-                                                            <i class="material-icons">wc</i>
-                                                        </span>
-                                                        <div class="radio">
-                                                                <label>
-                                                                    <input type="radio" class="radio-inline" value="hombre" name="sexo" #sexo="ngModel" [(ngModel)]="user.sexo" > Hombre
-                                                                </label>
-                                                            </div>
-                                                            <div class="radio">
-                                                                <label>
-                                                                    <input type="radio" class="radio-inline" value="mujer" name="sexo" #sexo="ngModel" [(ngModel)]="user.sexo" > Mujer
-                                                                </label>
-                                                            </div>
-                                                        
+                        <div class="main-content">
+                                <div class="container-fluid">
+                                    <div class="col-sm-8 col-sm-offset-2">
+                                        <!--      Wizard container        -->
+                                        <div class="wizard-container">
+                                            <div class="card wizard-card" data-color="purple" id="wizardProfile">
+                                                <form #registerCanchaForm="ngForm" (ngSubmit)="onSubmit(registerCanchaForm)">
+                                                        <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="establecimiento._id">
+                                                    <!--        You can switch " data-color="purple" "  with one of the next bright colors: "green", "orange", "red", "blue"       -->
+                                                    <div class="wizard-header">
+                                                        <h3 class="wizard-title">
+                                                            Build Your Profile
+                                                        </h3>
+                                                        <h5>This information will let us know more about you.</h5>
                                                     </div>
-                                                    <hr />
-                                            <!-- If you want to add a checkbox to this form, uncomment this code -->
-                                            <div class="input-group">
-                                            <div class="tim-typo"  style="padding-left: 5%; top: -7px;" ALIGN="Justify">
-                                                    
-                                                    <blockquote style="font-size: 13.5px; border-left-color: #9c27b066;" >
-                                                        <small > 
-                                                                Al hacer clic en Empezar, aceptas las Condiciones, la Politica de datos y la Politica
-                                                                de cookies. Es posible que te enviemos notificaciones por SMS que podras desactivar cuando
-                                                                quieras.
-                                                        </small>
-                                                    </blockquote>
-                                                </div>
+                                                    <div class="wizard-navigation">
+                                                        <ul>
+                                                            <li>
+                                                                <a href="#establecimiento" data-toggle="tab">Establecimiennto</a>
+                                                            </li>
+                                                            <!--<li>
+                                                                <a href="#acercaCancha" data-toggle="tab">Acerca</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#pago" data-toggle="tab">Pagó</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#pago" data-toggle="tab">Metodo de Pago</a>
+                                                            </li>-->
+                                                        </ul>
+                                                    </div>
+                                                    <div class="tab-content">
+                                                        <div class="tab-pane" id="establecimiento">
+                                                            <div class="row">
+                                                                <h4 class="info-text"> Empecemos con la información básica</h4>
+                                                                <div class="col-sm-2 col-sm-offset-1">
+                                                                    <!--<div class="picture-container">
+                                                                        <div class="picture">
+                                                                            <img src="../../assets/img/default-avatar.png" class="picture-src" id="wizardPicturePreview" title="" />
+                                                                            <input type="file" id="wizard-picture">
+                                                                        </div>
+                                                                        <h6>Sube tu Foto</h6>
+                                                                    </div>-->
+                                                                </div>
+                                                                
+                                                                <div class="col-sm-10 col-sm-offset-1">
+                                                                  
+                                                                         <div class="input-group">
+                                                                        <span class="input-group-addon">
+                                                                            <i class="material-icons">business</i>
+                                                                        </span>
+                                                                        <div class="form-group label-floating">
+                                                                            <label class="control-label">Razón Social
+                                                                                <small>*</small>
+                                                                            </label>
+                                                                            <input type="text" class="form-control" name="razonSocial" #razonSocial="ngModel" [(ngModel)]="establecimiento.razonSocial">
+                                                                        </div>
+                                                                    
+                                                                </div>
+                                                                    <div class="input-group">
+                                                                            <span class="input-group-addon">
+                                                                                <i class="material-icons">perm_identity</i>
+                                                                            </span>
+                                                                            <div class="form-group label-floating">
+                                                                                <label class="control-label">Representante
+                                                                                    <small data-color="purple">*</small>
+                                                                                </label>
+                                                                                <input type="text" class="form-control" name="representante" #representante="ngModel" [(ngModel)]="establecimiento.representante">
+                                                                            </div>
+                                                                        </div>
+                                                                        
+                                                                        <div class="col-sm-3 col-sm-offset-1">
+                                                                                <div class="form-group label-floating">
+                                                                                    <label class="control-label">País</label>
+                                                                                    <select class="form-control" name="pais" #pais="ngModel" [(ngModel)]="establecimiento.pais">
+                                                                                        <option disabled="" selected=""></option>
+                                                                                        <option value="Afghanistan"> Afghanistan </option>
+                                                                                        <option value="Albania"> Albania </option>
+                                                                                        <option value="Algeria"> Algeria </option>
+                                                                                        <option value="American Samoa"> American Samoa </option>
+                                                                                        <option value="Andorra"> Andorra </option>
+                                                                                        <option value="Angola"> Angola </option>
+                                                                                        <option value="Anguilla"> Anguilla </option>
+                                                                                        <option value="Antarctica"> Antarctica </option>
+                                                                                        <option value="Ecuador" selected> Ecuador </option>
+                                                                                        <option value="...">...</option>
+                                                                                    </select>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="col-sm-3 col-sm-offset-1">
+                                                                                    <div class="form-group label-floating">
+                                                                                        <label class="control-label">Provincia</label>
+                                                                                        <select class="form-control" name="Provincia" #Provincia="ngModel" [(ngModel)]="establecimiento.Provincia" >
+                                                                                            <option disabled="" selected="Ecuador"></option>
+                                                                                            <option value="Afghanistan"> Afghanistan </option>
+                                                                                            <option value="Albania"> Albania </option>
+                                                                                            <option value="Algeria"> Algeria </option>
+                                                                                            <option value="American Samoa"> American Samoa </option>
+                                                                                            <option value="Andorra"> Andorra </option>
+                                                                                            <option value="Angola"> Angola </option>
+                                                                                            <option value="Anguilla"> Anguilla </option>
+                                                                                            <option value="Antarctica"> Antarctica </option>
+                                                                                            <option value="...">...</option>
+                                                                                        </select>
+                                                                                    </div>
+                                                                                </div>
+
+                                                                                <div class="col-sm-3 col-sm-offset-1">
+                                                                                        <div class="form-group label-floating">
+                                                                                            <label class="control-label">Ciudad</label>
+                                                                                            <select class="form-control" name="ciudad" #ciudad="ngModel" [(ngModel)]="establecimiento.ciudad" >
+                                                                                                <option disabled="" selected="Ecuador"></option>
+                                                                                                <option value="Afghanistan"> Afghanistan </option>
+                                                                                                <option value="Albania"> Albania </option>
+                                                                                                <option value="Algeria"> Algeria </option>
+                                                                                                <option value="American Samoa"> American Samoa </option>
+                                                                                                <option value="Andorra"> Andorra </option>
+                                                                                                <option value="Angola"> Angola </option>
+                                                                                                <option value="Anguilla"> Anguilla </option>
+                                                                                                <option value="Antarctica"> Antarctica </option>
+                                                                                                <option value="...">...</option>
+                                                                                            </select>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="input-group">
+                                                                                            <span class="input-group-addon">
+                                                                                                <i class="material-icons">place</i>
+                                                                                            </span>
+                                                                                            <div class="form-group label-floating">
+                                                                                                <label class="control-label">Sector
+                                                                                                    <small font-color="red">*</small>
+                                                                                                </label>
+                                                                                                <input type="text" class="form-control" name="sector" #sector="ngModel" [(ngModel)]="establecimiento.sector" >
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    <div class="input-group">
+                                                                                            <span class="input-group-addon">
+                                                                                                <i class="material-icons">place</i>
+                                                                                            </span>
+                                                                                            <div class="form-group label-floating">
+                                                                                                <label class="control-label">Calle Principal
+                                                                                                    <small font-color="red">*</small>
+                                                                                                </label>
+                                                                                                <input type="text" class="form-control" name="callePrincipal" #callePrincipal="ngModel" [(ngModel)]="establecimiento.callePrincipal" >
+                                                                                            </div>
+                                                                                        </div> 
+                                                                                        <div class="input-group">
+                                                                                                <span class="input-group-addon">
+                                                                                                    <i class="material-icons">place</i>
+                                                                                                </span>
+                                                                                                <div class="form-group label-floating">
+                                                                                                    <label class="control-label">Calle Secundaria
+                                                                                                        <small font-color="red">*</small>
+                                                                                                    </label>
+                                                                                                    <input type="text" class="form-control" name="calleSecundaria" #calleSecundaria="ngModel" [(ngModel)]="establecimiento.calleSecundaria" >
+                                                                                                </div>
+                                                                                            </div>          
+                                                                            
+                                                                     <div class="input-group">
+                                                                            <span class="input-group-addon">
+                                                                                <i class="material-icons">email</i>
+                                                                            </span>
+                                                                            <div class="form-group label-floating">
+                                                                                <label class="control-label">Correo
+                                                                                    <small font-color="red">*</small>
+                                                                                </label>
+                                                                                <input type="email" class="form-control" name="correo" #correo="ngModel" [(ngModel)]="establecimiento.correo" >
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="input-group">
+                                                                                <span class="input-group-addon">
+                                                                                    <i class="material-icons">vpn_key</i>
+                                                                                </span>
+                                                                                <div class="form-group label-floating">
+                                                                                    <label class="control-label">Contraseña
+                                                                                        <small>*</small>
+                                                                                    </label>
+                                                                                    <input type="password" class="form-control" name="contrasena" #contrasena="ngModel" [(ngModel)]="establecimiento.contrasena">
+                                                                                </div>
+                                                                            
+                                                                </div>
+                                                            </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="tab-pane" id="acercaCancha">
+                                                            <h4 class="info-text"> Selecciona el tipo de Césped que tiene tu Establecimiento</h4>
+                                                            <div class="row">
+                                                                <div class="col-lg-10 col-lg-offset-1">
+                                                                    <div class="col-sm-4">
+                                                                        <div class="choice" data-toggle="wizard-checkbox">
+                                                                            <input type="checkbox" name="jobb" value="Design">
+                                                                            <div class="icon">
+                                                                                    <i class="fa fa-leaf fa-5x" aria-hidden="true"></i>
+                                                                            </div>
+                                                                            <h6>Césped Artificial</h6>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-sm-4">
+                                                                        <div class="choice" data-toggle="wizard-checkbox">
+                                                                            <input type="checkbox" name="jobb" value="Code">
+                                                                            <div class="icon">
+                                                                                    <i class="fa fa-leaf fa-5x" aria-hidden="true"></i>
+                                                                            </div>
+                                                                            <h6>Césped Natural</h6>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-sm-4">
+                                                                        <div class="choice" data-toggle="wizard-checkbox">
+                                                                            <input type="checkbox" name="jobb" value="Develop">
+                                                                            <div class="icon">
+                                                                                    <i class="fa fa-random" aria-hidden="true"></i>
+                                                                            </div>
+                                                                            <h6>Mixta</h6>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="tab-pane" id="pago">
+                                                            <div class="row">
+                                                                <div class="col-sm-12">
+                                                                    <h4 class="info-text"> Datos de Tarjeta de Credito </h4>
+                                                                </div>
+                                                                <div class="col-sm-11 col-sm-offset-1">
+                                                                    <div class="form-group label-floating">
+                                                                        <label class="control-label">Razón Social</label>
+                                                                        <input type="text" class="form-control">
+                                                                    </div>
+                                                                </div>
+                                                              <!--  <div class="col-sm-3">
+                                                                    <div class="form-group label-floating">
+                                                                        <label class="control-label">Street No.</label>
+                                                                        <input type="text" class="form-control">
+                                                                    </div>
+                                                                </div>-->
+                                                                
+                                                                <div class="col-sm-3 col-sm-offset-1">
+                                                                    <div class="form-group label-floating">
+                                                                        <label class="control-label">País</label>
+                                                                        <select name="country" class="form-control">
+                                                                            <option disabled="" selected="Ecuador"></option>
+                                                                            <option value="Afghanistan"> Afghanistan </option>
+                                                                            <option value="Albania"> Albania </option>
+                                                                            <option value="Algeria"> Algeria </option>
+                                                                            <option value="American Samoa"> American Samoa </option>
+                                                                            <option value="Andorra"> Andorra </option>
+                                                                            <option value="Angola"> Angola </option>
+                                                                            <option value="Anguilla"> Anguilla </option>
+                                                                            <option value="Antarctica"> Antarctica </option>
+                                                                            <option value="...">...</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-3 col-sm-offset-1">
+                                                                        <div class="form-group label-floating">
+                                                                            <label class="control-label">Provincia</label>
+                                                                            <select name="country" class="form-control">
+                                                                                <option disabled="" selected=""></option>
+                                                                                <option value="Afghanistan"> Afghanistan </option>
+                                                                                <option value="Albania"> Albania </option>
+                                                                                <option value="Algeria"> Algeria </option>
+                                                                                <option value="American Samoa"> American Samoa </option>
+                                                                                <option value="Andorra"> Andorra </option>
+                                                                                <option value="Angola"> Angola </option>
+                                                                                <option value="Anguilla"> Anguilla </option>
+                                                                                <option value="Antarctica"> Antarctica </option>
+                                                                                <option value="...">...</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-sm-3 col-sm-offset-1">
+                                                                            <div class="form-group label-floating">
+                                                                                <label class="control-label">Ciudad</label>
+                                                                                <select name="country" class="form-control">
+                                                                                    <option disabled="" selected=""></option>
+                                                                                    <option value="Afghanistan"> Afghanistan </option>
+                                                                                    <option value="Albania"> Albania </option>
+                                                                                    <option value="Algeria"> Algeria </option>
+                                                                                    <option value="American Samoa"> American Samoa </option>
+                                                                                    <option value="Andorra"> Andorra </option>
+                                                                                    <option value="Angola"> Angola </option>
+                                                                                    <option value="Anguilla"> Anguilla </option>
+                                                                                    <option value="Antarctica"> Antarctica </option>
+                                                                                    <option value="...">...</option>
+                                                                                </select>
+                                                                            </div>
+                                                                        </div>
+                                                            </div>
+                                                        </div>
+                                                      <!-- <div class="tab-pane" id="pago">
+                                                                <div class="row">
+                                                                    <div class="col-sm-12">
+                                                                        <h4 class="info-text"> Datos de tarjeta requeridos para validar que no sea un robot </h4>
+                                                                    </div>
+                                                                    <div class="col-sm-7 col-sm-offset-1">
+                                                                        <div class="form-group label-floating">
+                                                                            <label class="control-label">Street Name</label>
+                                                                            <input type="text" class="form-control">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-sm-3">
+                                                                        <div class="form-group label-floating">
+                                                                            <label class="control-label">Street No.</label>
+                                                                            <input type="text" class="form-control">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-sm-5 col-sm-offset-1">
+                                                                        <div class="form-group label-floating">
+                                                                            <label class="control-label">City</label>
+                                                                            <input type="text" class="form-control">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-sm-5">
+                                                                        <div class="form-group label-floating">
+                                                                            <label class="control-label">Country</label>
+                                                                            <select name="country" class="form-control">
+                                                                                <option disabled="" selected=""></option>
+                                                                                <option value="Afghanistan"> Afghanistan </option>
+                                                                                <option value="Albania"> Albania </option>
+                                                                                <option value="Algeria"> Algeria </option>
+                                                                                <option value="American Samoa"> American Samoa </option>
+                                                                                <option value="Andorra"> Andorra </option>
+                                                                                <option value="Angola"> Angola </option>
+                                                                                <option value="Anguilla"> Anguilla </option>
+                                                                                <option value="Antarctica"> Antarctica </option>
+                                                                                <option value="...">...</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>-->
+                                                    </div>
+                                                    <div class="wizard-footer">
+                                                        <div class="pull-right">
+                                                            <input type='button' class='btn btn-next btn-fill btn-rose btn-wd' name='next' value='Siguiente' />
+                                                            <input type="submit" class='btn btn-finish btn-fill btn-rose btn-wd' name='finish' value='Registrar' />
+                                                        </div>
+                                                        <div class="pull-left">
+                                                            <input type='button' class='btn btn-previous btn-fill btn-default btn-wd' name='previous' value='Anterior' />
+                                                        </div>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                </form>
                                             </div>
                                         </div>
-                                        <div class="footer text-center">
-                                            <input  type="submit" class="btn btn-primary btn-round" value="Empezar"/>
-                                        </div>
-                                    </form>
+                                        <!-- wizard container -->
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
+                            
                 </div>
             </div>
             <footer class="footer">

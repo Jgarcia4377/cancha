@@ -2,8 +2,9 @@ export class Establecimiento{
     constructor(
         public _id:string,
         public razonSocial: String,
-        public propietario: string,
-        public gerente: string,
+        public correo:String,
+        public contrasena:String,
+        public representante: string,
         public pais: string,
         public Provincia: string,
         public ciudad: string,
@@ -17,6 +18,8 @@ export class Establecimiento{
         public twitter: string,
         public youtube: string,
         public snapchat: string,
+        public inicio: String,
+        public cierre: String,
         public creado: string
     ){}
    

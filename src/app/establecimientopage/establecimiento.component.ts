@@ -40,6 +40,9 @@ import {EstablecimientoService} from '../services/establecimiento.service';
         '',
         '',
         '',
+        '',
+        '',
+        '',
         '');
         }
         ngOnInit(){
@@ -49,7 +52,7 @@ import {EstablecimientoService} from '../services/establecimiento.service';
         onSubmit(form){
             this._EstablecimientoService.registrarEstablecimiento(this.establecimiento).subscribe(
               response=>{
-                if(response.establecimiento && response.user._id){
+                if(response.establecimiento && response.establecimiento._id){
                   console.log(response.establecimiento);
                 this.status ='error';
                 form.reset();

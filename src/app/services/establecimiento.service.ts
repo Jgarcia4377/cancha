@@ -19,7 +19,7 @@ export class EstablecimientoService{
         let params= JSON.stringify(establecimiento);
         let headers = new HttpHeaders().set('Content-Type','application/json');
         
-        return this._http.post(this.url+'Registrar-Establecimiento', params, {headers:headers});        
+        return this._http.post(this.url+'registrar-establecimiento', params, {headers:headers});        
         //console.log(user_to_register);
         //console.log(this.url);
     }

@@ -5,11 +5,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisterCanchaComponent } from './registercancha.component';
 import { UserRoutes } from './registercancha.routing';
 
+
 @NgModule({
     imports: [
         CommonModule,
         RouterModule.forChild(UserRoutes),
-        FormsModule
+        FormsModule,
+        ReactiveFormsModule
     ],
     declarations: [RegisterCanchaComponent]
 })
