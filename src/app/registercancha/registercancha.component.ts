@@ -2,6 +2,8 @@ import { Component, OnInit, OnChanges, AfterViewInit } from '@angular/core';
 import {Establecimiento} from '../models/establecimiento';
 import {Router, ActivatedRoute, Params} from '@angular/router';
 import {EstablecimientoService} from '../services/establecimiento.service';
+import {OtroService} from '../services/otro.service';
+import {Pais} from 'app/models/pais';
 // import initWizard = require('../../../../assets/js/init/initWizard.js');
 
 declare var $:any;
@@ -16,7 +18,7 @@ interface FileReaderEvent extends Event {
     moduleId: module.id,
     selector: 'register-cancha-cmp',
     templateUrl: './registercancha.component.html',
-    providers: [EstablecimientoService],
+    providers: [EstablecimientoService,OtroService],
 })
 
 export class RegisterCanchaComponent implements OnInit, OnChanges, AfterViewInit{
@@ -25,36 +27,19 @@ export class RegisterCanchaComponent implements OnInit, OnChanges, AfterViewInit
     public title:String;
     public establecimiento: Establecimiento;
     public status:string;
+    public paises: Pais[];
 
     constructor(
         private _route: ActivatedRoute,
         private _router: Router,
-        private _establecimientoService: EstablecimientoService
+        private _establecimientoService: EstablecimientoService,
+        private _otroService: OtroService
       ){ 
       
       this.title='Registra tu cancha',
-      this.establecimiento = new Establecimiento('',
-      '',
-      '',
-      '',
-      '',
-      '',
-      '',
-      '',
-      '',
-      '',
-      '',
-      '',
-      '',
-      '',
-      '',
-      '',
-      '',
-      '',
-      '',
-      '',
-      '');
-      }
+      this.establecimiento = new Establecimiento('','','','','','','','','','','','','','','','','','','','','');
+      //this.paises = new Pais('','','','','','','','','')
+   }
 
       onSubmit(form){
         this._establecimientoService.registrarEstablecimiento(this.establecimiento).subscribe(
@@ -98,6 +83,19 @@ export class RegisterCanchaComponent implements OnInit, OnChanges, AfterViewInit
   };
 
     ngOnInit(){
+        this._otroService.cargarPaises().subscribe(
+            response=>{
+                //console.log(response.paises);
+                this.paises = response.paises;
+            },
+            error=>{
+              console.log(<any>error);
+            },
+            ()=>{
+                console.log('finalizado');
+            }
+          );
+
         // Code for the Validator
         var $validator = $('.wizard-card form').validate({
     		  /*rules: {
