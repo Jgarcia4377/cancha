@@ -4,6 +4,7 @@ import {Router, ActivatedRoute, Params} from '@angular/router';
 import {EstablecimientoService} from '../services/establecimiento.service';
 import {OtroService} from '../services/otro.service';
 import {Pais} from 'app/models/pais';
+import {Provincia} from 'app/models/provincia';
 // import initWizard = require('../../../../assets/js/init/initWizard.js');
 
 declare var $:any;
@@ -28,6 +29,9 @@ export class RegisterCanchaComponent implements OnInit, OnChanges, AfterViewInit
     public establecimiento: Establecimiento;
     public status:string;
     public paises: Pais[];
+    public provincias: Provincia[];
+    public cantones;
+    public parroquias;
 
     constructor(
         private _route: ActivatedRoute,
@@ -87,6 +91,36 @@ export class RegisterCanchaComponent implements OnInit, OnChanges, AfterViewInit
             response=>{
                 //console.log(response.paises);
                 this.paises = response.paises;
+            },
+            error=>{
+              console.log(<any>error);
+            },
+            ()=>{
+                console.log('finalizado');
+            }
+          );
+          this._otroService.cargarProvincias().subscribe(
+            response=>{
+                const peopleArray = Object.keys(response.provincias['0']).map(i => response.provincias['0'][i])
+                console.log(peopleArray);
+                console.log(peopleArray[0]);
+                this.provincias = peopleArray;
+                var idprovincia = peopleArray[12];
+                const peopleArray2 = Object.keys(idprovincia).map(i =>idprovincia[i])
+                console.log(peopleArray2);
+                const peopleArray3 = Object.keys(peopleArray2['1']).map(i => peopleArray2['1'][i])
+                console.log(peopleArray3);
+                this.cantones = peopleArray3;
+                var idcanton = peopleArray3[2];
+                const parroquiass = Object.keys(idcanton).map(i => idcanton[i])
+                console.log(parroquiass);
+                const parroquiasss = Object.keys(parroquiass['1']).map(i => parroquiass['1'][i])
+                this.parroquias = parroquiasss;
+                console.log(parroquiasss);
+
+                this.parroquias = parroquiasss;
+         
+                
             },
             error=>{
               console.log(<any>error);
