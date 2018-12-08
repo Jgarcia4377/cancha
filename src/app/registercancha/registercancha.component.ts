@@ -329,6 +329,7 @@ export class RegisterCanchaComponent implements OnInit, OnChanges, AfterViewInit
             }
             reader.readAsDataURL(input.files[0]);
         }
+
     }
     ngAfterViewInit(){
         $('.wizard-card').each(function(){
