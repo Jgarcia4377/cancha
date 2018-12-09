@@ -52,7 +52,7 @@
                 </div>
             </div>
             <div *ngIf="isNotMobileMenu()">
-               <!-- <form class="navbar-form navbar-right" role="search">
+            <form class="navbar-form navbar-right" role="search">
                     <div class="form-group form-search is-empty">
                         <input class="form-control" placeholder="Search" type="text">
                         <span class="material-input"></span>
@@ -63,7 +63,7 @@
                         <div class="ripple-container"></div>
                     </button>
                 </form>
-                -->
+            
                 <ul class="nav nav-mobile-menu">
                     <li class="">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="/dashboard" aria-expanded="false">
@@ -113,6 +113,12 @@
                         <a  [routerLink]="[menuItems[0].path]">
                             <i class="{{menuItems[0].icon}}">dashboard</i>
                             <p>{{menuItems[0].title}}</p>
+                        </a>
+                    </li>
+                    <li routerLinkActive="active">
+                        <a  [routerLink]="[menuItems[27].path]">
+                            <i class="{{menuItems[27].icon}}">receipt</i>
+                            <p>{{menuItems[27].title}}</p>
                         </a>
                     </li>
                     <li routerLinkActive="active">
@@ -308,10 +314,10 @@
                                         <span class="sidebar-normal">Lock Screen Page</span>
                                     </a>
                                 </li>
-                               <!-- <li routerLinkActive="active">
-                                    <a  [routerLink]="[menuItems[2].path]">
+                                <!--<li routerLinkActive="active">
+                                    <a  [routerLink]="[menuItems[27].path]">
                                         <span class="sidebar-mini">UP</span>
-                                        <span class="sidebar-normal">{{menuItems[2].title}}</span>
+                                        <span class="sidebar-normal">{{menuItems[7].title}}</span>
                                     </a>
                                 </li>
                                 -->

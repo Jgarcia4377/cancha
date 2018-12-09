@@ -3,6 +3,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable'; 
 import {User} from '../models/user';
 import {GLOBAL} from './global';
+import { observable } from 'rxjs';
 
 
 @Injectable()
@@ -48,6 +49,13 @@ export class UsuarioService{
         return this._http.post(this.url+'register',params, {headers:headers});        
         //console.log(user_to_register);
         //console.log(this.url);
+    }
+
+    updateUser(user:User):Observable<any>{
+        let params = JSON.stringify(user);
+        let headers = new HttpHeaders().set('Content-Type', 'application/json')
+                                       .set('Authorization', this.getToken());
+        return this._http.put(this.url+'/'+user._id, params, {headers: headers})
     }
 
     

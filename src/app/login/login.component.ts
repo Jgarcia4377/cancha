@@ -14,7 +14,7 @@ declare var $:any;
 
 
 export class LoginComponent implements OnInit, DoCheck{
-    test : Date = new Date();
+    
     public title:String;
     public user: User;
     public status:string;
@@ -37,8 +37,7 @@ export class LoginComponent implements OnInit, DoCheck{
     '',
     'UsuarioJugador',
     '',
-    '');
-      }
+    '');}
 
     checkFullPageBackgroundImage(){
         var $page = $('.full-page');
@@ -78,12 +77,33 @@ export class LoginComponent implements OnInit, DoCheck{
 
 
     ngOnInit(){
+
         this.checkFullPageBackgroundImage();
 
         setTimeout(function(){
             // after 1000 ms we add the class animated to the login/register card
             $('.card').removeClass('card-hidden');
         }, 700)
+
+      
+       $('.datepicker').datetimepicker({
+          format: 'MM/DD/YYYY',
+          icons: {
+              time: "fa fa-clock-o",
+              date: "fa fa-calendar",
+              up: "fa fa-chevron-up",
+              down: "fa fa-chevron-down",
+              previous: 'fa fa-chevron-left',
+              next: 'fa fa-chevron-right',
+              today: 'fa fa-screenshot',
+              clear: 'fa fa-trash',
+              close: 'fa fa-remove',
+              inline: true
+          }
+       });
+
+    
+
     }
     
     onSubmit(){

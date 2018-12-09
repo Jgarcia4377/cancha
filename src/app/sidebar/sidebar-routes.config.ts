@@ -1,4 +1,5 @@
 import { RouteInfo } from './sidebar.metadata';
+import { UsuarioGuard } from '../services/usuario.guard';
 
 export const ROUTES: RouteInfo[] = [
     { path: '/dashboard', title: 'Dashboard', icon: 'material-icons' },
@@ -38,6 +39,7 @@ export const ROUTES: RouteInfo[] = [
     { path: '/pages/register', title: 'Register Page', icon:'material-icons' },
     { path: '/pages/lock', title: 'Lock Screen Page', icon:'material-icons' },
 
+    { path: '/reservas', title: 'Mis Reservas', icon:'material-icons' },
 
 
 

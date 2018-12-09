@@ -83,6 +83,7 @@ export class RegisterCanchaComponent implements OnInit, OnChanges, AfterViewInit
   };
 
     ngOnInit(){
+        this.checkFullPageBackgroundImage();
         this._otroService.cargarPaises().subscribe(
             response=>{
                 //console.log(response.paises);

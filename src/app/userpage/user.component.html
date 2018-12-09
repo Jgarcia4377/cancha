@@ -10,7 +10,8 @@
                         <h4 class="card-title">Perfil -
                             <small class="category">Datos</small>
                         </h4>
-                        <form>
+                        <form #verActualizarUsuarioForm="ngForm" (ngSubmit)="onSubmit()" >
+                            <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="user._id">
                             
                                <!-- <div class="col-md-5">
                                     <div class="form-group label-floating">
@@ -23,7 +24,7 @@
                                 <div class="col-md-5">
                                     <div class="form-group label-floating">
                                         <label class="control-label">Nombres</label>
-                                        <input type="text" class="form-control" >
+                                        <input type="text" class="form-control" name="nombres" #nombres="ngModel" [(ngModel)]="user.nombres">
                                     
                                     </div>
                                 </div>
@@ -39,7 +40,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group label-floating">
                                         <label class="control-label">Correo</label>
-                                        <input type="email" class="form-control">
+                                        <input type="email" class="form-control" name="correo" #correo="ngModel" [(ngModel)]="user.correo">
                                     </div>
                                 </div>
                                 <div class="col-md-6">

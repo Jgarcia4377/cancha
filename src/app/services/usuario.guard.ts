@@ -15,7 +15,7 @@ export class UsuarioGuard implements CanActivate{
         if(identity && (identity.rol == 'UsuarioJugador' || identity.rol == 'UsuarioCancha' || identity.rol == 'ROLE_ADMIN')){
             return true;
         }else{
-            this._router.navigate(['/login']);
+            this._router.navigate(['/']);
             return false;
         }
     }

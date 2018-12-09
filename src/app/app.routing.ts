@@ -12,20 +12,20 @@ export const AppRoutes: Routes = [
     { path: '',component: AdminLayoutComponent,
                 children: 
                 [
-                    {path: 'dashboard',loadChildren: './dashboard/dashboard.module#DashboardModule'},
-                    {path: 'components',loadChildren: './components/components.module#ComponentsModule'},
-                    {path: 'forms',loadChildren: './forms/forms.module#Forms'},
-                    {path: 'establecimiento',loadChildren: './establecimientopage/establecimiento.module#EstablecimientoModule'},
-                    {path: 'tables',loadChildren: './tables/tables.module#TablesModule'},
-                    {path: 'widgets',loadChildren: './widgets/widgets.module#WidgetsModule'},
-                    {path: 'calendar',loadChildren: './calendar/calendar.module#CalendarModule'},
-                    {path: 'perfil',loadChildren: './userpage/user.module#UserModule'},
-                    {path: '',loadChildren: './timeline/timeline.module#TimelineModule'}
-                ],canActivate:[UsuarioGuard]
+                    {path: 'dashboard',loadChildren: './dashboard/dashboard.module#DashboardModule', canActivate:[UsuarioGuard]},
+                    {path: 'components',loadChildren: './components/components.module#ComponentsModule', canActivate:[UsuarioGuard]},
+                    {path: 'forms',loadChildren: './forms/forms.module#Forms', canActivate:[UsuarioGuard]},
+                    {path: 'establecimiento',loadChildren: './establecimientopage/establecimiento.module#EstablecimientoModule', canActivate:[UsuarioGuard]},
+                    {path: 'tables',loadChildren: './tables/tables.module#TablesModule', canActivate:[UsuarioGuard]},
+                    {path: 'widgets',loadChildren: './widgets/widgets.module#WidgetsModule', canActivate:[UsuarioGuard]},
+                    {path: 'calendar',loadChildren: './calendar/calendar.module#CalendarModule', canActivate:[UsuarioGuard]},
+                    {path: 'perfil',loadChildren: './userpage/user.module#UserModule', canActivate:[UsuarioGuard]},
+                    {path: 'reservas',loadChildren: './timeline/timeline.module#TimelineModule', canActivate:[UsuarioGuard]}
+                ]
     },
     {path: '',component: AuthLayoutComponent,
                 children: [
-                    {path: 'pages',loadChildren: './pages/pages.module#PagesModule'}
+                    {path: 'pages',loadChildren: './pages/pages.module#PagesModule', canActivate:[UsuarioGuard]}
                 ]
     }
 ];

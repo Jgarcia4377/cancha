@@ -122,7 +122,11 @@
                                                                             <div class="form-group label-floating">
                                                                                 <label class="control-label">País</label>
                                                                                 <select class="form-control" name="pais" #pais="ngModel" [(ngModel)]="establecimiento.pais">
-                                                                                    <option *ngFor="let pais of paises" [value]="pais._id">{{pais.Name}}</option>
+                                                                                    <!--<option *ngFor="let pais of paises" [value]="pais._id">{{pais.Name}}</option>-->
+                                                                                    <option value="volvo">Volvo</option>
+                                                                                    <option value="saab">Saab</option>
+                                                                                    <option value="vw">VW</option>
+                                                                                    <option value="audi" selected>Audi</option>
                                                                                 </select>
                                                                             </div>
                                                                         </div>
@@ -131,7 +135,10 @@
                                                                                     <div class="form-group label-floating">
                                                                                         <label class="control-label">Provincia</label>
                                                                                         <select class="form-control" name="Provincia" #Provincia="ngModel" [(ngModel)]="establecimiento.Provincia" >
-                                                                                        
+                                                                                            <option value="volvo">Volvo</option>
+                                                                                    <option value="saab">Saab</option>
+                                                                                    <option value="vw">VW</option>
+                                                                                    <option value="audi" selected>Audi</option>
                                                                                         </select>
                                                                                     </div>
                                                                                 </div>
@@ -140,7 +147,10 @@
                                                                                         <div class="form-group label-floating">
                                                                                             <label class="control-label">Ciudad</label>
                                                                                             <select class="form-control" name="ciudad" #ciudad="ngModel" [(ngModel)]="establecimiento.ciudad" >
-                                                                                            
+                                                                                                <option value="volvo">Volvo</option>
+                                                                                                <option value="saab">Saab</option>
+                                                                                                <option value="vw">VW</option>
+                                                                                                <option value="audi" selected>Audi</option>
                                                                                             </select>
                                                                                         </div>
                                                                                     </div>

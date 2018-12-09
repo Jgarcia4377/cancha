@@ -50,20 +50,27 @@ import {EstablecimientoService} from '../services/establecimiento.service';
         }
       
         onSubmit(form){
-            this._EstablecimientoService.registrarEstablecimiento(this.establecimiento).subscribe(
+            this._EstablecimientoService.actualizarEstablecimiento(this.establecimiento).subscribe(
               response=>{
-                if(response.establecimiento && response.establecimiento._id){
+                if(!response.establecimiento){
                   console.log(response.establecimiento);
                 this.status ='error';
                 form.reset();
                 }
                 else{
                 this.status='success';
+                localStorage.setItem('identity',JSON.stringify(this.establecimiento));
+                this.identity = this.establecimiento;
                 form.reset();
                }
               },
               error=>{
-                console.log(<any>error);
+                var errorMessage = <any>error;
+                console.log(errorMessage);
+
+                if(errorMessage != null){
+                  this.status='error';
+                }
               }
             );
           }
