@@ -118,27 +118,13 @@
                                                                         </div>
                                                                         
 
-                                                                        <div class="col-sm-3 col-sm-offset-1">
-                                                                            <div class="form-group label-floating">
-                                                                                <label class="control-label">País</label>
-                                                                                <select class="form-control" name="pais" #pais="ngModel" [(ngModel)]="establecimiento.pais">
-                                                                                    <!--<option *ngFor="let pais of paises" [value]="pais._id">{{pais.Name}}</option>-->
-                                                                                    <option value="volvo">Volvo</option>
-                                                                                    <option value="saab">Saab</option>
-                                                                                    <option value="vw">VW</option>
-                                                                                    <option value="audi" selected>Audi</option>
-                                                                                </select>
-                                                                            </div>
-                                                                        </div>
+                 
 
                                                                             <div class="col-sm-3 col-sm-offset-1">
                                                                                     <div class="form-group label-floating">
                                                                                         <label class="control-label">Provincia</label>
                                                                                         <select class="form-control" name="Provincia" #Provincia="ngModel" [(ngModel)]="establecimiento.Provincia" >
-                                                                                            <option value="volvo">Volvo</option>
-                                                                                    <option value="saab">Saab</option>
-                                                                                    <option value="vw">VW</option>
-                                                                                    <option value="audi" selected>Audi</option>
+                                                                                            <option *ngFor="let prov of provincias" [value]="prov.provincia">{{prov.provincia}}</option>
                                                                                         </select>
                                                                                     </div>
                                                                                 </div>
@@ -147,24 +133,20 @@
                                                                                         <div class="form-group label-floating">
                                                                                             <label class="control-label">Ciudad</label>
                                                                                             <select class="form-control" name="ciudad" #ciudad="ngModel" [(ngModel)]="establecimiento.ciudad" >
-                                                                                                <option value="volvo">Volvo</option>
-                                                                                                <option value="saab">Saab</option>
-                                                                                                <option value="vw">VW</option>
-                                                                                                <option value="audi" selected>Audi</option>
+                                                                                                <option *ngFor="let can of cantones" [value]="can.canton">{{can.canton}}</option>
                                                                                             </select>
                                                                                         </div>
                                                                                     </div>
-                                                                                    <div class="input-group">
-                                                                                            <span class="input-group-addon">
-                                                                                                <i class="material-icons">place</i>
-                                                                                            </span>
-                                                                                            <div class="form-group label-floating">
-                                                                                                <label class="control-label">Sector
-                                                                                                    <small font-color="red">*</small>
-                                                                                                </label>
-                                                                                                <input type="text" class="form-control" name="sector" #sector="ngModel" [(ngModel)]="establecimiento.sector" >
-                                                                                            </div>
+
+                                                                                    <div class="col-sm-3 col-sm-offset-1">
+                                                                                        <div class="form-group label-floating">
+                                                                                            <label class="control-label">Parroquia</label>
+                                                                                            <select class="form-control" name="parroquia" #parroquia="ngModel" [(ngModel)]="establecimiento.parroquia">
+                                                                                                <option *ngFor="let parr of parroquias" [value]="">{{parr}}</option>
+                                                                                            </select>
                                                                                         </div>
+                                                                                    </div>
+
                                                                                     <div class="input-group">
                                                                                             <span class="input-group-addon">
                                                                                                 <i class="material-icons">place</i>
