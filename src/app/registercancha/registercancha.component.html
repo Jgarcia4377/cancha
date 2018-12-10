@@ -57,14 +57,14 @@
                                                     <!--        You can switch " data-color="purple" "  with one of the next bright colors: "green", "orange", "red", "blue"       -->
                                                     <div class="wizard-header">
                                                         <h3 class="wizard-title">
-                                                            Build Your Profile
+                                                           PERFIL DE ESTABLECIMIENTO
                                                         </h3>
-                                                        <h5>This information will let us know more about you.</h5>
+                                                        <h5>Esta información permitirá saber más sobre el Establecimiento..</h5>
                                                     </div>
                                                     <div class="wizard-navigation">
                                                         <ul>
                                                             <li>
-                                                                <a href="#establecimiento" data-toggle="tab">Establecimiennto</a>
+                                                                <a href="#establecimiento" data-toggle="tab">Establecimiento</a>
                                                             </li>
                                                             <!--<li>
                                                                 <a href="#acercaCancha" data-toggle="tab">Acerca</a>
@@ -119,7 +119,7 @@
                                                                         
 
                  
-
+                                                                        <!--
                                                                             <div class="col-sm-3 col-sm-offset-1">
                                                                                     <div class="form-group label-floating">
                                                                                         <label class="control-label">Provincia</label>
@@ -129,14 +129,7 @@
                                                                                     </div>
                                                                                 </div>
 
-                                                                                <div class="col-sm-3 col-sm-offset-1">
-                                                                                        <div class="form-group label-floating">
-                                                                                            <label class="control-label">Ciudad</label>
-                                                                                            <select class="form-control" name="ciudad" #ciudad="ngModel" [(ngModel)]="establecimiento.ciudad" >
-                                                                                                <option *ngFor="let can of cantones" [value]="can.canton">{{can.canton}}</option>
-                                                                                            </select>
-                                                                                        </div>
-                                                                                    </div>
+                                                                                
 
                                                                                     <div class="col-sm-3 col-sm-offset-1">
                                                                                         <div class="form-group label-floating">
@@ -146,6 +139,18 @@
                                                                                             </select>
                                                                                         </div>
                                                                                     </div>
+                                                                                    -->
+                                                                                    <div class="input-group">
+                                                                                        <span class="input-group-addon">
+                                                                                            <i class="material-icons">place</i>
+                                                                                        </span>
+                                                                                        <div class="form-group label-floating">
+                                                                                            <label class="control-label">Ciudad
+                                                                                                <small font-color="red">*</small>
+                                                                                            </label>
+                                                                                            <input type="text" class="form-control" name="ciudad" #ciudad="ngModel" [(ngModel)]="establecimiento.ciudad" >
+                                                                                        </div>
+                                                                                    </div> 
 
                                                                                     <div class="input-group">
                                                                                             <span class="input-group-addon">

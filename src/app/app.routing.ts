@@ -8,7 +8,7 @@ export const AppRoutes: Routes = [
     { path: '',loadChildren: './login/login.module#LoginModule'},
     { path: 'login',loadChildren: './login/login.module#LoginModule'}, 
     { path: 'register',loadChildren: './register/register.module#RegisterModule'},
-    { path: 'register-cancha',loadChildren: './registercancha/registercancha.module#RegisterCanchaModule'}, 
+    { path: 'register-establecimiento',loadChildren: './registercancha/registercancha.module#RegisterCanchaModule'}, 
     { path: '',component: AdminLayoutComponent,
                 children: 
                 [

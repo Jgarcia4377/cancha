@@ -6,7 +6,7 @@ export class Establecimiento{
         public contrasena:String,
         public representante: string,
         public pais: string,
-        public Provincia: string,
+        public provincia: string,
         public ciudad: string,
         public sector: string,
         public callePrincipal: string,
