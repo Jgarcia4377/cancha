@@ -1,15 +1,11 @@
-import { Component, OnInit, DoCheck,AfterViewInit, AfterViewChecked, AfterContentInit } from '@angular/core';
-import {Router, ActivatedRoute, Params} from '@angular/router';
+import { Component } from '@angular/core';
 import { trigger, state, transition, animate, style } from '@angular/animations';
-import {UsuarioService} from '../services/usuario.service';
-import {User} from '../models/user';
 
 
 @Component({
     moduleId: module.id,
     selector: 'user-cmp',
     templateUrl: 'user.component.html',
-    providers: [UsuarioService],
     animations: [
         trigger('carduserprofile', [
             state('*', style({
@@ -53,32 +49,4 @@ import {User} from '../models/user';
         ]
     })
 
-    export class UserComponent implements OnInit, DoCheck{
-        public identity;
-        public user: User;
-        public token;
-
-        constructor(
-            private _route: ActivatedRoute,
-            private _router: Router,
-            private _UsuarioService: UsuarioService,
-            
-          ){
-              this.user=this._UsuarioService.getIdentity();
-              this.identity=this.user;
-              this.token=this._UsuarioService.getToken();
-    
-          }
-
-          ngOnInit() {
-           // this.identity = this._UsuarioService.getIdentity();
-            console.log(this.user);
-        }
-
-          ngDoCheck(){
-            this.identity = this._UsuarioService.getIdentity();
-        }
-        onSubmit(){
-            console.log(this.user);
-     }
-    }
+    export class UserComponent{ }

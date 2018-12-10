@@ -11,8 +11,8 @@
                             <br>
                             <small class="category">Completa los datos del establecimiento</small>
                         </h4>
-                        <form #registerCanchaForm="ngForm" (ngSubmit)="onSubmit(registerCanchaForm)">
-                            <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="establecimiento._id">
+                        <form #registerEstablecimientoForm="ngForm" (ngSubmit)="onSubmit(registerEstablecimientoForm)"> 
+                                <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="establecimiento._id">
                             <!--<div class="row">
                                 <div class="col-md-5">
                                     <div class="form-group label-floating">
@@ -37,7 +37,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group label-floating">
                                         <label class="control-label">Razón Social</label>
-                                        <input type="text" class="form-control" name="razonSocial" #razonSocial="ngModel" [(ngModel)]="establecimiento.razonSocial" >
+                                        <input type="text" class="form-control">
                                     </div>
                                 </div>
                             </div>
