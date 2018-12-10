@@ -11,6 +11,7 @@ import { NotificationsComponent } from './notifications/notifications.component'
 import { PanelsComponent } from './panels/panels.component';
 import { SweetAlertComponent } from './sweetalert/sweetalert.component';
 import { TypographyComponent } from './typography/typography.component';
+import { UsuariosComponent } from './usuarios/usuarios.component';
 
 @NgModule({
   imports: [
@@ -25,7 +26,8 @@ import { TypographyComponent } from './typography/typography.component';
       NotificationsComponent,
       PanelsComponent,
       SweetAlertComponent,
-      TypographyComponent
+      TypographyComponent,
+      UsuariosComponent
   ]
 })
 
