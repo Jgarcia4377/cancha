@@ -1,0 +1,175 @@
+<div class="main-content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header card-header-icon" data-background-color="green">
+                                <i class="material-icons">assignment</i>
+                            </div>
+                            <button class="card-header card-header-icon btn btn-success" (click)=" isShow=!isShow" style="float: right;" data-background-color="green">
+                                    Nueva Cancha
+                            </button>
+                            <div class="card-content">
+                                <h4 class="card-title">Mis Canchas</h4>                                
+                                <div class="table-responsive">
+                                    <table class="table">
+                                            <thead>
+                                                <tr>
+                                                <th class="text-center">{{ tableData1.headerRow[0] }}</th>
+                                                <th>{{ tableData1.headerRow[1] }}</th>
+                                                <th>{{ tableData1.headerRow[2] }}</th>
+                                                <th>{{ tableData1.headerRow[3] }}</th>
+                                                <th class="text-right">{{ tableData1.headerRow[4] }}</th>
+                                                <th class="text-right">{{ tableData1.headerRow[5] }}</th>
+                                                </tr>
+                                            </thead>
+                                        <tbody>
+                                            <tr *ngFor="let row of tableData1.dataRows">
+                                                <td class="text-center">{{row[0]}}</td>
+                                                <td>{{row[1]}}</td>
+                                                <td>{{row[2]}}</td>
+                                                <td>{{row[3]}}</td>
+                                                <td class="text-right">{{row[4]}}</td>
+                                                <td class="td-actions text-right">
+                                                    <button type="button" rel="tooltip" class="btn btn-success {{row[5]}}">
+                                                        <i class="material-icons">edit</i>
+                                                    </button>
+                                                    <button type="button" rel="tooltip" class="btn btn-danger {{row[5]}}">
+                                                        <i class="material-icons">close</i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <div class="container-fluid" *ngIf=" isShow">
+            <div class="row"   >
+                    <div class="col-md-12">
+                            <div class="card">
+                                    <form #registrarCancha="ngForm" (ngSubmit)="onSubmit(registrarCancha)"> 
+                                    <div class="card-header card-header-text" data-background-color="green">
+                                        <h4 class="card-title">Nueva Cancha</h4>
+                                    </div>
+                                    <div class="card-content">
+                                       
+                                        <div class="row"> 
+                                            <div class="col-md-12">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group label-floating">
+                                                            <label class="control-label">Nombre Cancha</label>
+                                                            <input type="text" class="form-control" name="razonSocial" #razonSocial="ngModel" [(ngModel)]="establecimiento.razonSocial" >
+                                                        </div>
+                                                        <div class="form-group label-floating">
+                                                            <label class="control-label">Cesped</label>
+                                                            <input type="text" class="form-control" name="razonSocial" #razonSocial="ngModel" [(ngModel)]="establecimiento.razonSocial" >
+                                                        </div>
+                                                        
+                                                            <ul class="nav nav-pills nav-pills-warning">
+                                                                    <li class="active">
+                                                                        <a data-toggle="tab">Precios</a>
+                                                                    </li>
+                                                            </ul>
+                                                            <div class="row">
+                                                                <div class="col-md-6">
+                                                                        <div class="card">
+                                                                                <div class="card-header">
+                                                                                    <h4 class="card-title">Días de semana</h4>
+                                                                                </div>
+                                                                                <div class="card-content">
+                                                                                       <div class="tab-content">
+                                                                                            <div class="row">
+                                                                                                    <div class="col-md-6">
+                                                                                                            <div class="form-group label-floating">
+                                                                                                                    <label class="control-label">Día</label>
+                                                                                                                    <input type="text" class="form-control" name="razonSocial" #razonSocial="ngModel" [(ngModel)]="establecimiento.razonSocial" >
+                                                                                                                </div> 
+                                                                                                    </div>
+                                                                                                  <div class="col-md-6">
+                                                                                                            <div class="form-group label-floating">
+                                                                                                                    <label class="control-label">Noche</label>
+                                                                                                                    <input type="text" class="form-control" name="razonSocial" #razonSocial="ngModel" [(ngModel)]="establecimiento.razonSocial" >
+                                                                                                                </div> 
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>               
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                        <div class="card">
+                                                                                <div class="card-header">
+                                                                                    <h4 class="card-title">Fin de semana</h4>
+                                                                                </div>
+                                                                                <div class="card-content">
+                                                                                       <div class="tab-content">
+                                                                                            <div class="row">
+                                                                                                    <div class="col-md-6">
+                                                                                                            <div class="form-group label-floating">
+                                                                                                                    <label class="control-label">Día</label>
+                                                                                                                    <input type="text" class="form-control" name="razonSocial" #razonSocial="ngModel" [(ngModel)]="establecimiento.razonSocial" >
+                                                                                                                </div> 
+                                                                                                    </div>
+                                                                                                    <div class="col-md-6">
+                                                                                                            <div class="form-group label-floating">
+                                                                                                                    <label class="control-label">Noche</label>
+                                                                                                                    <input type="text" class="form-control" name="razonSocial" #razonSocial="ngModel" [(ngModel)]="establecimiento.razonSocial" >
+                                                                                                                </div> 
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        
+                                                                </div>
+                                                            </div>
+                                                    </div>                  
+                                                            
+                                                   <div class="row"> 
+                                                        <div class="col-md-6">
+                                                            <div class="row">
+                                                                <div class="col-md-9">
+                                                                        <img src="assets/img/cancha.png" >                                                                                                                                   
+                                                                         
+                                                                </div>
+                                                           
+                                                                    <div class="col-md-3" style=" margin-left:-61px;">
+                                                                          <div class="form-group label-floating">
+                                                                                    <label class="control-label">Alto</label>
+                                                                                    <input type="text" class="form-control" name="razonSocial" #razonSocial="ngModel" [(ngModel)]="establecimiento.razonSocial" >
+                                                                          </div>
+                                                                          <div class="form-group label-floating">
+                                                                                <label class="control-label">Ancho</label>
+                                                                                <input type="text" class="form-control" name="razonSocial" #razonSocial="ngModel" [(ngModel)]="establecimiento.razonSocial" >
+                                                                      </div>  
+                                                                      <div class="form-group label-floating">
+                                                                            <label class="control-label">N° Jugadores</label>
+                                                                            <input type="text" class="form-control" name="razonSocial" #razonSocial="ngModel" [(ngModel)]="establecimiento.razonSocial" >
+                                                                        </div>
+                                                                         </div>
+                                                                </div>
+                                                                      
+                                                                                                                                    
+                                                                  </div>
+                                                                </div>
+                                                        </div>
+                                                    </div>
+                                                   
+                                                </div>
+                                                 
+                                    </div>
+                                        
+                                    <div class="card-footer text-center">
+                                        <button type="submit" class="btn btn-success btn-fill" [disabled]="!f2.valid">Guardar Cancha</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+             </div>
+        </div>
+    </div>
