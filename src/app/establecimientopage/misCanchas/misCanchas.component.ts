@@ -36,7 +36,7 @@ export class misCanchasComponent implements OnInit {
     ){ 
       
       this.title='Registra tu cancha',
-      this.canchas = new Canchas('','',0,0,'',0,false,'','','','');
+      this.canchas = new Canchas('','',0,0,'',0,true,'','','','');
       //this.paises = new Pais('','','','','','','','','')
    }
 
@@ -60,6 +60,7 @@ export class misCanchasComponent implements OnInit {
         response=>{
           if(response.cancha && response.cancha._id){
             console.log(response.cancha);
+            console.log('token')
          // this.status ='error';
             form.reset();
           }

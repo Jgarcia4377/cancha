@@ -50,7 +50,7 @@ export class EstablecimientoService{
         
         let params= JSON.stringify(establecimiento);
         let headers = new HttpHeaders().set('Content-Type','application/json')
-                                       .set('Authorizatiion', this.getToken());
+                                       .set('Authorization', this.getToken());
         
         return this._http.put(this.url+'actualizar-establecimiento/'+establecimiento._id, params, {headers:headers});        
         //console.log(user_to_register);
