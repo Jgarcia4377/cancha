@@ -98,6 +98,7 @@
                             </li>
                         </ul>
                     </li>-->
+
                     <li class="">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
                             <i class="material-icons">person</i>
@@ -116,6 +117,30 @@
                         </a>
                     </li>
                     <li routerLinkActive="active">
+                        <a data-toggle="collapse" href="#Establecimiento">
+                            <i class="material-icons">business</i>
+                            <p>Establecimiento
+                                <b class="caret"></b>
+                            </p>
+                        </a>
+                        <div class="collapse" id="Establecimiento">
+                            <ul class="nav">
+                                <li>
+                                        <a  [routerLink]="[menuItems[17].path]">
+                                        <span class="sidebar-mini">ME</span>
+                                        <span class="sidebar-normal">{{menuItems[17].title}}</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a  [routerLink]="[menuItems[18].path]">
+                                        <span class="sidebar-mini">MC</span>
+                                        <span class="sidebar-normal">{{menuItems[18].title}}</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li routerLinkActive="active">
                         <a data-toggle="collapse" href="#componentsExamples">
                             <i class="material-icons">apps</i>
                             <p>Mantenimiento
@@ -125,9 +150,9 @@
                         <div class="collapse" id="componentsExamples">
                             <ul class="nav">
                                 <li routerLinkActive="active">
-                                    <a  [routerLink]="[menuItems[3].path]">
-                                        <span class="sidebar-mini">B</span>
-                                        <span class="sidebar-normal">{{menuItems[3].title}}</span>
+                                    <a  [routerLink]="[menuItems[28].path]">
+                                        <span class="sidebar-mini">U</span>
+                                        <span class="sidebar-normal">{{menuItems[28].title}}</span>
                                     </a>
                                 </li>
                             </ul>
@@ -276,34 +301,6 @@
                     </li>
 
                     <li routerLinkActive="active">
-                        <a data-toggle="collapse" href="#Establecimiento">
-                            <i class="material-icons">business</i>
-                            <p>Establecimiento
-                                <b class="caret"></b>
-                            </p>
-                        </a>
-                        <div class="collapse" id="Establecimiento">
-                            <ul class="nav">
-                                <li>
-                                        <a  [routerLink]="[menuItems[17].path]">
-                                        <span class="sidebar-mini">ME</span>
-                                        <span class="sidebar-normal">{{menuItems[17].title}}</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a  [routerLink]="[menuItems[18].path]">
-                                        <span class="sidebar-mini">MC</span>
-                                        <span class="sidebar-normal">{{menuItems[18].title}}</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-
-
-                    
-                    <!--
-                    <li routerLinkActive="active">
                         <a  [routerLink]="[menuItems[20].path]">
                             <i class="{{menuItems[20].icon}}">timeline</i>
                             <p>{{menuItems[20].title}}</p>
@@ -325,7 +322,7 @@
                         </a>
                     </li>
                     -->
-                    <li routerLinkActive="active">
+                   <!-- <li routerLinkActive="active">
                         <a data-toggle="collapse" href="#pagesExamples">
                             <i class="material-icons">image</i>
                             <p>Pages

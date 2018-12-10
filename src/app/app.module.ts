@@ -19,6 +19,8 @@ import {} from '@angular/core/index'
 
 import { UsuarioService } from './services/usuario.service';
 import { UsuarioGuard } from './services/usuario.guard';
+import { MantenimientoComponent } from './mantenimiento/mantenimiento.component';
+import { UsuariosComponent } from './mantenimiento/usuarios/usuarios.component';
 
 @NgModule({
     imports:      [
@@ -34,6 +36,8 @@ import { UsuarioGuard } from './services/usuario.guard';
         AppComponent,
         AdminLayoutComponent,
         AuthLayoutComponent,
+        MantenimientoComponent,
+        UsuariosComponent,
         
         
     ],
