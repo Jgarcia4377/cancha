@@ -320,7 +320,10 @@ export class RegisterCanchaComponent implements OnInit, OnChanges, AfterViewInit
 
     ngOnChanges(){
         var input = $(this);
+        console.log(input);
+
         var target:EventTarget;
+        console.log(target);
         if (input.files && input.files[0]) {
             var reader:any = new FileReader();
 
@@ -329,7 +332,6 @@ export class RegisterCanchaComponent implements OnInit, OnChanges, AfterViewInit
             }
             reader.readAsDataURL(input.files[0]);
         }
-
     }
     ngAfterViewInit(){
         $('.wizard-card').each(function(){
