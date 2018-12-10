@@ -15,17 +15,30 @@ export class CanchasService{
     constructor(public _http: HttpClient){
         this.url = GLOBAL.url;
     }
-   
+  
+    getToken(){
+        let token = JSON.parse(localStorage.getItem('token'));
+        if(token != "undefined"){
+            this.token = token;
+        }else{
+            this.token = null;
+        }
+        return this.token;
+    }
+    
     
     
     registerCancha(cancha: Canchas): Observable <any>{
         let params= JSON.stringify(cancha);
         let token = JSON.parse(localStorage.getItem('token'));
-        let headers = new HttpHeaders().set('Content-Type','application/json');
-        return this._http.post(this.url+'registrar-cancha',params, {headers:headers});        
+                                
+        let headers = new HttpHeaders().set('Content-Type','application/json')
+                                       .set('Authorization', this.getToken());
+        return this._http.post(this.url+'registrar-cancha',params,{headers:headers});        
         //console.log(user_to_register);
         //console.log(this.url);
     }
+
 
     
 }
