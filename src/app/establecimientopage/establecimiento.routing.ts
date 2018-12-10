@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 
 import { EstablecimientoComponent } from './establecimiento.component';
+import {misCanchasComponent} from './misCanchas/misCanchas.component';
 
 export const UserRoutes: Routes = [
     {
@@ -9,6 +10,12 @@ export const UserRoutes: Routes = [
       children: [ {
         path: '',
         component: EstablecimientoComponent
-    }]
-}
+    }]},{
+        path: '',
+        children: [ {
+          path: 'misCanchas',
+          component: misCanchasComponent
+        }]
+        }
+
 ];

@@ -3,9 +3,8 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { EstablecimientoComponent } from './establecimiento.component';
-import { misCanchasComponent } from './misCanchas/misCanchas.component'
-import { UserRoutes } from './establecimiento.routing';
+import { misCanchasComponent } from './misCanchas.component';
+import { UserRoutes } from './misCanchas.routing';
 
 @NgModule({
     imports: [
@@ -13,8 +12,7 @@ import { UserRoutes } from './establecimiento.routing';
         RouterModule.forChild(UserRoutes),
         FormsModule
     ],
-    declarations: [EstablecimientoComponent,
-        misCanchasComponent]
+    declarations: [misCanchasComponent]
 })
 
-export class EstablecimientoModule {}
+export class misCanchasModule {}

@@ -11,7 +11,7 @@
                             <br>
                             <small class="category">Completa los datos del establecimiento</small>
                         </h4>
-                        <form #registerEstablecimientoForm="ngForm" (ngSubmit)="onSubmit(registerEstablecimientoForm)"> 
+                        <form #ActualizarEstablecimientoForm="ngForm" (ngSubmit)="onSubmit()"> 
                                 <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="establecimiento._id">
                             <!--<div class="row">
                                 <div class="col-md-5">
@@ -37,25 +37,19 @@
                                 <div class="col-md-12">
                                     <div class="form-group label-floating">
                                         <label class="control-label">Razón Social</label>
-                                        <input type="text" class="form-control">
+                                        <input type="text" class="form-control" name="razonSocial" #razonSocial="ngModel" [(ngModel)]="establecimiento.razonSocial" >
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-md-12">
                                     <div class="form-group label-floating">
-                                        <label class="control-label">Propietario</label>
-                                        <input type="text" class="form-control">
+                                        <label class="control-label">Representante</label>
+                                        <input type="text" class="form-control" name="representante" #representante="ngModel" [(ngModel)]="establecimiento.representante" >
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                        <div class="form-group label-floating">
-                                            <label class="control-label">Gerente</label>
-                                            <input type="text" class="form-control">
-                                        </div>
-                                    </div>
                             </div>
-                            
+                            <!--
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="form-group label-floating">
@@ -82,11 +76,23 @@
                                     </div>
                                 </div>
                             </div>
+                        -->
+                        <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group label-floating">
+                                    <label class="control-label">Ciudad
+                                        
+                                    </label>
+                                    <input type="text" class="form-control" name="ciudad" #ciudad="ngModel" [(ngModel)]="establecimiento.ciudad" >
+                                </div>
+                            </div> 
+                        </div>
+
                             <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group label-floating">
                                             <label class="control-label">Calle Principal</label>
-                                            <input type="text" class="form-control">
+                                            <input type="text" class="form-control" name="callePrincipal" #callePrincipal="ngModel" [(ngModel)]="establecimiento.callePrincipal" >
                                         </div>
                                     </div>
                                 </div>
@@ -94,7 +100,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group label-floating">
                                                 <label class="control-label">Calle Secundaria</label>
-                                                <input type="text" class="form-control">
+                                                <input type="text" class="form-control" name="calleSecundaria" #calleSecundaria="ngModel" [(ngModel)]="establecimiento.calleSecundaria" >
                                             </div>
                                         </div>
                                     </div>

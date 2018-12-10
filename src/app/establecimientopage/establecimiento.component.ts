@@ -49,21 +49,29 @@ import {EstablecimientoService} from '../services/establecimiento.service';
           console.log('componente de establecimiento cargado');
         }
       
-        onSubmit(form){
-            this._EstablecimientoService.registrarEstablecimiento(this.establecimiento).subscribe(
+        onSubmit(){
+            this._EstablecimientoService.updateEstablecimiento(this.establecimiento).subscribe(
               response=>{
-                if(response.establecimiento && response.establecimiento._id){
+                if(!response.establecimiento){
                   console.log(response.establecimiento);
-                this.status ='error';
-                form.reset();
+                   this.status ='error';
+                   
                 }
                 else{
                 this.status='success';
-                form.reset();
+                localStorage.setItem('identity', JSON.stringify(this.establecimiento));
+                this.identity = this.establecimiento;
+
+                //SUBIDA DE IMAGEN DE USUARIO
                }
               },
               error=>{
-                console.log(<any>error);
+                var errorMessage = <any>error;
+                console.log(errorMessage);
+
+                if(errorMessage !=null){
+                  this.status='error';
+                }
               }
             );
           }

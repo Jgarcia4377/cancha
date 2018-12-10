@@ -23,7 +23,9 @@ export const ROUTES: RouteInfo[] = [
     { path: '/tables/extended', title: 'Extended Tables', icon:'pe-7s-news-paper' },
     { path: '/tables/datatables.net', title: 'DataTables.net', icon:'pe-7s-news-paper' },
 
-    { path: '/establecimiento', title: 'Establecimiento', icon:'material-icons' },
+    { path: '/establecimiento', title: 'Mi Establecimiento', icon:'material-icons' },
+    { path: '/establecimiento/misCanchas', title: 'Mis Canchas', icon:'material-icons' },
+    
     { path: '/maps/fullscreen', title: 'Full Screen Map', icon:'pe-7s-map-marker' },
     { path: '/maps/vector', title: 'Vector Map', icon:'pe-7s-map-marker' },
 

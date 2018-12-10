@@ -71,7 +71,7 @@
                             <p class="hidden-lg hidden-md">Dashboard</p>
                         <div class="ripple-container"></div></a>
                     </li>
-                    <li class="dropdown">
+                   <!--  <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
                             <i class="material-icons">notifications</i>
                             <span class="notification">5</span>
@@ -79,7 +79,7 @@
                                 Notifications
                                 <b class="caret"></b>
                             </p>
-                        <div class="ripple-container"></div></a>
+                       <div class="ripple-container"></div></a>
                         <ul class="dropdown-menu">
                             <li>
                                 <a href="#">Mike John responded to your email</a>
@@ -97,9 +97,9 @@
                                 <a href="#">Another One</a>
                             </li>
                         </ul>
-                    </li>
+                    </li>-->
                     <li class="">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#pablo" aria-expanded="false">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
                             <i class="material-icons">person</i>
                             <p class="hidden-lg hidden-md">Profile</p>
                         <div class="ripple-container"></div></a>
@@ -276,16 +276,36 @@
                     </li>
 
                     <li routerLinkActive="active">
-                        <a  [routerLink]="[menuItems[17].path]">
-                            <i class="{{menuItems[17].icon}}">business</i>
-                            <p>{{menuItems[17].title}}</p>
+                        <a data-toggle="collapse" href="#Establecimiento">
+                            <i class="material-icons">business</i>
+                            <p>Establecimiento
+                                <b class="caret"></b>
+                            </p>
                         </a>
+                        <div class="collapse" id="Establecimiento">
+                            <ul class="nav">
+                                <li>
+                                        <a  [routerLink]="[menuItems[17].path]">
+                                        <span class="sidebar-mini">ME</span>
+                                        <span class="sidebar-normal">{{menuItems[17].title}}</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a  [routerLink]="[menuItems[18].path]">
+                                        <span class="sidebar-mini">MC</span>
+                                        <span class="sidebar-normal">{{menuItems[18].title}}</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
                     </li>
 
+
+                    
+                    <!--
                     <li routerLinkActive="active">
                         <a  [routerLink]="[menuItems[20].path]">
-                            <i class="{{menuItems[20].icon}}">widgets</i>
-
+                            <i class="{{menuItems[20].icon}}">timeline</i>
                             <p>{{menuItems[20].title}}</p>
                         </a>
                     </li>
@@ -304,7 +324,7 @@
                             <p>{{menuItems[22].title}}</p>
                         </a>
                     </li>
-
+                    -->
                     <li routerLinkActive="active">
                         <a data-toggle="collapse" href="#pagesExamples">
                             <i class="material-icons">image</i>
