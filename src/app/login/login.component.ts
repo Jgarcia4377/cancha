@@ -19,6 +19,7 @@ export class LoginComponent implements OnInit, DoCheck{
     public user: User;
     public status:string;
     public identity;
+    public establecimiento;
     public token;
 
     constructor(
@@ -91,7 +92,11 @@ export class LoginComponent implements OnInit, DoCheck{
         response=>{
           this.identity = response.usuario;
           //console.log(response);
-          if(response.usuario || this.identity.usuario._id){ 
+          if(response.usuario || this.identity.usuario._id){
+            if(response.establecimiento){
+              this.establecimiento = response.establecimiento;
+              localStorage.setItem('establecimiento',JSON.stringify(this.establecimiento));
+            } 
             this.status='success';
             //PERSISTIR DATOS DEL USUARIO
             localStorage.setItem('identity',JSON.stringify(this.identity));

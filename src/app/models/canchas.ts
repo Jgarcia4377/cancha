@@ -10,7 +10,8 @@ export class Canchas{
         public diaS: String, 
         public nocheS: String,
         public diaFS: String, 
-        public nocheFS: String
+        public nocheFS: String,
+        public establecimiento: String
     ){}
    
 }

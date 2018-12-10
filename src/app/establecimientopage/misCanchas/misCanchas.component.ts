@@ -26,6 +26,7 @@ export class misCanchasComponent implements OnInit {
     public canchas: Canchas;
     public status:string;
     public tableData1: TableData;
+    public idEstablecimiento;
     isShow=false;
     
 
@@ -34,9 +35,9 @@ export class misCanchasComponent implements OnInit {
         private _router: Router,
         private _canchasService: CanchasService,
     ){ 
-      
+      this.idEstablecimiento = localStorage.getItem('establecimiento._id');
       this.title='Registra tu cancha',
-      this.canchas = new Canchas('','',0,0,'',0,true,'','','','');
+      this.canchas = new Canchas('','',0,0,'',0,true,'','','','',this.idEstablecimiento);
       //this.paises = new Pais('','','','','','','','','')
    }
 
