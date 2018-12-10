@@ -55,25 +55,25 @@ export class misCanchasComponent implements OnInit {
 
   
 
-      onSubmit(form){
-        this._canchasService.registerCancha(this.canchas).subscribe(
-          response=>{
-            if(response.cancha && response.cancha._id){
-              console.log(response.cancha);
-           // this.status ='error';
-              form.reset();
-            }
-            else{
-            //this.status='success';
+    onSubmit(form){
+      this._canchasService.registerCancha(this.canchas).subscribe(
+        response=>{
+          if(response.cancha && response.cancha._id){
             console.log(response.cancha);
+         // this.status ='error';
             form.reset();
-           }
-          },
-          error=>{
-            console.log(<any>error);
           }
-        );
-      }
+          else{
+          //this.status='success';
+          console.log(response.cancha);
+          form.reset();
+         }
+        },
+        error=>{
+          console.log(<any>error);
+        }
+      );
+    }
 
     
 }

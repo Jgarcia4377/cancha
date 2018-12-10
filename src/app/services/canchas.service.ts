@@ -22,7 +22,7 @@ export class CanchasService{
         let params= JSON.stringify(cancha);
         let token = JSON.parse(localStorage.getItem('token'));
         let headers = new HttpHeaders().set('Content-Type','application/json');
-        return this._http.post(this.url+'register',params, {headers:headers});        
+        return this._http.post(this.url+'registrar-cancha',params, {headers:headers});        
         //console.log(user_to_register);
         //console.log(this.url);
     }
