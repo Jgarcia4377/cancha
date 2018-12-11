@@ -9,6 +9,7 @@ declare var $:any;
     moduleId:module.id,
     selector: 'login-cmp',
     templateUrl: './login.component.html',
+    styleUrls: ['./login.component.css'],
     providers:[UsuarioService]
 })
 
