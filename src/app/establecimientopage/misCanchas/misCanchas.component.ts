@@ -13,7 +13,7 @@ export interface TableData {
 declare var $:any;
 @Component({
     moduleId: module.id,
-    selector: 'mis-cancha-cmp',
+    selector: 'mis-canchas-cmp',
     templateUrl: './misCanchas.component.html',
     providers: [CanchasService],
 })
@@ -64,7 +64,7 @@ export class misCanchasComponent implements OnInit {
           console.log(this.canchas);
           if(response.cancha && response.cancha._id){
             console.log(response.cancha);
-            console.log('token')
+            //console.log('token')
          // this.status ='error';
             form.reset();
           }
