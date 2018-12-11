@@ -9,6 +9,7 @@ import {GLOBAL} from './global';
 export class CanchasService{
     
     public url:string;
+    canchas : Canchas[];
     public identity;
     public token;
 
@@ -37,6 +38,18 @@ export class CanchasService{
         return this._http.post(this.url+'registrar-cancha',params,{headers:headers});        
         //console.log(user_to_register);
         //console.log(this.url);
+    }
+
+    getCanchas(page=null): Observable <any>{
+        let headers = new HttpHeaders().set('Content-Type','application/json') 
+                                       .set('Authorization', this.getToken());
+        return this._http.get(this.url+'canchas/'+page, {headers:headers});        
+    }
+
+    getCancha(id): Observable <any>{
+        let headers = new HttpHeaders().set('Content-Type','application/json') 
+                                       .set('Authorization', this.getToken());
+        return this._http.get(this.url+'cancha/'+id, {headers:headers});        
     }
 
 

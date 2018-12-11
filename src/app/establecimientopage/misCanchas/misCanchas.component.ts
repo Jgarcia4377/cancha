@@ -2,12 +2,9 @@ import { Component, OnInit, OnChanges, AfterViewInit } from '@angular/core';
 import {Canchas} from '../../models/canchas';
 import {Router, ActivatedRoute, Params} from '@angular/router';
 import {CanchasService} from '../../services/canchas.service';
+import { R3ResolvedDependencyType } from '@angular/compiler/src/compiler_facade_interface';
 // import initWizard = require('../../../../assets/js/init/initWizard.js');
 
-export interface TableData {
-  headerRow: string[];
-  dataRows: string[][];
-}
 
 
 declare var $:any;
@@ -25,10 +22,16 @@ export class misCanchasComponent implements OnInit {
     public title:String;
     public canchas: Canchas;
     public status:string;
-    public tableData1: TableData;
     public establecimiento;
     isShow=false;
     public variable;
+    public page;
+    public next_page;
+    public prev_page;
+    public pages;
+    public total;
+   // public cancha: Canchas[];
+    
     
     constructor(
         private _route: ActivatedRoute,
@@ -44,16 +47,56 @@ export class misCanchasComponent implements OnInit {
    }
 
    ngOnInit(){
+     this.actualPage();
     // Init Tooltips
     // $('[rel="tooltip"]').tooltip();
-    this.tableData1 = {
-        headerRow: [ '#', 'Nombre', 'Dimensiones', 'Cesped', '# Jugadores', 'Actions'],
-        dataRows: [
-            ['1', 'Cancha 1', '3,45 x 5,70', 'Artificial', '12','btn-simple'],
-            ['2', 'Cancha 2', '4 x 9', 'Natural', '18','btn-simple'],
-            ['3', 'Cancha 3', '7,67 x 5,70', 'Artificial', '10','btn-simple'],
-            ]
-     };
+    
+    }
+
+    actualPage(){
+      this._route.params.subscribe(params =>{
+        let page = +params['page'];
+        this.page = page;
+        if(!page){
+          page=1;
+        }else{
+          this.next_page = page+1;
+          this.prev_page = page-1;
+
+          if(this.prev_page <= 0){
+            this.prev_page=1;
+          }
+        }
+        //delvolve listado canchas
+        this.getCanchas(page);
+      });
+    }
+
+    getCanchas(page){
+      this._canchasService.getCanchas(page).subscribe(
+        response =>{
+          if(!response.canchas){
+            console.log(response.canchas)
+          }else{
+            console.log(response.canchas);
+            this.total = response.total;
+            this.canchas = response.canchas;
+            this.pages = response.pages;
+
+            if(page > this.pages){
+              this._router.navigate(['/misCanchas']);
+            }
+          }
+
+        },
+        error=>{
+          var errorMessage = <any>error;
+          console.log(errorMessage);
+          if(errorMessage !=null){
+            console.log(errorMessage);
+          }
+        }
+      );
     }
 
   
