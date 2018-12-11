@@ -70,66 +70,87 @@
                                                             <label class="control-label">Cesped</label>
                                                             <input type="text" class="form-control" name="cesped" #cesped="ngModel" [(ngModel)]="canchas.cesped" >
                                                         </div>
-                                                        
-                                                            <ul class="nav nav-pills nav-pills-warning">
-                                                                    <li class="active">
-                                                                        </i>
-                                                                        <a data-toggle="tab">Precios</a>
-                                                                    </li>
-                                                            </ul>
-                                                            <div class="row">
-                                                                <div class="col-md-6">
-                                                                        <div class="card">
-                                                                                <div class="card-header">
-                                                                                    <h4 class="card-title">Días de semana</h4>
-                                                                                </div>
-                                                                                <div class="card-content">
-                                                                                       <div class="tab-content">
-                                                                                            <div class="row">
-                                                                                                    <div class="col-md-6">
-                                                                                                            <div class="form-group label-floating">
-                                                                                                                    <label class="control-label">Día</label>
-                                                                                                                    <input type="text" class="form-control" name="diaS" #diaS="ngModel" [(ngModel)]="canchas.diaS" >
-                                                                                                                </div> 
-                                                                                                    </div>
-                                                                                                  <div class="col-md-6">
-                                                                                                            <div class="form-group label-floating">
-                                                                                                                    <label class="control-label">Noche</label>
-                                                                                                                    <input type="text" class="form-control" name="nocheS" #nocheS="ngModel" [(ngModel)]="canchas.nocheS" >
-                                                                                                                </div> 
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>               
-                                                                </div>
-                                                                <div class="col-md-6">
-                                                                        <div class="card">
-                                                                                <div class="card-header">
-                                                                                    <h4 class="card-title">Fin de semana</h4>
-                                                                                </div>
-                                                                                <div class="card-content">
-                                                                                       <div class="tab-content">
-                                                                                            <div class="row">
-                                                                                                    <div class="col-md-6">
-                                                                                                            <div class="form-group label-floating">
-                                                                                                                    <label class="control-label">Día</label>
-                                                                                                                    <input type="text" class="form-control" name="diaFS" #diaFS="ngModel" [(ngModel)]="canchas.diaFS" >
-                                                                                                                </div> 
-                                                                                                    </div>
-                                                                                                    <div class="col-md-6">
-                                                                                                            <div class="form-group label-floating">
-                                                                                                                    <label class="control-label">Noche</label>
-                                                                                                                    <input type="text" class="form-control" name="nocheFS" #nocheFS="ngModel" [(ngModel)]="canchas.nocheFS" >
-                                                                                                                </div> 
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
+                                                       <div class="row"> 
+                                                        <div class="card">
+                                                                <div class="card-header">
+                                                                    <h4 class="card-title">Precios
                                                                         
+                                                                    </h4>
+                                                                    
+                                                                    <small class="category">Configuración Tipica</small>
+                                                                    
+
+                                                                <div class="card-content" >
+                                                                        
+                                                                            <div class="row">
+                                                                            <div class="col-md-12">
+                                                                                    <div class="table-responsive-md">
+                                                                                    <table class="table">
+                                                                                            <thead>
+                                                                                              <tr>
+                                                                                                <th scope="col">Días/Horas</th>
+                                                                                                <th scope="col">Mañana - Tarde
+                                                                                                        <small class="category" float="center">(08h00 - 17h00)</small>
+                                                                                                </th>
+                                                                                                <th scope="col" float="center">Noche      <br>
+                                                                                                        <small class="category" float="center">(18h00 - 24h00)</small>
+                                                                                                </th>
+                                                                                              </tr>
+                                                                                            </thead>
+                                                                                            <tbody>
+                                                                                              <tr>
+                                                                                                    <th scope="row">Lunes/Viernes</th>
+                                                                                                <td> 
+
+                                                                                                        <div class="form-group label-floating">
+                                                                                                                
+                                                                                                                <input type="text" class="form-control" name="cesped" #cesped="ngModel" [(ngModel)]="canchas.cesped" >
+                                                                                                            </div>
+
+                                                                                                </td>
+                                                                                                <td>
+
+
+                                                                                                        <div class="form-group label-floating">
+                                                                                                                
+                                                                                                                <input type="text" class="form-control" name="cesped" #cesped="ngModel" [(ngModel)]="canchas.cesped" >
+                                                                                                            </div>
+
+                                                                                                </td>
+                                                                                              </tr>
+                                                                                              <tr>
+                                                                                                <th scope="row">Sabado/Domingo</th>
+                                                                                                <td>
+                                                                                                        <div class="form-group label-floating">
+                                                                                                                
+                                                                                                                <input type="text" class="form-control" name="cesped" #cesped="ngModel" [(ngModel)]="canchas.cesped" >
+                                                                                                            </div>
+
+                                                                                                </td>
+                                                                                                <td>
+
+                                                                                                        <div class="form-group label-floating">
+                                                                                                                
+                                                                                                                <input type="text" class="form-control" name="cesped" #cesped="ngModel" [(ngModel)]="canchas.cesped" >
+                                                                                                            </div>
+
+                                                                                                </td>
+                                                                                              </tr>
+                                                                                            </tbody>
+                                                                                            </table>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    </div>
+                                                                        
+
                                                                 </div>
+                                                                
+                                                                
                                                             </div>
+
+                                                        </div>
+                                                            
                                                     </div>                  
                                                             
                                                    <div class="row"> 
