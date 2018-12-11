@@ -28,6 +28,7 @@ export class misCanchasComponent implements OnInit {
     public tableData1: TableData;
     public establecimiento;
     isShow=false;
+    public variable;
     
     constructor(
         private _route: ActivatedRoute,
