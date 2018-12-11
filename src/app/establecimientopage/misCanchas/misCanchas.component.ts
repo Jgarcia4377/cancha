@@ -26,19 +26,20 @@ export class misCanchasComponent implements OnInit {
     public canchas: Canchas;
     public status:string;
     public tableData1: TableData;
-    public idEstablecimiento;
+    public establecimiento;
     isShow=false;
     
-
     constructor(
         private _route: ActivatedRoute,
         private _router: Router,
         private _canchasService: CanchasService,
     ){ 
-      this.idEstablecimiento = localStorage.getItem('establecimiento._id');
+      this.establecimiento = JSON.parse(localStorage.getItem('establecimiento'))[0];
+  
       this.title='Registra tu cancha',
-      this.canchas = new Canchas('','',0,0,'',0,true,'','','','',this.idEstablecimiento);
+      this.canchas = new Canchas('','',0,0,'',0,true,'','','','',this.establecimiento._id);
       //this.paises = new Pais('','','','','','','','','')
+
    }
 
    ngOnInit(){
@@ -59,6 +60,7 @@ export class misCanchasComponent implements OnInit {
     onSubmit(form){
       this._canchasService.registerCancha(this.canchas).subscribe(
         response=>{
+          console.log(this.canchas);
           if(response.cancha && response.cancha._id){
             console.log(response.cancha);
             console.log('token')
@@ -68,7 +70,7 @@ export class misCanchasComponent implements OnInit {
           else{
           //this.status='success';
           console.log(response.cancha);
-          form.reset();
+    
          }
         },
         error=>{
