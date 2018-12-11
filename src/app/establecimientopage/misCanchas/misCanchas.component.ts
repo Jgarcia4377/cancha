@@ -30,7 +30,7 @@ export class misCanchasComponent implements OnInit {
     public prev_page;
     public pages;
     public total;
-   // public cancha: Canchas[];
+    public cancha: Canchas[];
     
     
     constructor(
@@ -72,6 +72,7 @@ export class misCanchasComponent implements OnInit {
       });
     }
 
+    
     getCanchas(page){
       this._canchasService.getCanchas(page).subscribe(
         response =>{
@@ -82,12 +83,10 @@ export class misCanchasComponent implements OnInit {
             this.total = response.total;
             this.canchas = response.canchas;
             this.pages = response.pages;
-
             if(page > this.pages){
               this._router.navigate(['/misCanchas']);
             }
           }
-
         },
         error=>{
           var errorMessage = <any>error;
@@ -98,7 +97,6 @@ export class misCanchasComponent implements OnInit {
         }
       );
     }
-
   
 
     onSubmit(form){

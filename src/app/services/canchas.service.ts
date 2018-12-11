@@ -9,7 +9,7 @@ import {GLOBAL} from './global';
 export class CanchasService{
     
     public url:string;
-    canchas : Canchas[];
+    
     public identity;
     public token;
 
