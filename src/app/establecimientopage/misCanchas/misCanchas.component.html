@@ -11,30 +11,30 @@
                             </button>
                             <div class="card-content">
                                 <h4 class="card-title">Mis Canchas</h4>                                
-                                <div class="table-responsive">
+                                <div class="table-responsive" >
                                     <table class="table">
                                             <thead>
                                                 <tr>
-                                                <th class="text-center">{{ tableData1.headerRow[0] }}</th>
-                                                <th>{{ tableData1.headerRow[1] }}</th>
-                                                <th>{{ tableData1.headerRow[2] }}</th>
-                                                <th>{{ tableData1.headerRow[3] }}</th>
-                                                <th class="text-right">{{ tableData1.headerRow[4] }}</th>
-                                                <th class="text-right">{{ tableData1.headerRow[5] }}</th>
+                                                <th class="text-center">#</th>
+                                                <th class="text-center">Nombre</th>
+                                                <th class="text-center">Dimensiones</th>
+                                                <th class="text-center">Cesped</th>
+                                                <th class="text-center"># Jugadores</th>
+                                                <th class="text-center">Actions</th>
                                                 </tr>
                                             </thead>
                                         <tbody>
-                                            <tr *ngFor="let row of tableData1.dataRows">
-                                                <td class="text-center">{{row[0]}}</td>
-                                                <td>{{row[1]}}</td>
-                                                <td>{{row[2]}}</td>
-                                                <td>{{row[3]}}</td>
-                                                <td class="text-right">{{row[4]}}</td>
+                                            <tr *ngFor="let cancha of canchas">
+                                                <td class="text-center">{{cancha._id}}</td>
+                                                <td>{{cancha.nombre}}</td>
+                                                <td>{{cancha.dimensiones.ancho +' mts de ancho X '+ cancha.dimensiones.largo +' mts de largo'}}</td>
+                                                <td>{{cancha.cesped}}</td>
+                                                <td class="text-right">{{cancha.numeroJugadores}}</td>
                                                 <td class="td-actions text-right">
-                                                    <button type="button" rel="tooltip" class="btn btn-success {{row[5]}}">
+                                                    <button type="button"  class="btn btn-success">
                                                         <i class="material-icons">edit</i>
                                                     </button>
-                                                    <button type="button" rel="tooltip" class="btn btn-danger {{row[5]}}">
+                                                    <button type="button"  class="btn btn-danger">
                                                         <i class="material-icons">close</i>
                                                     </button>
                                                 </td>
@@ -104,7 +104,7 @@
 
                                                                                                         <div class="form-group label-floating">
                                                                                                                 
-                                                                                                                <input type="text" class="form-control" name="cesped" #cesped="ngModel" [(ngModel)]="canchas.cesped" >
+                                                                                                                <input type="text" class="form-control" name="diaS" #diaS="ngModel" [(ngModel)]="canchas.diaS" >
                                                                                                             </div>
 
                                                                                                 </td>
@@ -113,7 +113,7 @@
 
                                                                                                         <div class="form-group label-floating">
                                                                                                                 
-                                                                                                                <input type="text" class="form-control" name="cesped" #cesped="ngModel" [(ngModel)]="canchas.cesped" >
+                                                                                                                <input type="text" class="form-control" name="nocheS" #nocheS="ngModel" [(ngModel)]="canchas.nocheS" >
                                                                                                             </div>
 
                                                                                                 </td>
@@ -123,7 +123,7 @@
                                                                                                 <td>
                                                                                                         <div class="form-group label-floating">
                                                                                                                 
-                                                                                                                <input type="text" class="form-control" name="cesped" #cesped="ngModel" [(ngModel)]="canchas.cesped" >
+                                                                                                                <input type="text" class="form-control" name="diaFS" #diaFS="ngModel" [(ngModel)]="canchas.diaFS" >
                                                                                                             </div>
 
                                                                                                 </td>
@@ -131,7 +131,7 @@
 
                                                                                                         <div class="form-group label-floating">
                                                                                                                 
-                                                                                                                <input type="text" class="form-control" name="cesped" #cesped="ngModel" [(ngModel)]="canchas.cesped" >
+                                                                                                                <input type="text" class="form-control" name="nocheFS" #nocheFS="ngModel" [(ngModel)]="canchas.nocheFS" >
                                                                                                             </div>
 
                                                                                                 </td>

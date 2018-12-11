@@ -16,6 +16,12 @@ export const UserRoutes: Routes = [
           path: 'misCanchas',
           component: misCanchasComponent
         }]
-        }
+        },{
+          path: '',
+          children: [ {
+            path: 'misCanchas/:page',
+            component: misCanchasComponent
+          }]
+          }
 
 ];
