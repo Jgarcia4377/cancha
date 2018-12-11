@@ -21,6 +21,7 @@ export class misCanchasComponent implements OnInit {
     test : Date = new Date();
     public title:String;
     public canchas: Canchas;
+    public newCancha: Canchas;
     public status:string;
     public establecimiento;
     isShow=false;
@@ -41,7 +42,7 @@ export class misCanchasComponent implements OnInit {
       this.establecimiento = JSON.parse(localStorage.getItem('establecimiento'))[0];
   
       this.title='Registra tu cancha',
-      this.canchas = new Canchas('','',0,0,'',0,true,'','','','',this.establecimiento._id);
+      this.newCancha = new Canchas('','',0,0,'',0,true,'','','','',this.establecimiento._id);
       //this.paises = new Pais('','','','','','','','','')
 
    }
@@ -102,9 +103,9 @@ export class misCanchasComponent implements OnInit {
   
 
     onSubmit(form){
-      this._canchasService.registerCancha(this.canchas).subscribe(
+      this._canchasService.registerCancha(this.newCancha).subscribe(
         response=>{
-          console.log(this.canchas);
+          console.log(this.newCancha);
           if(response.cancha && response.cancha._id){
             console.log(response.cancha);
             //console.log('token')
