@@ -9,6 +9,7 @@ declare var $:any;
     moduleId:module.id,
     selector: 'login-cmp',
     templateUrl: './login.component.html',
+    styleUrls: ['./login.component.css'],
     providers:[UsuarioService]
 })
 
@@ -50,31 +51,55 @@ export class LoginComponent implements OnInit, DoCheck{
             $page.append(image_container);
         }
     };
-    showNotification(from, align){
+    showNotification(from, align,message,typeError){
         var type = ['','info','success','warning','danger','rose','primary'];
 
-       // var color = Math.floor((Math.random() * 6) + 1);
-
-    	$.notify({
-        	icon: "notifications",
-          message: "Te has logueado correctamente",
-          type:'success',
-          timer: 3000,
-          placement: {
-            from: from,
-            align: align
-          }
-        },{
+        $.notify({
+          // options
             icon: "notifications",
-            message: "No has podido iniciar sesión, Intenta de nuevo por favor",
-            type:'warning',
-            timer: 3000,
+            title: "",
+            message: message,
+            url: '',
+            target: '_blank'
+          },{
+           // settings
+            element: 'body',
+            position: null,
+            type: typeError,
+            allow_dismiss: true,
+            newest_on_top: false,
+            showProgressbar: false,
             placement: {
-                from: from,
-                align: align
-            }
-            
-        });
+              from: from,
+              align: align
+            },
+            offset: 20,
+            spacing: 10,
+            z_index: 1031,
+            delay: 3000,
+            timer: 1000,
+            url_target: '_blank',
+            mouse_over: null,
+            animate: {
+              enter: 'animated fadeInDown',
+              exit: 'animated fadeOutUp'
+            },
+            onShow: null,
+            onShown: null,
+            onClose: null,
+            onClosed: null,
+            icon_type: 'class',
+            template: '<div data-notify="container" class="col-xs-11 col-sm-3 alert alert-{0}" role="alert">' +
+              '<button type="button" aria-hidden="true" class="close" data-notify="dismiss">×</button>' +
+              '<span data-notify="icon"></span> ' +
+              '<span data-notify="title">{1}</span> ' +
+              '<span data-notify="message">{2}</span>' +
+              '<div class="progress" data-notify="progressbar">' +
+                '<div class="progress-bar progress-bar-{0}" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>' +
+              '</div>' +
+              '<a href="{3}" target="{4}" data-notify="url"></a>' +
+            '</div>' 
+          });
 	}
 
 
@@ -91,17 +116,18 @@ export class LoginComponent implements OnInit, DoCheck{
       this._UsuarioService.login(this.user).subscribe(
         response=>{
           this.identity = response.usuario;
-          //console.log(response);
+          console.log(response);
           if(response.usuario || this.identity.usuario._id){
             if(response.establecimiento){
               this.establecimiento = response.establecimiento;
               localStorage.setItem('establecimiento',JSON.stringify(this.establecimiento));
             } 
-            this.status='success';
             //PERSISTIR DATOS DEL USUARIO
             localStorage.setItem('identity',JSON.stringify(this.identity));
             //CONSEGUIR EL TOKEN
-            this.gettoken(); 
+            this.gettoken();
+            this.status='success';
+            this.showNotification('top','center','Iniciando sesión.','success'); 
           }else{
             //this.$notify='warning';
             this.status='error';
@@ -113,18 +139,17 @@ export class LoginComponent implements OnInit, DoCheck{
         },
         error=>{
           var errorMessage=<any>error;
-          console.log(errorMessage);
-          if(errorMessage !=null){
+          this.showNotification('top','center',errorMessage.error.message,'danger');
+          if(errorMessage != null){
             this.status='error';
           }
         }
       );
     }
 
-    
     ngDoCheck(){
       this.identity = this._UsuarioService.getIdentity();
-  }
+    }
 
     gettoken(){
       this._UsuarioService.login(this.user,'true').subscribe(
