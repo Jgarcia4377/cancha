@@ -19,6 +19,7 @@
                                         <th class="">Dimensiones</th>
                                         <th class="">Cesped</th>
                                         <th class="">N° jugadores</th>
+                                        
                                         <th class="">Opciones</th>
                                     </tr>
                                 </thead>
@@ -37,9 +38,10 @@
                                             }}
                                         </td>
                                         <td>{{ cancha.cesped }}</td>
+                                        
                                         <td class="">{{ cancha.numeroJugadores }}</td>
                                         <td class="td-actions">
-                                            <button type="button" class="btn btn-success">
+                                            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalRegistrarCanchaForm">
                                                 <i class="material-icons">edit</i>
                                             </button>
                                             <button type="button" class="btn btn-warning">
@@ -67,7 +69,7 @@
                 </div>
                 <form #registrarCancha="ngForm" (ngSubmit)="onSubmit(registrarCancha)">
                     <div class="modal-body">
-                        <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="newCancha._id" />
+                        <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="newCancha._id" ng-model-options="{ updateOn: 'blur' }"/>
                         <div class="container-fluid">
                             <div class="row">
                                 <div class="col-md-8">
@@ -77,12 +79,12 @@
                                                 <div class="form-group label-floating">
                                                     <label class="control-label">Nombre</label>
                                                     <input type="text" class="form-control" name="nombre" #nombre="ngModel"
-                                                        [(ngModel)]="newCancha.nombre" />
+                                                        [(ngModel)]="newCancha.nombre" ng-model-options="{ updateOn: 'blur' }"/>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group label-floating">
-                                                    <label class="control-label">Tipo de cesped</label>
+                                                    
                                                     <select class="mdb-select md-form form-control" #cesped="ngModel"
                                                         [(ngModel)]="newCancha.cesped" name="cesped">
                                                         <option value="" disabled selected>Seleccione el tipo de

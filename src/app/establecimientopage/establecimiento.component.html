@@ -11,7 +11,7 @@
                             <br>
                             <small class="category">Completa los datos del establecimiento</small>
                         </h4>
-                        <form #ActualizarEstablecimientoForm="ngForm" (ngSubmit)="onSubmit()"> 
+                        <form #ActualizarEstablecimientoForm="ngForm" (ngSubmit)="onSubmit(ActualizarEstablecimientoForm)"> 
                                 <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="establecimiento._id">
                             <!--<div class="row">
                                 <div class="col-md-5">
@@ -37,7 +37,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group label-floating">
                                         <label class="control-label">Razón Social</label>
-                                        <input type="text" class="form-control" name="razonSocial" #razonSocial="ngModel" [(ngModel)]="establecimiento.razonSocial" >
+                                        <input type="text" class="form-control" name="correo" #correo="ngModel" [(ngModel)]="establecimiento.correo" >
                                     </div>
                                 </div>
                             </div>
@@ -45,7 +45,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group label-floating">
                                         <label class="control-label">Representante</label>
-                                        <input type="text" class="form-control" name="representante" #representante="ngModel" [(ngModel)]="establecimiento.representante" >
+                                        <input type="text" class="form-control" name="rol" #rol="ngModel" [(ngModel)]="establecimiento.rol" >
                                     </div>
                                 </div>
                             </div>

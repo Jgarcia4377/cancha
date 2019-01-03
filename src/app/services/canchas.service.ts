@@ -26,6 +26,15 @@ export class CanchasService{
         }
         return this.token;
     }
+    getIdentity(){
+        let identity = JSON.parse(localStorage.getItem('identity'));
+        if(identity != "undefined"){
+            this.identity = identity;
+        }else{
+            this.identity = null;
+        }
+        return this.identity;
+    }
     
     
     
