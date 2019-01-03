@@ -69,7 +69,7 @@
                 </div>
                 <form #registrarCancha="ngForm" (ngSubmit)="onSubmit(registrarCancha)">
                     <div class="modal-body">
-                        <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="newCancha._id" ng-model-options="{ updateOn: 'blur' }"/>
+                        <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="newCancha._id" />
                         <div class="container-fluid">
                             <div class="row">
                                 <div class="col-md-8">
@@ -79,7 +79,7 @@
                                                 <div class="form-group label-floating">
                                                     <label class="control-label">Nombre</label>
                                                     <input type="text" class="form-control" name="nombre" #nombre="ngModel"
-                                                        [(ngModel)]="newCancha.nombre" ng-model-options="{ updateOn: 'blur' }"/>
+                                                        [(ngModel)]="newCancha.nombre"/>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
