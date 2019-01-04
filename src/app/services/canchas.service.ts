@@ -9,7 +9,7 @@ import {GLOBAL} from './global';
 export class CanchasService{
     
     public url:string;
-    canchas : Canchas[];
+    
     public identity;
     public token;
 
@@ -25,6 +25,15 @@ export class CanchasService{
             this.token = null;
         }
         return this.token;
+    }
+    getIdentity(){
+        let identity = JSON.parse(localStorage.getItem('identity'));
+        if(identity != "undefined"){
+            this.identity = identity;
+        }else{
+            this.identity = null;
+        }
+        return this.identity;
     }
     
     
@@ -46,11 +55,14 @@ export class CanchasService{
         return this._http.get(this.url+'canchas/'+page, {headers:headers});        
     }
 
-    getCancha(id): Observable <any>{
+    getCancha(id: any): Observable <any>{
         let headers = new HttpHeaders().set('Content-Type','application/json') 
                                        .set('Authorization', this.getToken());
         return this._http.get(this.url+'cancha/'+id, {headers:headers});        
     }
+
+  
+
 
 
     

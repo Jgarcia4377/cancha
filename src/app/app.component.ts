@@ -1,11 +1,12 @@
 import { Component, OnInit, ElementRef, DoCheck } from '@angular/core';
 import { Router, ActivatedRoute, Params, Route } from '@angular/router';
 import { UsuarioService } from './services/usuario.service';
+import { CanchasService } from './services/canchas.service';
 declare var $:any;
 @Component({
     selector: 'my-app',
     templateUrl: './app.component.html',
-    providers: [UsuarioService]
+    providers: [UsuarioService, CanchasService]
 })
 
 export class AppComponent implements OnInit, DoCheck{
@@ -14,6 +15,7 @@ export class AppComponent implements OnInit, DoCheck{
 
     constructor(
         private elRef:ElementRef,
+        private _canchasService: CanchasService,
         private _userService: UsuarioService,
         private _route: ActivatedRoute,
         private _router: Router
@@ -35,6 +37,7 @@ export class AppComponent implements OnInit, DoCheck{
     }
     ngDoCheck(){
         this.identity = this._userService.getIdentity();
+        this.identity = this._canchasService.getIdentity();
     }
     logout(){
         localStorage.clear();

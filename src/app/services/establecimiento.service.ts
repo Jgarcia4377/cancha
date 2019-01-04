@@ -25,7 +25,6 @@ export class EstablecimientoService{
         }
         return this.identity;
     }
-
     getToken(){
         let token = JSON.parse(localStorage.getItem('token'));
         if(token != "undefined"){
@@ -56,6 +55,13 @@ export class EstablecimientoService{
         //console.log(user_to_register);
         //console.log(this.url);
     }
+
+    getEstablecimiento(id): Observable <any>{
+        let headers = new HttpHeaders().set('Content-Type','application/json') 
+                                       .set('Authorization', this.getToken());
+        return this._http.get(this.url+'establecimiento/'+id, {headers:headers});        
+    }
+
     
 }
 

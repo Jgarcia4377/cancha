@@ -131,6 +131,7 @@ export class LoginComponent implements OnInit, DoCheck{
           }else{
             //this.$notify='warning';
             this.status='error';
+            
             console.log('error');
           }
           //console.log(response.user);
