@@ -101,7 +101,7 @@
                                                                             <label class="control-label">Razón Social
                                                                                 <small>*</small>
                                                                             </label>
-                                                                            <input type="text" class="form-control" name="razonSocial" #razonSocial="ngModel" [(ngModel)]="establecimiento.razonSocial">
+                                                                            <input required type="text" class="form-control" name="razonSocial" #razonSocial="ngModel" [(ngModel)]="establecimiento.razonSocial">
                                                                         </div>
                                                                     
                                                                 </div>
@@ -113,7 +113,7 @@
                                                                                 <label class="control-label">Representante
                                                                                     <small data-color="purple">*</small>
                                                                                 </label>
-                                                                                <input type="text" class="form-control" name="representante" #representante="ngModel" [(ngModel)]="establecimiento.representante">
+                                                                                <input required type="text" class="form-control" name="representante" #representante="ngModel" [(ngModel)]="establecimiento.representante">
                                                                             </div>
                                                                         </div>
                                                                         
@@ -148,7 +148,7 @@
                                                                                             <label class="control-label">Ciudad
                                                                                                 <small font-color="red">*</small>
                                                                                             </label>
-                                                                                            <input type="text" class="form-control" name="ciudad" #ciudad="ngModel" [(ngModel)]="establecimiento.ciudad" >
+                                                                                            <input required type="text" class="form-control" name="ciudad" #ciudad="ngModel" [(ngModel)]="establecimiento.ciudad" >
                                                                                         </div>
                                                                                     </div> 
 
@@ -160,7 +160,7 @@
                                                                                                 <label class="control-label">Calle Principal
                                                                                                     <small font-color="red">*</small>
                                                                                                 </label>
-                                                                                                <input type="text" class="form-control" name="callePrincipal" #callePrincipal="ngModel" [(ngModel)]="establecimiento.callePrincipal" >
+                                                                                                <input required type="text" class="form-control" name="callePrincipal" #callePrincipal="ngModel" [(ngModel)]="establecimiento.callePrincipal" >
                                                                                             </div>
                                                                                         </div> 
                                                                                         <div class="input-group">
@@ -171,7 +171,7 @@
                                                                                                     <label class="control-label">Calle Secundaria
                                                                                                         <small font-color="red">*</small>
                                                                                                     </label>
-                                                                                                    <input type="text" class="form-control" name="calleSecundaria" #calleSecundaria="ngModel" [(ngModel)]="establecimiento.calleSecundaria" >
+                                                                                                    <input required type="text" class="form-control" name="calleSecundaria" #calleSecundaria="ngModel" [(ngModel)]="establecimiento.calleSecundaria" >
                                                                                                 </div>
                                                                                             </div>          
                                                                             
@@ -183,7 +183,7 @@
                                                                                 <label class="control-label">Correo
                                                                                     <small font-color="red">*</small>
                                                                                 </label>
-                                                                                <input type="email" class="form-control" name="correo" #correo="ngModel" [(ngModel)]="establecimiento.correo" >
+                                                                                <input required type="email" class="form-control" name="correo" #correo="ngModel" [(ngModel)]="establecimiento.correo" >
                                                                             </div>
                                                                         </div>
                                                                         <div class="input-group">
@@ -194,7 +194,7 @@
                                                                                     <label class="control-label">Contraseña
                                                                                         <small>*</small>
                                                                                     </label>
-                                                                                    <input type="password" class="form-control" name="contrasena" #contrasena="ngModel" [(ngModel)]="establecimiento.contrasena">
+                                                                                    <input required type="password" class="form-control" name="contrasena" #contrasena="ngModel" [(ngModel)]="establecimiento.contrasena">
                                                                                 </div>
                                                                             
                                                                 </div>

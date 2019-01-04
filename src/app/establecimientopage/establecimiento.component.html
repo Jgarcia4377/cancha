@@ -91,7 +91,7 @@
                                     <div class="col-md-12">
                                         <div class="form-group label-floating">
                                             <label class="control-label">Calle Principal</label>
-                                            <input type="text" class="form-control" name="callePrincipal" #callePrincipal="ngModel" [(ngModel)]="establecimiento.callePrincipal" >
+                                            <input type="text" class="form-control" name="callePrincipal" #callePrincipal="ngModel" [(ngModel)]="establecimiento.direccion.callePrincipal" >
                                         </div>
                                     </div>
                                 </div>
@@ -99,7 +99,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group label-floating">
                                                 <label class="control-label">Calle Secundaria</label>
-                                                <input type="text" class="form-control" name="calleSecundaria" #calleSecundaria="ngModel" [(ngModel)]="establecimiento.calleSecundaria" >
+                                                <input type="text" class="form-control" name="calleSecundaria" #calleSecundaria="ngModel" [(ngModel)]="establecimiento.direccion.calleSecundaria" >
                                             </div>
                                         </div>
                                     </div>
@@ -119,13 +119,13 @@
                                             <div class="col-md-4">
                                                     <div class="form-group label-floating">
                                                        <label class="control-label">Facebook</label>
-                                                            <input type="text" class="form-control" name="facebook" #facebook="ngModel" [(ngModel)]="establecimiento.facebook">
+                                                            <input type="text" class="form-control" name="facebook" #facebook="ngModel" [(ngModel)]="establecimiento.redesSociales.facebook">
                                                      </div>
                                                  </div>
                                                  <div class="col-md-4">
                                                         <div class="form-group label-floating">
                                                            <label class="control-label">Instagram</label>
-                                                                <input type="text" class="form-control" name="instagram" #instagram="ngModel" [(ngModel)]="establecimiento.instagram">
+                                                                <input type="text" class="form-control" name="instagram" #instagram="ngModel" [(ngModel)]="establecimiento.redesSociales.instagram">
                                                          </div>
                                                      </div>                                        
                                         </div>
@@ -133,19 +133,19 @@
                                                 <div class="col-md-4">
                                                    <div class="form-group label-floating">
                                                       <label class="control-label">Twitter</label>
-                                                           <input type="text" class="form-control" name="twitter" #twitter="ngModel" [(ngModel)]="establecimiento.twitter">
+                                                           <input type="text" class="form-control" name="twitter" #twitter="ngModel" [(ngModel)]="establecimiento.redesSociales.twitter">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4">
                                                         <div class="form-group label-floating">
                                                            <label class="control-label">Youtube</label>
-                                                                <input type="text" class="form-control" name="youtube" #youtube="ngModel" [(ngModel)]="establecimiento.youtube">
+                                                                <input type="text" class="form-control" name="youtube" #youtube="ngModel" [(ngModel)]="establecimiento.redesSociales.youtube">
                                                          </div>
                                                      </div>
                                                      <div class="col-md-4">
                                                             <div class="form-group label-floating">
                                                                <label class="control-label">Snapchat</label>
-                                                                    <input type="text" class="form-control" name="snapchat" #snapchat="ngModel" [(ngModel)]="establecimiento.snapchat">
+                                                                    <input type="text" class="form-control" name="snapchat" #snapchat="ngModel" [(ngModel)]="establecimiento.redesSociales.snapchat">
                                                              </div>
                                                          </div>                                        
                                             </div>
@@ -168,7 +168,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group label-floating">
                                             <label for="exampleInput">Desde</label>
-                                            <input type="time" class="form-control" name="inicio" #inicio="ngModel" [(ngModel)]="establecimiento.inicio" required />
+                                            <input type="time" class="form-control" name="inicio" #inicio="ngModel" [(ngModel)]="establecimiento.atencion.inicio" required />
                                         </div>
                                     </div>
                                 </div>
@@ -178,7 +178,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group label-floating">
                                                 <label>Hasta</label>
-                                                <input type="time" class="form-control" name="cierre" #cierre="ngModel" [(ngModel)]="establecimiento.cierre" required >
+                                                <input type="time" class="form-control" name="cierre" #cierre="ngModel" [(ngModel)]="establecimiento.atencion.cierre" required >
                                             </div>
                                         </div>
                                     </div>
