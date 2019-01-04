@@ -113,35 +113,34 @@ declare var $:any;
           //this.loadPage()
         }
 
-        loadPage(){
-          this._route.params.subscribe(params=>{
-            let id = params['id'];
-            this.getEstablecimiento(id);
-          })
-        }
+        // loadPage(){
+        //   this._route.params.subscribe(params=>{
+        //     let id = params['id'];
+        //     this.getEstablecimiento(id);
+        //   })
+        // }
 
-        getEstablecimiento(id){
-          this._EstablecimientoService.getEstablecimiento(id).subscribe(
-            response=>{
-              if(response.establecimiento){
-                console.log(response.establecimiento);
-                this.establecimiento=response.establecimiento;
-              }else{
-                console.log(response.establecimiento);
-              }
-            },
-            error=>{
-              console.log(<any>error);
-              this._router.navigate(['/establecimiento',this.identity._id]);
-            }
-          )
+        // getEstablecimiento(id){
+        //   this._EstablecimientoService.getEstablecimiento(id).subscribe(
+        //     response=>{
+        //       if(response.establecimiento){
+        //         console.log(response.establecimiento);
+        //         this.establecimiento=response.establecimiento;
+        //       }else{
+        //         console.log(response.establecimiento);
+        //       }
+        //     },
+        //     error=>{
+        //       console.log(<any>error);
+        //       this._router.navigate(['/establecimiento',this.identity._id]);
+        //     }
+        //   )
 
-        }
+        // }
 
         ngDoCheck(){
           //this.identity = this._canchasService.getIdentity();
-          
-          this.establecimiento = this._EstablecimientoService.getIdentity();
+          //this.establecimiento = this._EstablecimientoService.getIdentity();
           //this.establecimientos = this._EstablecimientoService.getEstablecimiento(Establecimiento);
           
         }
