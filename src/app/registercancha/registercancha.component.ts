@@ -103,10 +103,11 @@ export class RegisterCanchaComponent implements OnInit, OnChanges, AfterViewInit
            // this.status ='error';
            this.showNotification('top','center','Establecimiento Guardado Correctamente.','success'); 
               form.reset();
+              this._router.navigate(['/establecimiento']);
             }
             else{
             //this.status='success';
-            this.showNotification('top','center','Complete todos los datos.','danger'); 
+            this.showNotification('top','center','Error al guardar los datos','danger'); 
             //console.log(response.establecimiento);
             form.reset();
            }

@@ -16,6 +16,7 @@ export const AppRoutes: Routes = [
                     {path: 'components',loadChildren: './components/components.module#ComponentsModule'},
                     {path: 'forms',loadChildren: './forms/forms.module#Forms'},
                     {path: 'establecimiento',loadChildren: './establecimientopage/establecimiento.module#EstablecimientoModule'},
+                    {path: 'alquiler',loadChildren: './alquiler/alquiler.module#alquilerModule'},
                     {path: 'tables',loadChildren: './tables/tables.module#TablesModule'},
                     {path: 'widgets',loadChildren: './widgets/widgets.module#WidgetsModule'},
                     {path: 'calendar',loadChildren: './calendar/calendar.module#CalendarModule'},

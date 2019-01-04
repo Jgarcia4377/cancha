@@ -50,6 +50,7 @@ export class misCanchasComponent implements OnInit , DoCheck{
 
    ngDoCheck(){
     this.identity = this._canchasService.getIdentity();
+    
   }
    showNotification(from, align,message,typeError){
     var type = ['','info','success','warning','danger','rose','primary'];

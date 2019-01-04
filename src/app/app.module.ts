@@ -15,6 +15,7 @@ import { AuthLayoutComponent } from './layouts/auth/auth-layout.component';
 import { AppRoutes } from './app.routing';
 import {} from '@angular/core/index'
 
+//import { alquilerModule } from './alquiler/alquiler.module';
 //servicios 
 
 import { UsuarioService } from './services/usuario.service';
@@ -22,6 +23,7 @@ import { UsuarioGuard } from './services/usuario.guard';
 import { MantenimientoComponent } from './mantenimiento/mantenimiento.component';
 import { UsuariosComponent } from './mantenimiento/usuarios/usuarios.component';
 
+//import { alquilerComponent } from './alquiler/alquiler.components';
 @NgModule({
     imports:      [
         BrowserModule,
@@ -30,7 +32,8 @@ import { UsuariosComponent } from './mantenimiento/usuarios/usuarios.component';
         HttpClientModule,
         SidebarModule,
         NavbarModule,
-        FooterModule
+        FooterModule,
+       // alquilerModule
     ],
     declarations: [
         AppComponent,
@@ -38,6 +41,7 @@ import { UsuariosComponent } from './mantenimiento/usuarios/usuarios.component';
         AuthLayoutComponent,
         MantenimientoComponent,
         UsuariosComponent,
+  //      alquilerComponent
         
         
     ],

@@ -32,6 +32,7 @@ export const ROUTES: RouteInfo[] = [
     { path: '/pages/register', title: 'Register Page', icon:'material-icons' },
     { path: '/pages/lock', title: 'Lock Screen Page', icon:'material-icons' },
     { path: '/usuarios', title: 'Usuarios', icon:'material-icons' },
+    { path: '/alquiler', title: 'Alquiler', icon:'material-icons' },
 
 
 
