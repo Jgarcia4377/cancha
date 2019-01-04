@@ -107,7 +107,8 @@ export class misCanchasComponent implements OnInit , DoCheck{
      this.actualPage();
     // Init Tooltips
     // $('[rel="tooltip"]').tooltip();
-    
+   // this.newCancha = this._canchasService.getIdentity();
+   
     }
 
     actualPage(){
@@ -157,6 +158,7 @@ export class misCanchasComponent implements OnInit , DoCheck{
   
 
     onSubmit(form){
+          
       this._canchasService.registerCancha(this.newCancha).subscribe(
         response=>{
           console.log(this.newCancha);
@@ -165,7 +167,7 @@ export class misCanchasComponent implements OnInit , DoCheck{
             //localStorage.setItem('identity',JSON.stringify(this.newCancha));
             //console.log('token')
          // this.status ='error';
-            //form.reset();
+            form.reset();
             
           }
           else{

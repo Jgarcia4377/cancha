@@ -21,12 +21,15 @@ declare var $:any;
       
         constructor(
           private _route: ActivatedRoute,
-          private _router: Router,
+          private _router: Router, 
           
           private _EstablecimientoService: EstablecimientoService
         )
         {
-          this.identity = this._EstablecimientoService.getIdentity();
+          this.establecimiento = JSON.parse(localStorage.getItem('establecimiento'))[0];
+          //this.establecimiento = this._EstablecimientoService.getIdentity();
+          this.identity =  this.establecimiento;
+          
           this.establecimiento = new Establecimiento('',
         '',
         '',
@@ -105,18 +108,48 @@ declare var $:any;
 
         ngOnInit(){
           console.log('componente de establecimiento cargado');
-          
+          //this.identity = this._EstablecimientoService.getIdentity();
+          //this.establecimiento = this._EstablecimientoService.getEstablecimiento(id);
+          //this.loadPage()
+        }
+
+        loadPage(){
+          this._route.params.subscribe(params=>{
+            let id = params['id'];
+            this.getEstablecimiento(id);
+          })
+        }
+
+        getEstablecimiento(id){
+          this._EstablecimientoService.getEstablecimiento(id).subscribe(
+            response=>{
+              if(response.establecimiento){
+                console.log(response.establecimiento);
+                this.establecimiento=response.establecimiento;
+              }else{
+                console.log(response.establecimiento);
+              }
+            },
+            error=>{
+              console.log(<any>error);
+              this._router.navigate(['/establecimiento',this.identity._id]);
+            }
+          )
+
         }
 
         ngDoCheck(){
-          this.identity = this._EstablecimientoService.getIdentity();
+          //this.identity = this._canchasService.getIdentity();
+          
+          this.establecimiento = this._EstablecimientoService.getIdentity();
+          //this.establecimientos = this._EstablecimientoService.getEstablecimiento(Establecimiento);
+          
         }
       
         onSubmit(){
-
           this._EstablecimientoService.updateEstablecimiento(this.establecimiento).subscribe(
             response=>{
-              if(response.establecimiento){
+              if(!response.establecimiento){
                 console.log(response.establecimiento)
               }else{
                 console.log(response.establecimiento)
