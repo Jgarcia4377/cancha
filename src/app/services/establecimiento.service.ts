@@ -11,6 +11,7 @@ export class EstablecimientoService{
     public url:string;
     public token;
     public identity;
+    public establecimiento;
 
     constructor(public _http: HttpClient){
         this.url = GLOBAL.url;
@@ -24,6 +25,15 @@ export class EstablecimientoService{
             this.identity = null;
         }
         return this.identity;
+    }
+    getEstable(){
+        let establecimiento = JSON.parse(localStorage.getItem('establecimiento'));
+        if(establecimiento != "undefined"){
+            this.establecimiento = establecimiento;
+        }else{
+            this.establecimiento = null;
+        }
+        return this.establecimiento;
     }
     getToken(){
         let token = JSON.parse(localStorage.getItem('token'));

@@ -15,42 +15,41 @@ declare var $:any;
 
     export class EstablecimientoComponent implements OnInit, DoCheck{ 
         title = 'ffm';
-        public establecimiento: Establecimiento;
+        public establecimiento;
         public status: string;
         public identity;
       
         constructor(
           private _route: ActivatedRoute,
           private _router: Router, 
-          
           private _EstablecimientoService: EstablecimientoService
         )
         {
-          this.establecimiento = JSON.parse(localStorage.getItem('establecimiento'))[0];
-          //this.establecimiento = this._EstablecimientoService.getIdentity();
-          this.identity =  this.establecimiento;
+          // this.establecimiento = JSON.parse(localStorage.getItem('establecimiento'))[0];
+          this.establecimiento = this._EstablecimientoService.getEstable()[0];
+          // this.identity =  this.establecimiento;
           
-          this.establecimiento = new Establecimiento('',
-        '',
-        '',
-        '',
-        '',
-        '',
-        '',
-        '',
-        '',
-        '',
-        '',
-        '',
-        '',
-        '',
-        '',
-        '',
-        '',
-        '',
-        '',
-        '',
-        '');
+        //   this.establecimiento = new Establecimiento('',
+        // '',
+        // '',
+        // '',
+        // '',
+        // '',
+        // '',
+        // '',
+        // '',
+        // '',
+        // '',
+        // '',
+        // '',
+        // '',
+        // '',
+        // '',
+        // '',
+        // '',
+        // '',
+        // '',
+        // '');
         }
 
 
@@ -108,11 +107,9 @@ declare var $:any;
 
         ngOnInit(){
           console.log('componente de establecimiento cargado');
-<<<<<<< HEAD
-          this.establecimiento = this._EstablecimientoService.getIdentity();
-=======
-          //this.identity = this._EstablecimientoService.getIdentity();
-          //this.establecimiento = this._EstablecimientoService.getEstablecimiento(id);
+          this.identity = this._EstablecimientoService.getIdentity();
+          this.establecimiento = this._EstablecimientoService.getEstable()[0];
+          console.log(this.establecimiento);
           //this.loadPage()
         }
 
@@ -147,7 +144,6 @@ declare var $:any;
           this.establecimiento = this._EstablecimientoService.getIdentity();
           //this.establecimientos = this._EstablecimientoService.getEstablecimiento(Establecimiento);
           
->>>>>>> a8b9435a958997fa4049be2e55cc014aeb53583f
         }
       
         onSubmit(){
