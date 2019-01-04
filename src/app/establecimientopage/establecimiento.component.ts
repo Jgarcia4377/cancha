@@ -47,6 +47,7 @@ import {EstablecimientoService} from '../services/establecimiento.service';
         }
         ngOnInit(){
           console.log('componente de establecimiento cargado');
+          this.establecimiento = this._EstablecimientoService.getIdentity();
         }
       
         onSubmit(){
