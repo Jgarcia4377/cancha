@@ -55,16 +55,19 @@
                                                 <form #registerCanchaForm="ngForm" (ngSubmit)="onSubmit(registerCanchaForm)">
                                                         <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="establecimiento._id">
                                                     <!--        You can switch " data-color="purple" "  with one of the next bright colors: "green", "orange", "red", "blue"       -->
-                                                    <div class="wizard-header">
+                                                    <!--<div class="wizard-header">
                                                         <h3 class="wizard-title">
-                                                           PERFIL DE ESTABLECIMIENTO
+                                                          
                                                         </h3>
                                                         <h5>Esta información permitirá saber más sobre el Establecimiento..</h5>
-                                                    </div>
+                                                    </div>-->
+                                                    <br>
                                                     <div class="wizard-navigation">
+                                                            
                                                         <ul>
+                                                           
                                                             <li>
-                                                                <a href="#establecimiento" data-toggle="tab">Establecimiento</a>
+                                                                <a href="#establecimiento" data-toggle="tab"> PERFIL DE ESTABLECIMIENTO</a>
                                                             </li>
                                                             <!--<li>
                                                                 <a href="#acercaCancha" data-toggle="tab">Acerca</a>
@@ -80,16 +83,8 @@
                                                     <div class="tab-content">
                                                         <div class="tab-pane" id="establecimiento">
                                                             <div class="row">
-                                                                <h4 class="info-text"> Empecemos con la información básica</h4>
-                                                                <div class="col-sm-2 col-sm-offset-1">
-                                                                    <!--<div class="picture-container">
-                                                                        <div class="picture">
-                                                                            <img src="../../assets/img/default-avatar.png" class="picture-src" id="wizardPicturePreview" title="" />
-                                                                            <input type="file" id="wizard-picture">
-                                                                        </div>
-                                                                        <h6>Sube tu Foto</h6>
-                                                                    </div>-->
-                                                                </div>
+                                                               <!-- <h6 class="info-text"> Empecemos con la información básica</h6>-->
+                                                                
                                                                 
                                                                 <div class="col-sm-10 col-sm-offset-1">
                                                                   
@@ -140,6 +135,9 @@
                                                                                         </div>
                                                                                     </div>
                                                                                     -->
+                                                                                                                                                                             
+                                                                                            
+                                                                                                    <div class="col-sm-5 col-sm-offset-1">
                                                                                     <div class="input-group">
                                                                                         <span class="input-group-addon">
                                                                                             <i class="material-icons">place</i>
@@ -151,8 +149,9 @@
                                                                                             <input required type="text" class="form-control" name="ciudad" #ciudad="ngModel" [(ngModel)]="establecimiento.ciudad" >
                                                                                         </div>
                                                                                     </div> 
-
-                                                                                    <div class="input-group">
+                                                                                                    </div>
+                                                                                                    <div class="col-sm-5 col-sm-offset-1">
+                                                                                                 <div class="input-group">
                                                                                         <span class="input-group-addon">
                                                                                             <i class="material-icons">place</i>
                                                                                         </span>
@@ -163,7 +162,7 @@
                                                                                             <input type="text" class="form-control" name="sector" #sector="ngModel" [(ngModel)]="establecimiento.sector" >
                                                                                         </div>
                                                                                     </div> 
-
+                                                                                 </div>
                                                                                     <div class="input-group">
                                                                                             <span class="input-group-addon">
                                                                                                 <i class="material-icons">place</i>
@@ -175,6 +174,7 @@
                                                                                                 <input required type="text" class="form-control" name="callePrincipal" #callePrincipal="ngModel" [(ngModel)]="establecimiento.callePrincipal" >
                                                                                             </div>
                                                                                         </div> 
+                                                                                       
                                                                                         <div class="input-group">
                                                                                                 <span class="input-group-addon">
                                                                                                     <i class="material-icons">place</i>
