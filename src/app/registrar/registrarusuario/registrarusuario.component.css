@@ -1,0 +1,11 @@
+.planOption{
+    width: 60%;padding-right:  50px;
+}
+.wizard-card .wizard-header {
+    text-align: center;
+    padding: 25px 0 10px;
+}
+
+.tab-content{
+    padding: 0;
+}

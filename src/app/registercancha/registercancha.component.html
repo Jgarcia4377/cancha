@@ -1,419 +1,323 @@
 <div class="wrapper wrapper-full-page">
-        <nav class="navbar navbar-primary navbar-transparent navbar-absolute">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#menu-example">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="/">Mangol</a>
-                </div>
-                <div class="collapse navbar-collapse" id="menu-example">
-                    <ul class="nav navbar-nav navbar-right">
-                        <!--<li>
-                            <a href="/dashboard">
-                                <i class="material-icons">dashboard</i> Dashboard
-                            </a>
-                        </li>
-                        -->
+  <nav class="navbar navbar-primary navbar-transparent navbar-absolute">
+    <div class="container">
+      <div class="navbar-header">
+        <button
+          type="button"
+          class="navbar-toggle"
+          data-toggle="collapse"
+          data-target="#menu-example"
+        >
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span> <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">ManGool</a>
+      </div>
+      <div class="collapse navbar-collapse" id="menu-example">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="/register">
+              <i class="material-icons">person_add</i> Registrate
+            </a>
+          </li>
+          <li class="active">
+            <a href="/register-cancha">
+              <i class="material-icons">security</i> Registra tu cancha
+            </a>
+          </li>
+          <li>
+            <a href="/"> <i class="material-icons">fingerprint</i> Iniciar sesión </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div
+    class="full-page register-page"
+    filter-color="black"
+    data-image="../../../assets/img/cancha-login.jpg"
+  >
+    <div class="container">
+      <div class="row">
+        <div class="main-content">
+          <div class="container-fluid">
+            <div class="col-sm-8 col-sm-offset-2">
+              <!--      Wizard container        -->
+              <div class="wizard-container">
+                <div
+                  class="card wizard-card"
+                  data-color="purple"
+                  id="wizardProfile"
+                >
+                  <form
+                    #registerCanchaForm="ngForm"
+                    (ngSubmit)="onSubmit(registerCanchaForm)"
+                  >
+                    <input
+                      type="hidden"
+                      name="_id"
+                      #_id="ngModel"
+                      [(ngModel)]="establecimiento._id"
+                    />
+                    <br />
+                    <div class="wizard-navigation">
+                      <ul>
                         <li>
-                            <a href="/register">
-                                <i class="material-icons">person_add</i> Registrate
-                            </a>
+                          <a href="#establecimiento" data-toggle="tab">
+                            PERFIL DE ESTABLECIMIENTO</a
+                          >
                         </li>
-                        <li class="active">
-                                <a href="/register-cancha">
-                                    <i class="material-icons">security</i> Registra tu cancha
-                                </a>
-                            </li>
-                        <li>
-                            <a href="/">
-                                <i class="material-icons">fingerprint</i> Login
-                            </a>
-                        </li>
-                       <!-- <li class="">
-                            <a href="/pages/lock">
-                                <i class="material-icons">lock_open</i> Lock
-                            </a>
-                        </li>
-                        -->
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        <div class="full-page register-page" filter-color="black" data-image="../../../assets/img/cancha-login.jpg">
-            <div class="container">
-                <div class="row">
-                        <div class="main-content">
-                                <div class="container-fluid">
-                                    <div class="col-sm-8 col-sm-offset-2">
-                                        <!--      Wizard container        -->
-                                        <div class="wizard-container">
-                                            <div class="card wizard-card" data-color="purple" id="wizardProfile">
-                                                <form #registerCanchaForm="ngForm" (ngSubmit)="onSubmit(registerCanchaForm)">
-                                                        <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="establecimiento._id">
-                                                    <!--        You can switch " data-color="purple" "  with one of the next bright colors: "green", "orange", "red", "blue"       -->
-                                                    <!--<div class="wizard-header">
-                                                        <h3 class="wizard-title">
-                                                          
-                                                        </h3>
-                                                        <h5>Esta información permitirá saber más sobre el Establecimiento..</h5>
-                                                    </div>-->
-                                                    <br>
-                                                    <div class="wizard-navigation">
-                                                            
-                                                        <ul>
-                                                           
-                                                            <li>
-                                                                <a href="#establecimiento" data-toggle="tab"> PERFIL DE ESTABLECIMIENTO</a>
-                                                            </li>
-                                                            <!--<li>
-                                                                <a href="#acercaCancha" data-toggle="tab">Acerca</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="#pago" data-toggle="tab">Pagó</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="#pago" data-toggle="tab">Metodo de Pago</a>
-                                                            </li>-->
-                                                        </ul>
-                                                    </div>
-                                                    <div class="tab-content">
-                                                        <div class="tab-pane" id="establecimiento">
-                                                            <div class="row">
-                                                               <!-- <h6 class="info-text"> Empecemos con la información básica</h6>-->
-                                                                
-                                                                
-                                                                <div class="col-sm-10 col-sm-offset-1">
-                                                                  
-                                                                         <div class="input-group">
-                                                                        <span class="input-group-addon">
-                                                                            <i class="material-icons">business</i>
-                                                                        </span>
-                                                                        <div class="form-group label-floating">
-                                                                            <label class="control-label">Razón Social
-                                                                                <small>*</small>
-                                                                            </label>
-                                                                            <input required type="text" class="form-control" name="razonSocial" #razonSocial="ngModel" [(ngModel)]="establecimiento.razonSocial">
-                                                                        </div>
-                                                                    
-                                                                </div>
-                                                                    <div class="input-group">
-                                                                            <span class="input-group-addon">
-                                                                                <i class="material-icons">perm_identity</i>
-                                                                            </span>
-                                                                            <div class="form-group label-floating">
-                                                                                <label class="control-label">Representante
-                                                                                    <small data-color="purple">*</small>
-                                                                                </label>
-                                                                                <input required type="text" class="form-control" name="representante" #representante="ngModel" [(ngModel)]="establecimiento.representante">
-                                                                            </div>
-                                                                        </div>
-                                                                        
+                      </ul>
+                    </div>
+                    <div class="tab-content">
+                      <div class="tab-pane" id="establecimiento">
+                        <div class="row">
+                          <!-- <h6 class="info-text"> Empecemos con la información básica</h6>-->
 
-                 
-                                                                        <!--
-                                                                            <div class="col-sm-3 col-sm-offset-1">
-                                                                                    <div class="form-group label-floating">
-                                                                                        <label class="control-label">Provincia</label>
-                                                                                        <select class="form-control" name="Provincia" #Provincia="ngModel" [(ngModel)]="establecimiento.Provincia" >
-                                                                                            <option *ngFor="let prov of provincias" [value]="prov.provincia">{{prov.provincia}}</option>
-                                                                                        </select>
-                                                                                    </div>
-                                                                                </div>
+                          <div class="col-sm-10 col-sm-offset-1">
+                            <div class="input-group">
+                              <span class="input-group-addon">
+                                <i class="material-icons">business</i>
+                              </span>
+                              <div class="form-group label-floating">
+                                <label class="control-label"
+                                  >Razón Social <small>*</small>
+                                </label>
+                                <input
+                                  required
+                                  type="text"
+                                  class="form-control"
+                                  name="razonSocial"
+                                  #razonSocial="ngModel"
+                                  [(ngModel)]="establecimiento.razonSocial"
+                                />
+                              </div>
+                            </div>
 
-                                                                                
+                            <!-- <div class="input-group">
+                              <span class="input-group-addon">
+                                <i class="material-icons">perm_identity</i>
+                              </span>
+                              <div class="form-group label-floating">
+                                <label class="control-label"
+                                  >Representante
+                                  <small data-color="purple">*</small>
+                                </label>
+                                <input
+                                  required
+                                  type="text"
+                                  class="form-control"
+                                  name="representante"
+                                  #representante="ngModel"
+                                  [(ngModel)]="establecimiento.representante"
+                                />
+                              </div>
+                            </div> -->
 
-                                                                                    <div class="col-sm-3 col-sm-offset-1">
-                                                                                        <div class="form-group label-floating">
-                                                                                            <label class="control-label">Parroquia</label>
-                                                                                            <select class="form-control" name="parroquia" #parroquia="ngModel" [(ngModel)]="establecimiento.parroquia">
-                                                                                                <option *ngFor="let parr of parroquias" [value]="">{{parr}}</option>
-                                                                                            </select>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    -->
-                                                                                                                                                                             
-                                                                                            
-                                                                                                    <div class="col-sm-5 col-sm-offset-1">
-                                                                                    <div class="input-group">
-                                                                                        <span class="input-group-addon">
-                                                                                            <i class="material-icons">place</i>
-                                                                                        </span>
-                                                                                        <div class="form-group label-floating">
-                                                                                            <label class="control-label">Ciudad
-                                                                                                <small font-color="red">*</small>
-                                                                                            </label>
-                                                                                            <input required type="text" class="form-control" name="ciudad" #ciudad="ngModel" [(ngModel)]="establecimiento.ciudad" >
-                                                                                        </div>
-                                                                                    </div> 
-                                                                                                    </div>
-                                                                                                    <div class="col-sm-5 col-sm-offset-1">
-                                                                                                 <div class="input-group">
-                                                                                        <span class="input-group-addon">
-                                                                                            <i class="material-icons">place</i>
-                                                                                        </span>
-                                                                                        <div class="form-group label-floating">
-                                                                                            <label class="control-label">Sector
-                                                                                                <!--<small font-color="red">*</small>-->
-                                                                                            </label>
-                                                                                            <input type="text" class="form-control" name="sector" #sector="ngModel" [(ngModel)]="establecimiento.sector" >
-                                                                                        </div>
-                                                                                    </div> 
-                                                                                 </div>
-                                                                                    <div class="input-group">
-                                                                                            <span class="input-group-addon">
-                                                                                                <i class="material-icons">place</i>
-                                                                                            </span>
-                                                                                            <div class="form-group label-floating">
-                                                                                                <label class="control-label">Calle Principal
-                                                                                                    <small font-color="red">*</small>
-                                                                                                </label>
-                                                                                                <input required type="text" class="form-control" name="callePrincipal" #callePrincipal="ngModel" [(ngModel)]="establecimiento.callePrincipal" >
-                                                                                            </div>
-                                                                                        </div> 
-                                                                                       
-                                                                                        <div class="input-group">
-                                                                                                <span class="input-group-addon">
-                                                                                                    <i class="material-icons">place</i>
-                                                                                                </span>
-                                                                                                <div class="form-group label-floating">
-                                                                                                    <label class="control-label">Calle Secundaria
-                                                                                                        <small font-color="red">*</small>
-                                                                                                    </label>
-                                                                                                    <input required type="text" class="form-control" name="calleSecundaria" #calleSecundaria="ngModel" [(ngModel)]="establecimiento.calleSecundaria" >
-                                                                                                </div>
-                                                                                            </div>          
-                                                                            
-                                                                     <div class="input-group">
-                                                                            <span class="input-group-addon">
-                                                                                <i class="material-icons">email</i>
-                                                                            </span>
-                                                                            <div class="form-group label-floating">
-                                                                                <label class="control-label">Correo
-                                                                                    <small font-color="red">*</small>
-                                                                                </label>
-                                                                                <input required type="email" class="form-control" name="correo" #correo="ngModel" [(ngModel)]="establecimiento.correo" >
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="input-group">
-                                                                                <span class="input-group-addon">
-                                                                                    <i class="material-icons">vpn_key</i>
-                                                                                </span>
-                                                                                <div class="form-group label-floating">
-                                                                                    <label class="control-label">Contraseña
-                                                                                        <small>*</small>
-                                                                                    </label>
-                                                                                    <input required type="password" class="form-control" name="contrasena" #contrasena="ngModel" [(ngModel)]="establecimiento.contrasena">
-                                                                                </div>
-                                                                            
-                                                                </div>
-                                                            </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="tab-pane" id="acercaCancha">
-                                                            <h4 class="info-text"> Selecciona el tipo de Césped que tiene tu Establecimiento</h4>
-                                                            <div class="row">
-                                                                <div class="col-lg-10 col-lg-offset-1">
-                                                                    <div class="col-sm-4">
-                                                                        <div class="choice" data-toggle="wizard-checkbox">
-                                                                            <input type="checkbox" name="jobb" value="Design">
-                                                                            <div class="icon">
-                                                                                    <i class="fa fa-leaf fa-5x" aria-hidden="true"></i>
-                                                                            </div>
-                                                                            <h6>Césped Artificial</h6>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-sm-4">
-                                                                        <div class="choice" data-toggle="wizard-checkbox">
-                                                                            <input type="checkbox" name="jobb" value="Code">
-                                                                            <div class="icon">
-                                                                                    <i class="fa fa-leaf fa-5x" aria-hidden="true"></i>
-                                                                            </div>
-                                                                            <h6>Césped Natural</h6>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-sm-4">
-                                                                        <div class="choice" data-toggle="wizard-checkbox">
-                                                                            <input type="checkbox" name="jobb" value="Develop">
-                                                                            <div class="icon">
-                                                                                    <i class="fa fa-random" aria-hidden="true"></i>
-                                                                            </div>
-                                                                            <h6>Mixta</h6>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="tab-pane" id="pago">
-                                                            <div class="row">
-                                                                <div class="col-sm-12">
-                                                                    <h4 class="info-text"> Datos de Tarjeta de Credito </h4>
-                                                                </div>
-                                                                <div class="col-sm-11 col-sm-offset-1">
-                                                                    <div class="form-group label-floating">
-                                                                        <label class="control-label">Razón Social</label>
-                                                                        <input type="text" class="form-control">
-                                                                    </div>
-                                                                </div>
-                                                              <!--  <div class="col-sm-3">
-                                                                    <div class="form-group label-floating">
-                                                                        <label class="control-label">Street No.</label>
-                                                                        <input type="text" class="form-control">
-                                                                    </div>
-                                                                </div>-->
-                                                                
-                                                                <div class="col-sm-3 col-sm-offset-1">
-                                                                    <div class="form-group label-floating">
-                                                                        <label class="control-label">País</label>
-                                                                        <select name="country" class="form-control">
-                                                                            <option disabled="" selected="Ecuador"></option>
-                                                                            <option value="Afghanistan"> Afghanistan </option>
-                                                                            <option value="Albania"> Albania </option>
-                                                                            <option value="Algeria"> Algeria </option>
-                                                                            <option value="American Samoa"> American Samoa </option>
-                                                                            <option value="Andorra"> Andorra </option>
-                                                                            <option value="Angola"> Angola </option>
-                                                                            <option value="Anguilla"> Anguilla </option>
-                                                                            <option value="Antarctica"> Antarctica </option>
-                                                                            <option value="...">...</option>
-                                                                        </select>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-sm-3 col-sm-offset-1">
-                                                                        <div class="form-group label-floating">
-                                                                            <label class="control-label">Provincia</label>
-                                                                            <select name="country" class="form-control">
-                                                                                <option disabled="" selected=""></option>
-                                                                                <option value="Afghanistan"> Afghanistan </option>
-                                                                                <option value="Albania"> Albania </option>
-                                                                                <option value="Algeria"> Algeria </option>
-                                                                                <option value="American Samoa"> American Samoa </option>
-                                                                                <option value="Andorra"> Andorra </option>
-                                                                                <option value="Angola"> Angola </option>
-                                                                                <option value="Anguilla"> Anguilla </option>
-                                                                                <option value="Antarctica"> Antarctica </option>
-                                                                                <option value="...">...</option>
-                                                                            </select>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-sm-3 col-sm-offset-1">
-                                                                            <div class="form-group label-floating">
-                                                                                <label class="control-label">Ciudad</label>
-                                                                                <select name="country" class="form-control">
-                                                                                    <option disabled="" selected=""></option>
-                                                                                    <option value="Afghanistan"> Afghanistan </option>
-                                                                                    <option value="Albania"> Albania </option>
-                                                                                    <option value="Algeria"> Algeria </option>
-                                                                                    <option value="American Samoa"> American Samoa </option>
-                                                                                    <option value="Andorra"> Andorra </option>
-                                                                                    <option value="Angola"> Angola </option>
-                                                                                    <option value="Anguilla"> Anguilla </option>
-                                                                                    <option value="Antarctica"> Antarctica </option>
-                                                                                    <option value="...">...</option>
-                                                                                </select>
-                                                                            </div>
-                                                                        </div>
-                                                            </div>
-                                                        </div>
-                                                      <!-- <div class="tab-pane" id="pago">
-                                                                <div class="row">
-                                                                    <div class="col-sm-12">
-                                                                        <h4 class="info-text"> Datos de tarjeta requeridos para validar que no sea un robot </h4>
-                                                                    </div>
-                                                                    <div class="col-sm-7 col-sm-offset-1">
-                                                                        <div class="form-group label-floating">
-                                                                            <label class="control-label">Street Name</label>
-                                                                            <input type="text" class="form-control">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-sm-3">
-                                                                        <div class="form-group label-floating">
-                                                                            <label class="control-label">Street No.</label>
-                                                                            <input type="text" class="form-control">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-sm-5 col-sm-offset-1">
-                                                                        <div class="form-group label-floating">
-                                                                            <label class="control-label">City</label>
-                                                                            <input type="text" class="form-control">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-sm-5">
-                                                                        <div class="form-group label-floating">
-                                                                            <label class="control-label">Country</label>
-                                                                            <select name="country" class="form-control">
-                                                                                <option disabled="" selected=""></option>
-                                                                                <option value="Afghanistan"> Afghanistan </option>
-                                                                                <option value="Albania"> Albania </option>
-                                                                                <option value="Algeria"> Algeria </option>
-                                                                                <option value="American Samoa"> American Samoa </option>
-                                                                                <option value="Andorra"> Andorra </option>
-                                                                                <option value="Angola"> Angola </option>
-                                                                                <option value="Anguilla"> Anguilla </option>
-                                                                                <option value="Antarctica"> Antarctica </option>
-                                                                                <option value="...">...</option>
-                                                                            </select>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>-->
-                                                    </div>
-                                                    <div class="wizard-footer">
-                                                        <div class="pull-right">
-                                                            <input type='button' class='btn btn-next btn-fill btn-rose btn-wd' name='next' value='Siguiente' />
-                                                            <input type="submit" class='btn btn-finish btn-fill btn-rose btn-wd' name='finish' value='Registrar' />
-                                                        </div>
-                                                        <div class="pull-left">
-                                                            <input type='button' class='btn btn-previous btn-fill btn-default btn-wd' name='previous' value='Anterior' />
-                                                        </div>
-                                                        <div class="clearfix"></div>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
-                                        <!-- wizard container -->
-                                    </div>
+                            <div class="col-sm-3 col-sm-offset-1">
+                              <div class="form-group label-floating">
+                                <label class="control-label">Provincia</label>
+                                <select
+                                  class="form-control"
+                                  name="Provincia"
+                                  #Provincia="ngModel"
+                                  [(ngModel)]="establecimiento.Provincia"
+                                >
+                                  <option
+                                    *ngFor="let prov of provincias"
+                                    [value]="prov.provincia"
+                                    >{{ prov.provincia }}</option
+                                  >
+                                </select>
+                              </div>
+                            </div>
+
+                            <div class="col-sm-3 col-sm-offset-1">
+                                <div class="form-group label-floating">
+                                  <label class="control-label">Canton</label>
+                                  <select
+                                    class="form-control"
+                                    name="Canton"
+                                    #Provincia="ngModel"
+                                    [(ngModel)]="establecimiento.Canton"
+                                  >
+                                    <option
+                                      *ngFor="let cant of cantones"
+                                      [value]="cant.canton"
+                                      >{{ cant.canton }}</option
+                                    >
+                                  </select>
+                                </div>
+                              </div>
+
+                            <div class="col-sm-3 col-sm-offset-1">
+                              <div class="form-group label-floating">
+                                <label class="control-label">Parroquia</label>
+                                <select
+                                  class="form-control"
+                                  name="parroquia"
+                                  #parroquia="ngModel"
+                                  [(ngModel)]="establecimiento.parroquia"
+                                >
+                                  <option
+                                    *ngFor="let parr of parroquias"
+                                    [value]=""
+                                    >{{ parr }}</option
+                                  >
+                                </select>
+                              </div>
+                            </div>
+
+                              <div class="input-group">
+                                <span class="input-group-addon">
+                                  <i class="material-icons">place</i>
+                                </span>
+                                <div class="form-group label-floating">
+                                  <label class="control-label"
+                                    >Sector
+                                    <!--<small font-color="red">*</small>-->
+                                  </label>
+                                  <input
+                                    type="text"
+                                    class="form-control"
+                                    name="sector"
+                                    #sector="ngModel"
+                                    [(ngModel)]="establecimiento.sector"
+                                  />
+                                </div>
+                              </div>
+                  
+                            <div class="input-group">
+                              <span class="input-group-addon">
+                                <i class="material-icons">place</i>
+                              </span>
+                              <div class="form-group label-floating">
+                                <label class="control-label"
+                                  >Calle Principal
+                                  <small font-color="red">*</small>
+                                </label>
+                                <input
+                                  required
+                                  type="text"
+                                  class="form-control"
+                                  name="callePrincipal"
+                                  #callePrincipal="ngModel"
+                                  [(ngModel)]="establecimiento.callePrincipal"
+                                />
+                              </div>
+                            </div>
+
+                            <div class="input-group">
+                              <span class="input-group-addon">
+                                <i class="material-icons">place</i>
+                              </span>
+                              <div class="form-group label-floating">
+                                <label class="control-label"
+                                  >Calle Secundaria
+                                  <small font-color="red">*</small>
+                                </label>
+                                <input
+                                  required
+                                  type="text"
+                                  class="form-control"
+                                  name="calleSecundaria"
+                                  #calleSecundaria="ngModel"
+                                  [(ngModel)]="establecimiento.calleSecundaria"
+                                />
+                              </div>
+                            </div>
+
+                            <div class="input-group">
+                              <span class="input-group-addon">
+                                <i class="material-icons">email</i>
+                              </span>
+                              <div class="form-group label-floating">
+                                <label class="control-label"
+                                  >Correo <small font-color="red">*</small>
+                                </label>
+                                <input
+                                  required
+                                  type="email"
+                                  class="form-control"
+                                  name="correo"
+                                  #correo="ngModel"
+                                  [(ngModel)]="establecimiento.correo"
+                                />
+                              </div>
+                            </div>
+                            <div class="input-group">
+                              <span class="input-group-addon">
+                                <i class="material-icons">vpn_key</i>
+                              </span>
+                              <div class="form-group label-floating">
+                                <label class="control-label"
+                                  >Contraseña <small>*</small>
+                                </label>
+                                <input
+                                  required
+                                  type="password"
+                                  class="form-control"
+                                  name="contrasena"
+                                  #contrasena="ngModel"
+                                  [(ngModel)]="establecimiento.contrasena"
+                                />
+                              </div>
+                            </div>
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <i class="material-icons">vpn_key</i>
+                                </span>
+                                <div class="form-group label-floating">
+                                    <label class="control-label"
+                                    >Repetir contraseña <small>*</small>
+                                    </label>
+                                    <input
+                                    required
+                                    type="password"
+                                    class="form-control"
+                                    name="repetirContrasena"
+                                    #repetirContrasena="ngModel"
+                                    [(ngModel)]="establecimiento.contrasena"
+                                    />
                                 </div>
                             </div>
-                            
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="wizard-footer">
+                      <div class="pull-right">
+                        <input
+                          type="button"
+                          class="btn btn-next btn-fill btn-rose btn-wd"
+                          name="next"
+                          value="Siguiente"
+                        />
+                        <input
+                          type="submit"
+                          class="btn btn-finish btn-fill btn-rose btn-wd"
+                          name="finish"
+                          value="Registrar"
+                        />
+                      </div>
+                      <div class="pull-left">
+                        <input
+                          type="button"
+                          class="btn btn-previous btn-fill btn-default btn-wd"
+                          name="previous"
+                          value="Anterior"
+                        />
+                      </div>
+                      <div class="clearfix"></div>
+                    </div>
+                  </form>
                 </div>
+              </div>
             </div>
-            <footer class="footer">
-                <div class="container">
-                    <nav class="pull-left">
-                        <ul>
-                           <!-- <li>
-                                <a href="#">
-                                    Home
-                                </a>
-                            </li>-->
-                            <li>
-                                <a href="#">
-                                    Company
-                                </a>
-                            </li>
-                            <!--<li>
-                                <a href="#">
-                                    Portfolio
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    Blog
-                                </a>
-                            </li>-->
-                        </ul>
-                    </nav>
-                    <p class="copyright pull-left">
-                        &copy;
-                        {{test | date: 'yyyy'}}
-                        <a href="#">CacicusTech</a>
-                    </p>
-                </div>
-            </footer>
+          </div>
         </div>
+      </div>
     </div>
-    
+  </div>
+</div>

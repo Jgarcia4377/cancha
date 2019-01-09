@@ -140,8 +140,6 @@ export class RegisterCanchaComponent implements OnInit, OnChanges, AfterViewInit
       }
   };
  
-
-
     ngOnInit(){
         this.checkFullPageBackgroundImage();
         this._otroService.cargarPaises().subscribe(
@@ -162,22 +160,19 @@ export class RegisterCanchaComponent implements OnInit, OnChanges, AfterViewInit
                 console.log(peopleArray);
                 console.log(peopleArray[0]);
                 this.provincias = peopleArray;
-                var idprovincia = peopleArray[12];
-                const peopleArray2 = Object.keys(idprovincia).map(i =>idprovincia[i])
-                console.log(peopleArray2);
-                const peopleArray3 = Object.keys(peopleArray2['1']).map(i => peopleArray2['1'][i])
-                console.log(peopleArray3);
-                this.cantones = peopleArray3;
-                var idcanton = peopleArray3[2];
-                const parroquiass = Object.keys(idcanton).map(i => idcanton[i])
-                console.log(parroquiass);
-                const parroquiasss = Object.keys(parroquiass['1']).map(i => parroquiass['1'][i])
-                this.parroquias = parroquiasss;
-                console.log(parroquiasss);
-
-                this.parroquias = parroquiasss;
-         
-                
+                // var idprovincia = peopleArray[12];
+                // const peopleArray2 = Object.keys(idprovincia).map(i =>idprovincia[i])
+                // console.log(peopleArray2);
+                // const peopleArray3 = Object.keys(peopleArray2['1']).map(i => peopleArray2['1'][i])
+                // console.log(peopleArray3);
+                // this.cantones = peopleArray3;
+                // var idcanton = peopleArray3[2];
+                // const parroquiass = Object.keys(idcanton).map(i => idcanton[i])
+                // console.log(parroquiass);
+                // const parroquiasss = Object.keys(parroquiass['1']).map(i => parroquiass['1'][i])
+                // this.parroquias = parroquiasss;
+                // console.log(parroquiasss);
+                // this.parroquias = parroquiasss;
             },
             error=>{
               console.log(<any>error);
