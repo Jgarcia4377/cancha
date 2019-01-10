@@ -72,6 +72,10 @@ export class EstablecimientoService{
         return this._http.get(this.url+'establecimiento/'+id, {headers:headers});        
     }
 
+    getEstablecimientos(pagina): Observable <any>{
+        let headers = new HttpHeaders().set('Content-Type','application/json')                        
+        return this._http.get(this.url+'establecimientos/'+pagina, {headers:headers});        
+    }
     
 }
 
