@@ -18,7 +18,7 @@ export class AppComponent implements OnInit, DoCheck{
         private elRef:ElementRef,
         private _canchasService: CanchasService,
         private _userService: UsuarioService,
-        private _establecimientoSercice : EstablecimientoService,
+        private _establecimientoService : EstablecimientoService,
         private _route: ActivatedRoute,
         private _router: Router
         ) {
@@ -40,7 +40,7 @@ export class AppComponent implements OnInit, DoCheck{
     ngDoCheck(){
         this.identity = this._userService.getIdentity();
         this.identity = this._canchasService.getIdentity();
-        this.identity = this._establecimientoSercice.getIdentity();
+        this.identity = this._establecimientoService.getIdentity();
     }
     logout(){
         localStorage.clear();

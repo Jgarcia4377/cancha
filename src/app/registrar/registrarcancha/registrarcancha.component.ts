@@ -1,4 +1,9 @@
-import { Component, OnInit, OnChanges, AfterViewInit } from '@angular/core';
+import { Component, OnInit, OnChanges, AfterViewInit, SimpleChange } from '@angular/core';
+import { Establecimiento } from '../../models/establecimiento';
+import {Router, ActivatedRoute, Params} from '@angular/router';
+import {EstablecimientoService} from '../../services/establecimiento.service';
+import {OtroService} from '../../services/otro.service';
+import {Provincia} from 'app/models/provincia';
 
 declare var $: any;
 interface FileReaderEventTarget extends EventTarget {
@@ -12,9 +17,16 @@ interface FileReaderEvent extends Event {
 @Component({
   selector: 'app-registrarcancha',
   templateUrl: './registrarcancha.component.html',
-  styleUrls: ['./registrarcancha.component.css']
+  styleUrls: ['./registrarcancha.component.css'],
+  providers: [EstablecimientoService,OtroService]
 })
-export class RegistrarcanchaComponent implements OnInit {
+export class RegistrarcanchaComponent implements OnInit, OnChanges, AfterViewInit {
+  public title: String;
+  public establecimiento: Establecimiento;
+  public status: string;
+  public provincias: Provincia[];
+  public cantones;
+  public parroquias;
   // readURL(input) {
   //   if (input.files && input.files[0]) {
   //     var reader = new FileReader();
@@ -26,9 +38,122 @@ export class RegistrarcanchaComponent implements OnInit {
   //   }
   // }
 
-  constructor() { }
+  constructor(      
+    private _route: ActivatedRoute,
+    private _router: Router,
+    private _establecimientoService: EstablecimientoService,
+    private _otroService: OtroService
+    ) {
+      this.title='Registra tu cancha',
+      this.establecimiento = new Establecimiento('','','','','','Ecuador','','','','','','','','','','','','','','','');
+      //this.paises = new Pais('','','','','','','','','')
+    }
+
+    //notificaciones
+    showNotification(from, align,message,typeError){
+      var type = ['','info','success','warning','danger','rose','primary'];
+  
+      $.notify({
+        // options
+          icon: "notifications",
+          title: "",
+          message: message,
+          url: '',
+          target: '_blank'
+        },{
+         // settings
+          element: 'body',
+          position: null,
+          type: typeError,
+          allow_dismiss: true,
+          newest_on_top: false,
+          showProgressbar: false,
+          placement: {
+            from: from,
+            align: align
+          },
+          offset: 20,
+          spacing: 10,
+          z_index: 1031,
+          delay: 3000,
+          timer: 1000,
+          url_target: '_blank',
+          mouse_over: null,
+          animate: {
+            enter: 'animated fadeInDown',
+            exit: 'animated fadeOutUp'
+          },
+          onShow: null,
+          onShown: null,
+          onClose: null,
+          onClosed: null,
+          icon_type: 'class',
+          template: '<div data-notify="container" class="col-xs-11 col-sm-3 alert alert-{0}" role="alert">' +
+            '<button type="button" aria-hidden="true" class="close" data-notify="dismiss">×</button>' +
+            '<span data-notify="icon"></span> ' +
+            '<span data-notify="title">{1}</span> ' +
+            '<span data-notify="message">{2}</span>' +
+            '<div class="progress" data-notify="progressbar">' +
+              '<div class="progress-bar progress-bar-{0}" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>' +
+            '</div>' +
+            '<a href="{3}" target="{4}" data-notify="url"></a>' +
+          '</div>' 
+        });
+  }
+  
+  onSubmit(form){
+    this._establecimientoService.registrarEstablecimiento(this.establecimiento).subscribe(
+      response=>{
+        if(response.establecimiento && response.establecimiento._id){
+          //console.log(response.establecimiento);
+       // this.status ='error';
+       this.showNotification('top','center','Establecimiento Guardado Correctamente.','success'); 
+          form.reset();
+          this._router.navigate(['/establecimiento']);
+        }
+        else{
+        //this.status='success';
+        this.showNotification('top','center','Error al guardar los datos','danger'); 
+        //console.log(response.establecimiento);
+        form.reset();
+       }
+      },
+      error=>{
+        this.showNotification('top','center',error.error.message,'danger');
+        console.log(<any>error);
+      }
+    );
+  }
 
   ngOnInit() {
+    //cargar las provincias
+    this._otroService.cargarProvincias().subscribe(
+      response=>{
+          const peopleArray = Object.keys(response.provincias['0']).map(i => response.provincias['0'][i])
+          console.log(peopleArray);
+          //console.log(peopleArray[0]);
+          this.provincias = peopleArray;
+          // var idprovincia = peopleArray[12];
+          // const peopleArray2 = Object.keys(idprovincia).map(i =>idprovincia[i])
+          // console.log(peopleArray2);
+          // const peopleArray3 = Object.keys(peopleArray2['1']).map(i => peopleArray2['1'][i])
+          // console.log(peopleArray3);
+          // this.cantones = peopleArray3;
+          // var idcanton = peopleArray3[2];
+          // const parroquiass = Object.keys(idcanton).map(i => idcanton[i])
+          // console.log(parroquiass);
+          // const parroquiasss = Object.keys(parroquiass['1']).map(i => parroquiass['1'][i])
+          // this.parroquias = parroquiasss;
+          // console.log(parroquiasss);
+          // this.parroquias = parroquiasss;
+      },
+      error=>{
+        console.log(<any>error);
+      },
+      ()=>{
+          console.log('finalizado');
+      }
+    );
     // Code for the Validator
     var $validator = $('.wizard-card form').validate({
       rules: {
@@ -208,8 +333,11 @@ export class RegistrarcanchaComponent implements OnInit {
 
   }
 
-  ngOnChanges() {
+  ngOnChanges(changes):void{
     var input = $(this);
+    console.log(changes.init.currentValue);
+    console.log(changes);
+    console.log(input.val());
     var target: EventTarget;
     if (input.files && input.files[0]) {
       var reader: any = new FileReader();
