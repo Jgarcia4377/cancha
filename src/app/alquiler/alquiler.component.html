@@ -1,249 +1,112 @@
-<div class="main-content">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card">
-
-                    <button class="card-header card-header-icon btn btn-success" style="float: right;"
-                        data-background-color="green" data-toggle="modal" data-target="#modalRegistrarCanchaForm">
-                        Nueva Cancha
+<div class="wrapper wrapper-full-page">
+        <nav class="navbar navbar-primary navbar-transparent navbar-absolute">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#menu-example">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
                     </button>
-                    <div class="card-content">
-                        <h4 class="card-title">Mis Canchas</h4>
-                        <div class="table-responsive">
-                            <table class="table table-hover">
-                                <thead>
-                                    <tr>
-                                        <th class="">#</th>
-                                        <th class="">Nombre</th>
-                                        <th class="">Dimensiones</th>
-                                        <th class="">Cesped</th>
-                                        <th class="">N° jugadores</th>
-                                        
-                                        <th class="">Opciones</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr *ngFor="let cancha of canchas; index as i">
-                                        <td class="">{{ i + 1 }}</td>
-                                        <td class=" hidden">{{ cancha._id }}</td>
-                                        <td>{{ cancha.nombre }}</td>
-                                        <td>
-                                            {{
-                                            cancha.dimensiones.ancho +
-                                            " mts de ancho X " +
-                                            cancha.dimensiones.largo +
-                                            "
-                                            mts de largo"
-                                            }}
-                                        </td>
-                                        <td>{{ cancha.cesped }}</td>
-                                        
-                                        <td class="">{{ cancha.numeroJugadores }}</td>
-                                        <td class="td-actions">
-                                            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalRegistrarCanchaForm">
-                                                <i class="material-icons">edit</i>
-                                            </button>
-                                            <button type="button" class="btn btn-warning">
-                                                <i class="material-icons">close</i>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+                    <a class="navbar-brand" href="/">Mangol</a>
+                </div>
+                <div class="collapse navbar-collapse" id="menu-example">
+                    <ul class="nav navbar-nav navbar-right">
+                        <!--<li>
+                            <a href="/dashboard">
+                                <i class="material-icons">dashboard</i> Dashboard
+                            </a>
+                        </li>
+                        -->
+                        <li class=" active ">
+                            <a href="/register">
+                                <i class="material-icons">person_add</i> Registrate
+                            </a>
+                        </li>
+                        <li >
+                                <a href="/register-establecimiento">
+                                    <i class="material-icons">security</i> Registra tu cancha
+                                </a>
+                            </li>
+                        <li >
+                            <a href="/login">
+                                <i class="material-icons">fingerprint</i> Login
+                            </a>
+                        </li>
+                       <!-- <li class="">
+                            <a href="/pages/lock">
+                                <i class="material-icons">lock_open</i> Lock
+                            </a>
+                        </li>
+                        -->
+                    </ul>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="modal fade" id="modalRegistrarCanchaForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <span class="modal-title">Nueva Cancha</span>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">x</span>
-                    </button>
-                </div>
-                <form #registrarCancha="ngForm" (ngSubmit)="onSubmit(registrarCancha)">
-                    <div class="modal-body">
-                        <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="newCancha._id" />
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-md-8">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="col-md-12">
-                                                <div class="form-group label-floating">
-                                                    <label class="control-label">Nombre</label>
-                                                    <input type="text" class="form-control" name="nombre" #nombre="ngModel"
-                                                        [(ngModel)]="newCancha.nombre"/>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group label-floating">
-                                                    
-                                                    <select class="mdb-select md-form form-control" #cesped="ngModel"
-                                                        [(ngModel)]="newCancha.cesped" name="cesped">
-                                                        <option value="" disabled selected>Seleccione el tipo de
-                                                            Cesped.</option>
-                                                        <option value="Sintético">Sintético</option>
-                                                        <option value="Natural">Natural</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group label-floating">
-                                                    <label class="control-label">N° Jugadores</label>
-                                                    <input type="text" class="form-control" name="numeroJugadores"
-                                                        #numeroJugadores="ngModel" [(ngModel)]="newCancha.numeroJugadores" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <br>
-                                                <div class="col-md-12"><label for="inputEmail3MD" class="col-md-4 col-form-label"><strong>Tarifa Por defecto</strong></label></div>
-                                                <div class="col-md-12">
-                                                        <div class="form-group row">
-                                                            <!-- Material input -->
-                                                            <label for="inputEmail3MD" class="col-md-4 col-form-label"><strong>Lunes
-                                                                    - Viernes</strong></label>
-                                                            <div class="col-md-8">
-                                                                <div class="md-form mt-0">
-                                                                    <input type="text" class="form-control" id="inputEmail3MD"
-                                                                    name="diaS"
-                                                                    #diaS="ngModel" [(ngModel)]="newCancha.diaS" placeholder="Mañana - tarde (08h00 - 17h00)">
-                                                                </div>
-                                                            <!-- </div>
-                                                            <div class="col-md-4"> -->
-                                                                <div class="md-form mt-0">
-                                                                    <input type="text" class="form-control" id="" name="nocheS"
-                                                                    #nocheS="ngModel" [(ngModel)]="newCancha.nocheS" placeholder="Noche (18h00 - 23h59)">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-12">
-                                                        <div class="form-group row">
-                                                            <!-- Material input -->
-                                                            <label for="" class="col-md-4 col-form-label"><strong>Sábado - Domingo</strong></label>
-                                                            <div class="col-md-8">
-                                                                <div class="md-form mt-0">
-                                                                    <input type="text" class="form-control" id="" name="diaFS"
-                                                                    #diaFS="ngModel" [(ngModel)]="newCancha.diaFS" placeholder="Mañana - tarde (08h00 - 17h00)">
-                                                                </div>
-                                                                <div class="md-form mt-0">
-                                                                    <input type="text" class="form-control" id="" name="nocheFS"
-                                                                    #nocheFS="ngModel" [(ngModel)]="newCancha.nocheFS" placeholder="Noche (18h00 - 23h59)">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-4">
-                                    <div class="card">
-
-                                        <div class="card-content">
-                                            <div class="row">
-                                                <div class="col-md-4"><br>
-                                                    <div class="col-md-12"></div><br><br>
-                                                    <div class="col-md-12">
-                                                        <div class="form-group label-floating">
-                                                            <label class="control-label">Largo</label>
-                                                            <input type="text" class="form-control" name="largo" #largo="ngModel"
-                                                                [(ngModel)]="newCancha.largo" />
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-
-                                                <div class="col-md-8 text-center">
-                                                    <img src="assets/img/cancha.png" />
-                                                </div>
-                                                <div class="col-md-4"></div>
-                                                <div class="col-md-8 text-center">
-
-                                                    <div class="form-group label-floating">
-                                                        <label class="control-label">Ancho</label>
-                                                        <input type="text" class="form-control" name="ancho" #ancho="ngModel"
-                                                            [(ngModel)]="newCancha.ancho" />
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <!-- 
-
-                        <div class="col-md-12">
-                            <h4 class="">Precios (<small class="category">Configuración Típica</small>)</h4>
-                            <div class="table-responsive text-nowrap">
-                                <table class="table table-bordered table-sm">
+        </nav>
+        <div class="full-page register-page" filter-color="green" data-image="../../../assets/img/cancha-login.jpg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1">
+                        <div class="row">
+                        <div class="card card-signup">
+                            
+                            <h3 class="card-title text-center">Canchas</h3>
+                            <table id="datatable-details-alquiler" class="table table-striped table-bordered">
                                     <thead>
-                                        <tr>
-                                            <th scope="col">Días/Horas</th>
-                                            <th scope="col">
-                                                Mañana - Tarde
-                                                <small class="category">(08h00 - 17h00)</small>
-                                            </th>
-                                            <th scope="col">
-                                                Noche
-                                                <small class="category">(18h00 - 23h00)</small>
-                                            </th>
-                                        </tr>
+                                      <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">First</th>
+                                        <th scope="col">Last</th>
+                                        <th style="display: none">Handle</th>
+                                      </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <th scope="row">Lunes - Viernes</th>
-                                            <td>
-                                                <div class="md-form form-sm">
-                                                    <input type="text" class="form-control form-control-sm" name="diaS"
-                                                        #diaS="ngModel" [(ngModel)]="canchas.diaS" />
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="md-form form-sm">
-                                                    <input type="text" class="form-control form-control-sm" name="nocheS"
-                                                        #nocheS="ngModel" [(ngModel)]="canchas.nocheS" />
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Sabado - Domingo</th>
-                                            <td>
-                                                <div class="md-form form-sm">
-                                                    <input type="text" class="form-control form-control-sm" name="diaFS"
-                                                        #diaFS="ngModel" [(ngModel)]="canchas.diaFS" />
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="md-form form-sm">
-                                                    <input type="text" class="form-control form-control-sm" name="nocheFS"
-                                                        #nocheFS="ngModel" [(ngModel)]="canchas.nocheFS" />
-                                                </div>
-                                            </td>
-                                        </tr>
+                                      <tr>
+                                        <td>1</td>
+                                        <td>Mark</td>
+                                        <td>Otto</td>
+                                        <td style="display: none">Jorge</td>
+                                      </tr>
                                     </tbody>
-                                </table>
-                            </div>
-                        </div> -->
-                            </div>
+                                  </table>
+                                </div>
                         </div>
-                    
                     </div>
-                    <div class="modal-footer d-flex justify-content-center">
-                        <button type="submit" class="btn btn-success btn-fill">Guardar Cancha</button>
-                        <button class="btn btn-deep-orange" type="button" data-dismiss="modal">Cancelar</button>
-                    </div>
-                </form>
+                </div>
             </div>
+            <footer class="footer">
+                <div class="container">
+                    <nav class="pull-left">
+                        <ul>
+                           <!-- <li>
+                                <a href="#">
+                                    Home
+                                </a>
+                            </li>-->
+                            <li>
+                                <a href="#">
+                                    Company
+                                </a>
+                            </li>
+                            <!--<li>
+                                <a href="#">
+                                    Portfolio
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Blog
+                                </a>
+                            </li>-->
+                        </ul>
+                    </nav>
+                    <p class="copyright pull-left">
+                        &copy;
+                        {{test | date: 'yyyy'}}
+                        <a href="#">CacicusTech</a>
+                    </p>
+                </div>
+            </footer>
         </div>
     </div>
-</div>
+    

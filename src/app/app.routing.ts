@@ -5,8 +5,9 @@ import { AuthLayoutComponent } from './layouts/auth/auth-layout.component';
 import { UsuarioGuard } from './services/usuario.guard';
 
 export const AppRoutes: Routes = [
-    { path: '',loadChildren: './login/login.module#LoginModule'},
+    { path: '',loadChildren: './alquiler/alquiler.module#alquilerModule'},
     { path: 'login',loadChildren: './login/login.module#LoginModule'}, 
+    { path: 'alquiler',loadChildren: './alquiler/alquiler.module#alquilerModule'},
     { path: 'register',loadChildren: './register/register.module#RegisterModule'},
     { path: 'register-establecimiento',loadChildren: './registercancha/registercancha.module#RegisterCanchaModule'}, 
     { path: '',component: AdminLayoutComponent,
@@ -16,7 +17,7 @@ export const AppRoutes: Routes = [
                     {path: 'components',loadChildren: './components/components.module#ComponentsModule'},
                     {path: 'forms',loadChildren: './forms/forms.module#Forms'},
                     {path: 'establecimiento',loadChildren: './establecimientopage/establecimiento.module#EstablecimientoModule'},
-                    {path: 'alquiler',loadChildren: './alquiler/alquiler.module#alquilerModule'},
+                   // {path: 'alquiler',loadChildren: './alquiler/alquiler.module#alquilerModule'},
                     {path: 'tables',loadChildren: './tables/tables.module#TablesModule'},
                     {path: 'widgets',loadChildren: './widgets/widgets.module#WidgetsModule'},
                     {path: 'calendar',loadChildren: './calendar/calendar.module#CalendarModule'},
