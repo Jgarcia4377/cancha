@@ -158,20 +158,21 @@ export class RegisterComponent implements OnInit{
               this.showNotification('top','center','Usuario registrado correctamente.','success'); 
            // this.status ='error';
               form.reset();
+              this._router.navigateByUrl('/dashboard');
             }
             else{
             //this.status='success';
             console.log(response.usuario);
-            this.showNotification('top','center','No se pudo registrar el Usuario.','warning'); 
-            form.reset();
+            //this.showNotification('top','center','No se pudo registrar el Usuario.','warning'); 
+           // form.reset();
            }
           },
           error=>{
             var errorMessage=<any>error;
             this.showNotification('top','center',errorMessage.error.message,'danger');
-            if(errorMessage != null){
-              this.status='error';
-            }
+           // if(errorMessage != null){
+             // this.showNotification('top','center',errorMessage.error.message,'danger');
+            //}
           }
         );
       }
