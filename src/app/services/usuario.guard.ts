@@ -12,7 +12,7 @@ export class UsuarioGuard implements CanActivate{
 
     canActivate(){
         let identity = this._usuarioService.getIdentity();
-        if(identity && (identity.rol == 'UsuarioJugador' || identity.rol == 'UsuarioCancha' || identity.rol == 'ROLE_ADMIN')){
+        if(identity && (identity.rol == 'UsuarioJugador' || identity.rol == 'UsuarioCancha')){
             return true;
         }else{
             this._router.navigate(['/login']);
