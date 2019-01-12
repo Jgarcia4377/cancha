@@ -27,6 +27,7 @@ export class RegistrarcanchaComponent implements OnInit, OnChanges, AfterViewIni
   public provincias: Provincia[];
   public cantones;
   public parroquias;
+  //@Input() selectProvincia: Provincia[];
   // readURL(input) {
   //   if (input.files && input.files[0]) {
   //     var reader = new FileReader();
@@ -338,6 +339,18 @@ console.log(this.provincias);
 
     $('.set-full-height').css('height', 'auto');
 
+  }
+
+  onChange(newValue) {
+    let cantones = Object.keys(newValue.cantones).map(i => newValue.cantones[i])
+    console.log(cantones);
+    this.cantones = cantones;
+  }
+
+  onChangeCanton(newValue){
+    let parroquias = Object.keys(newValue.parroquias).map(i => newValue.parroquias[i])
+    console.log(parroquias);
+    this.parroquias = parroquias;
   }
 
   ngOnChanges(changes):void{
