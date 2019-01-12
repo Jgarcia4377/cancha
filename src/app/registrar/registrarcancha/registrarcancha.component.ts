@@ -126,14 +126,21 @@ export class RegistrarcanchaComponent implements OnInit, OnChanges, AfterViewIni
   }
 
   ngOnInit() {
+    const paises = {
+      paises: this.provincias
+
+}
+
+console.log(this.provincias);
+
     //cargar las provincias
     this._otroService.cargarProvincias().subscribe(
       response=>{
           const peopleArray = Object.keys(response.provincias['0']).map(i => response.provincias['0'][i])
           console.log(peopleArray);
-          //console.log(peopleArray[0]);
+          console.log(peopleArray[0]);
           this.provincias = peopleArray;
-          // var idprovincia = peopleArray[12];
+          // var idprovincia = peopleArray['12'];
           // const peopleArray2 = Object.keys(idprovincia).map(i =>idprovincia[i])
           // console.log(peopleArray2);
           // const peopleArray3 = Object.keys(peopleArray2['1']).map(i => peopleArray2['1'][i])
