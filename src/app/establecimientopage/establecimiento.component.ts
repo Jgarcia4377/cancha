@@ -26,30 +26,31 @@ declare var $:any;
         )
         {
           // this.establecimiento = JSON.parse(localStorage.getItem('establecimiento'))[0];
-          this.establecimiento = this._EstablecimientoService.getEstable()[0];
+         // this.establecimiento = this._EstablecimientoService.getEstable()[0];
           // this.identity =  this.establecimiento;
           
-        //   this.establecimiento = new Establecimiento('',
-        // '',
-        // '',
-        // '',
-        // '',
-        // '',
-        // '',
-        // '',
-        // '',
-        // '',
-        // '',
-        // '',
-        // '',
-        // '',
-        // '',
-        // '',
-        // '',
-        // '',
-        // '',
-        // '',
-        // '');
+        //  this.establecimiento = new Establecimiento('',
+        //  '',
+        //  '',
+        //  '',
+        //  '',
+        //  this.establecimiento.pais,
+
+        //  this.establecimiento.provincia,
+        //  '',
+        //  '',
+        //  '',
+        //  '',
+        //  '',
+        //  '',
+        //  '',
+        //  '',
+        //  '',
+        //  '',
+        //  '',
+        //  '',
+        //  '',
+        //  '');
         }
 
 
@@ -108,10 +109,14 @@ declare var $:any;
         ngOnInit(){
           console.log('componente de establecimiento cargado');
           this.identity = this._EstablecimientoService.getIdentity();
-          this.establecimiento = this._EstablecimientoService.getEstable()[0];
+         // this.establecimiento = this._EstablecimientoService.getEstable()[0];
           console.log(this.establecimiento);
           //this.loadPage()
+
+          
         }
+
+        
 
         // loadPage(){
         //   this._route.params.subscribe(params=>{
@@ -139,31 +144,39 @@ declare var $:any;
         // }
 
         ngDoCheck(){
+          this.establecimiento = this._EstablecimientoService.getEstable()[0];
           //this.identity = this._canchasService.getIdentity();
           //this.establecimiento = this._EstablecimientoService.getIdentity();
           //this.establecimientos = this._EstablecimientoService.getEstablecimiento(Establecimiento);
           
         }
+
+        actualizarEstablecimiento(){
+
+        }
       
-        onSubmit(){
+        onSubmit(form){
           this._EstablecimientoService.updateEstablecimiento(this.establecimiento).subscribe(
             response=>{
               if(!response.establecimiento){
                 console.log(response.establecimiento)
+                 // this.status ='error';
+                 this.showNotification('top','center','Error, no se ha podido actualizar su establecimiento','warning'); 
               }else{
                 console.log(response.establecimiento)
                 localStorage.setItem('identity',JSON.stringify(this.establecimiento));
+                //localStorage.setItem('establecimiento',JSON.stringify(this.establecimiento));
+                
+               
                 this.identity = this.establecimiento;
+
                 this.showNotification('top','center','Actualizado Correctamente.','success'); 
               }
 
             },
             error=>{
-              var errorMessage= <any>error;
-              console.log(errorMessage);
-              if(errorMessage !=null){
-                console.log(errorMessage);
-              }
+              this.showNotification('top','center',error.error.message,'danger');
+              console.log(<any>error);
             }
           );
 

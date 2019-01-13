@@ -13,7 +13,7 @@
         </div>
 
 
-        <div class="sidebar-wrapper">
+        <div class="sidebar-wrapper" >
 
             <div class="user" *ngIf="identity">
                 <div class="photo">
@@ -116,7 +116,7 @@
                             <p>{{menuItems[0].title}}</p>
                         </a>
                     </li>
-                    <li routerLinkActive="active">
+                    <li routerLinkActive="active" *ngIf="identity.rol=='UsuarioCancha'">
                         <a data-toggle="collapse" href="#Establecimiento">
                             <i class="material-icons">business</i>
                             <p>Establecimiento

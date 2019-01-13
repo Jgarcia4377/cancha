@@ -130,7 +130,7 @@ export class LoginComponent implements OnInit, DoCheck{
             this.showNotification('top','center','Iniciando sesión.','success'); 
           }else{
             //this.$notify='warning';
-            this.status='error';
+           // this.status='error';
             
             console.log('error');
           }
@@ -141,9 +141,9 @@ export class LoginComponent implements OnInit, DoCheck{
         error=>{
           var errorMessage=<any>error;
           this.showNotification('top','center',errorMessage.error.message,'danger');
-          if(errorMessage != null){
-            this.status='error';
-          }
+         //// if(errorMessage != null){
+          //  this.status='error';
+         // }
         }
       );
     }

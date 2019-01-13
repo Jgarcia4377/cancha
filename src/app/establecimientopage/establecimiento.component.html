@@ -37,7 +37,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group label-floating">
                                         <label class="control-label">Razón Social</label>
-                                        <input type="text" class="form-control" name="correo" #correo="ngModel" [(ngModel)]="establecimiento.razonSocial" >
+                                        <input disabled type="text" class="form-control" name="correo" #correo="ngModel" [(ngModel)]="establecimiento.razonSocial" >
                                     </div>
                                 </div>
                             </div>
@@ -82,10 +82,20 @@
                                     <div class="form-group label-floating">
                                     <label class="control-label">Ciudad
                                     </label>
-                                    <input type="text" class="form-control" name="ciudad" #ciudad="ngModel" [(ngModel)]="establecimiento.ciudad" >
+                                    <input type="text" class="form-control" name="ciudad" #ciudad="ngModel" [(ngModel)]="establecimiento.direccion.ciudad" >
                                 </div>
                             </div> 
                         </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group label-floating">
+                                <label class="control-label">Sector
+                                </label>
+                                <input type="text" class="form-control" name="sector" #sector="ngModel" [(ngModel)]="establecimiento.direccion.sector" >
+                            </div>
+                        </div> 
+                    </div>
 
                             <div class="row">
                                     <div class="col-md-12">
