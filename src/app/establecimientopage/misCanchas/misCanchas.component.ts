@@ -175,6 +175,7 @@ export class misCanchasComponent implements OnInit , DoCheck{
           //this.status='success';
           console.log(response.cancha);
           this.showNotification('top','center','Cancha Registrada Correctamente','success'); 
+          location.reload();
           form.reset();
     
          }
