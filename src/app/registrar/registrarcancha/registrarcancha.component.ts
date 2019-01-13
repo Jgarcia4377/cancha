@@ -27,6 +27,9 @@ export class RegistrarcanchaComponent implements OnInit, OnChanges, AfterViewIni
   public provincias: Provincia[];
   public cantones;
   public parroquias;
+  public provincia;
+  public canton;
+  public parroquia;
   //@Input() selectProvincia: Provincia[];
   // readURL(input) {
   //   if (input.files && input.files[0]) {
@@ -46,7 +49,7 @@ export class RegistrarcanchaComponent implements OnInit, OnChanges, AfterViewIni
     private _otroService: OtroService
     ) {
       this.title='Registra tu cancha',
-      this.establecimiento = new Establecimiento('','','','','','Ecuador','','','','','','','','','','','','','','','');
+      this.establecimiento = new Establecimiento('','Ecuador',this.provincia,this.canton,this.parroquia,'','','','','','','','','','','','','','','','','','');
       //this.paises = new Pais('','','','','','','','','')
     }
 
@@ -131,7 +134,7 @@ export class RegistrarcanchaComponent implements OnInit, OnChanges, AfterViewIni
     this._otroService.cargarProvincias().subscribe(
       response=>{
           const peopleArray = Object.keys(response.provincias['0']).map(i => response.provincias['0'][i])
-          console.log(peopleArray);
+          //console.log(peopleArray);
           //console.log(peopleArray[0]);
           this.provincias = peopleArray;
           // var idprovincia = peopleArray[12];
@@ -336,14 +339,21 @@ export class RegistrarcanchaComponent implements OnInit, OnChanges, AfterViewIni
 
   onChange(newValue) {
     let cantones = Object.keys(newValue.cantones).map(i => newValue.cantones[i])
-    console.log(cantones);
+    console.log(newValue.provincia);
     this.cantones = cantones;
+    this.provincia = newValue.provincia;
   }
 
   onChangeCanton(newValue){
     let parroquias = Object.keys(newValue.parroquias).map(i => newValue.parroquias[i])
-    console.log(parroquias);
+    console.log(newValue.canton);
     this.parroquias = parroquias;
+    this.canton = newValue.canton;
+  }
+  
+  onChangeParroquia(newValue){
+    console.log(newValue);
+    this.parroquia = newValue;
   }
 
   ngOnChanges(changes):void{
