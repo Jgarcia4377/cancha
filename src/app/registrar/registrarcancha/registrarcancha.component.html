@@ -126,7 +126,7 @@
 									<div class="col-sm-5 col-lg-offset-1">
 										<div class="form-group label-floating">
 											<label class="control-label">Provincia</label>
-											<select name="selectProvincia" class="form-control" #selectProvincia="ngModel" [(ngModel)]="establecimiento.provincia"
+											<select name="selectProvincia" class="form-control" #selectProvincia="ngModel" [(ngModel)]="provincia"
 											 (ngModelChange)="onChange($event)">
 												<option *ngFor="let prov of provincias" [ngValue]="prov">
 													{{prov.provincia}}
@@ -137,7 +137,7 @@
 									<div class="col-sm-5">
 										<div class="form-group label-floating">
 											<label class="control-label">Cantón</label>
-											<select name="selectCanton" class="form-control" #selectCanton="ngModel" [(ngModel)]="establecimiento.canton"
+											<select name="selectCanton" class="form-control" #selectCanton="ngModel" [(ngModel)]="canton"
 											 (ngModelChange)="onChangeCanton($event)">
 												<option *ngFor="let can of cantones" [ngValue]="can">
 													{{can.canton}}
@@ -148,7 +148,7 @@
 									<div class="col-sm-5 col-lg-offset-1">
 										<div class="form-group label-floating">
 											<label class="control-label">Parroquia</label>
-											<select name="selectParroquia" class="form-control" #selectParroquia="ngModel" [(ngModel)]="establecimiento.parroquia" (ngModelChange)="onChangeParroquia($event)">
+											<select name="selectParroquia" class="form-control" #selectParroquia="ngModel" [(ngModel)]="parroquia" (ngModelChange)="onChangeParroquia($event)">
 												<option *ngFor="let parr of parroquias" [value]="parr">{{parr}}</option>
 											</select>
 										</div>
@@ -190,7 +190,6 @@
 									<div class="col-md-12">
 										<span class="col-lg-offset-1">Contacto principal - representante</span>
 										<div class="row">
-
 											<div class="col-md-5 col-lg-offset-1">
 												<div class="input-group">
 													<span class="input-group-addon">

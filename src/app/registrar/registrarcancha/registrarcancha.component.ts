@@ -27,9 +27,9 @@ export class RegistrarcanchaComponent implements OnInit, OnChanges, AfterViewIni
   public provincias: Provincia[];
   public cantones;
   public parroquias;
-  public provincia;
-  public canton;
-  public parroquia;
+  private provincia;
+  private canton;
+  private parroquia;
   //@Input() selectProvincia: Provincia[];
   // readURL(input) {
   //   if (input.files && input.files[0]) {
@@ -141,13 +141,8 @@ console.log(this.provincias);
     this._otroService.cargarProvincias().subscribe(
       response=>{
           const peopleArray = Object.keys(response.provincias['0']).map(i => response.provincias['0'][i])
-<<<<<<< HEAD
           //console.log(peopleArray);
           //console.log(peopleArray[0]);
-=======
-          console.log(peopleArray);
-          console.log(peopleArray[0]);
->>>>>>> 7becdc780835d20f5d7089afa7fd691183f5d380
           this.provincias = peopleArray;
           // var idprovincia = peopleArray['12'];
           // const peopleArray2 = Object.keys(idprovincia).map(i =>idprovincia[i])
@@ -353,19 +348,19 @@ console.log(this.provincias);
     let cantones = Object.keys(newValue.cantones).map(i => newValue.cantones[i])
     console.log(newValue.provincia);
     this.cantones = cantones;
-    this.provincia = newValue.provincia;
+    // this.provincia = newValue.provincia;
   }
 
   onChangeCanton(newValue){
     let parroquias = Object.keys(newValue.parroquias).map(i => newValue.parroquias[i])
     console.log(newValue.canton);
     this.parroquias = parroquias;
-    this.canton = newValue.canton;
+    // this.canton = newValue.canton;
   }
   
   onChangeParroquia(newValue){
     console.log(newValue);
-    this.parroquia = newValue;
+    // this.parroquia = newValue;
   }
 
   ngOnChanges(changes):void{
