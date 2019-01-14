@@ -22,7 +22,8 @@ export const AppRoutes: Routes = [
                     {path: 'widgets',loadChildren: './widgets/widgets.module#WidgetsModule',canActivate:[UsuarioGuard]},
                     {path: 'calendar',loadChildren: './calendar/calendar.module#CalendarModule',canActivate:[UsuarioGuard]},
                     {path: 'perfil',loadChildren: './userpage/user.module#UserModule',canActivate:[UsuarioGuard]},
-                    {path: '',loadChildren: './timeline/timeline.module#TimelineModule',canActivate:[UsuarioGuard]}
+                    {path: '',loadChildren: './timeline/timeline.module#TimelineModule',canActivate:[UsuarioGuard]},
+                    {path: 'canchas',loadChildren: './canchas/canchas.module#CanchasModule'},
                 ]
     },
     {path: '',component: AuthLayoutComponent,

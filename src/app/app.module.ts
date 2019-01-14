@@ -22,6 +22,7 @@ import { UsuariosComponent } from './mantenimiento/usuarios/usuarios.component';
 
 //modulo de registro
 import { RegistrarModule } from './registrar/registrar.module';
+import { CanchasModule } from './canchas/canchas.module';
 @NgModule({
     imports:      [
         BrowserModule,
@@ -31,7 +32,8 @@ import { RegistrarModule } from './registrar/registrar.module';
         SidebarModule,
         NavbarModule,
         FooterModule,
-        RegistrarModule
+        RegistrarModule,
+        CanchasModule
        // alquilerModule
     ],
     declarations: [
