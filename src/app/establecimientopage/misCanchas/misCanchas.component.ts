@@ -3,6 +3,7 @@ import {Canchas} from '../../models/canchas';
 import {Router, ActivatedRoute, Params} from '@angular/router';
 import {CanchasService} from '../../services/canchas.service';
 import { R3ResolvedDependencyType } from '@angular/compiler/src/compiler_facade_interface';
+import { Establecimiento } from 'app/models/establecimiento';
 // import initWizard = require('../../../../assets/js/init/initWizard.js');
 
 
@@ -24,7 +25,7 @@ export class misCanchasComponent implements OnInit , DoCheck{
     public canchas: Canchas;
     public newCancha: Canchas;
     public status:string;
-    public establecimiento;
+    public establecimiento:Establecimiento;
     isShow=false;
     public variable;
     public page;
@@ -50,6 +51,7 @@ export class misCanchasComponent implements OnInit , DoCheck{
 
    ngDoCheck(){
     this.identity = this._canchasService.getIdentity();
+   
     
   }
    showNotification(from, align,message,typeError){

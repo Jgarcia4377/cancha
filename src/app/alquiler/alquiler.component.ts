@@ -108,12 +108,12 @@ export class alquilerComponent implements OnInit , DoCheck{
 			return [
 				'<table>',
 					'<tr class="b-top-none">',
-						'<td><strong>Nombres:</strong></td>',
+						'<td><strong>Dirección: </strong></td>',
                         //'<td>' + data[7]+'.</td>',
-                        '<td>' + "Jorge "+'.</td>',
-					'</tr>',
-					
-				'</div>'
+                        '<td> ' + "Via Crucita - Diagonal al Comando Polcial "+'.</td>',
+                        
+                    '</tr>',
+                '</div>',
 			].join('');
 		};
 

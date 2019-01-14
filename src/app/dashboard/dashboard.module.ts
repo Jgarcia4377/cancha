@@ -13,7 +13,7 @@ import { DashboardRoutes } from './dashboard.routing';
         RouterModule.forChild(DashboardRoutes),
         FormsModule
     ],
-    declarations: [DashboardComponent, MdTableComponent]
+    declarations: [DashboardComponent]
 })
 
 export class DashboardModule {}
