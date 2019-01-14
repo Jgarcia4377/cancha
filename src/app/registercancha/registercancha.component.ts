@@ -38,7 +38,16 @@ export class RegisterCanchaComponent implements OnInit, OnChanges, AfterViewInit
         private _router: Router,
         private _establecimientoService: EstablecimientoService,
         private _otroService: OtroService
+<<<<<<< HEAD
       ){  }
+=======
+      ){ 
+      
+      this.title='Registra tu cancha',
+      this.establecimiento = new Establecimiento('','','','','','Ecuador','Manabí','','','','','','','','','','','','','','',"","");
+      //this.paises = new Pais('','','','','','','','','')
+   }
+>>>>>>> 35c30e0f200a5e866380cdee2331197a079be709
    showNotification(from, align,message,typeError){
     var type = ['','info','success','warning','danger','rose','primary'];
 
