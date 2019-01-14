@@ -133,7 +133,7 @@ export class RegistrarcanchaComponent implements OnInit, OnChanges, AfterViewIni
     const paises = {
       paises: this.provincias
 
-}
+    }
 
 console.log(this.provincias);
 

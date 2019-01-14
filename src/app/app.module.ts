@@ -23,6 +23,7 @@ import { UsuariosComponent } from './mantenimiento/usuarios/usuarios.component';
 //modulo de registro
 import { RegistrarModule } from './registrar/registrar.module';
 import { CanchasModule } from './canchas/canchas.module';
+import { AlquilerModule } from './alquiler/alquiler.module';
 @NgModule({
     imports:      [
         BrowserModule,
@@ -33,8 +34,8 @@ import { CanchasModule } from './canchas/canchas.module';
         NavbarModule,
         FooterModule,
         RegistrarModule,
-        CanchasModule
-       // alquilerModule
+        CanchasModule,
+        AlquilerModule
     ],
     declarations: [
         AppComponent,

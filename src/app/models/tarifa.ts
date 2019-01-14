@@ -1,8 +1,9 @@
 export class Tarifa{
     constructor(
-        public _id:string,
+        public _id:String,
+        public establecimiento:String,
         public nombre: String,
-        public estado:String,
+        public estado:Boolean,
         public valor:String,
         public lunes: Boolean,
         public martes: Boolean,
@@ -13,7 +14,7 @@ export class Tarifa{
         public domingo: Boolean,
         public una: Boolean,
         public dos: Boolean,
-        public tes: Boolean,
+        public tres: Boolean,
         public cuatro: Boolean,
         public cinco: Boolean,
         public seis: Boolean,

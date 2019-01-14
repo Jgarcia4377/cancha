@@ -1,6 +1,6 @@
 export class Canchas{
     constructor(
-        public _id: string,
+        public _id: String,
         public nombre: String,
         public largo: Number,
         public ancho: Number,

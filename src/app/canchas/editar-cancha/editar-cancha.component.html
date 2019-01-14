@@ -1,10 +1,10 @@
 <div class="main-content">
     <div class="container-fluid">
-        <h3>Editar Cancha</h3>
+        <h3>Crear Cancha</h3>
         <div class="row">
             <div class="col-md-12">
                 <form #editarCancha="ngForm" (ngSubmit)="onSubmit(editarCancha)">
-                    <div class="modal-body">
+                    <div>
                         <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="cancha._id" />
                         <div class="container-fluid">
                             <div class="row">
@@ -20,10 +20,11 @@
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group label-floating">
+                                                    <label class="control-label">Tipo de césped</label>
                                                     <select class="mdb-select md-form form-control" #cesped="ngModel"
                                                         [(ngModel)]="cancha.cesped" name="cesped">
-                                                        <option value="" disabled selected>Seleccione el tipo de
-                                                            Cesped.</option>
+                                                        <!-- <option value="" disabled selected>Seleccione el tipo de
+                                                            Cesped.</option> -->
                                                         <option value="Sintético">Sintético</option>
                                                         <option value="Natural">Natural</option>
                                                     </select>
@@ -37,9 +38,25 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-12">
-                                            <br>
-                                            <div class="col-md-12">
+                                        <div class="col-md-12">
+                                            <div class="col-md-6">
+                                                    <div class="form-group label-floating">
+                                                        <label class="control-label">Tarifas</label>
+                                                        <select name="selectTarifa" class="form-control" #selectTarifa="ngModel" [(ngModel)]="cancha.tarifa"
+                                                         (ngModelChange)="onChange($event)">
+                                                            <option *ngFor="let tarifa of tarifas" [ngValue]="tarifa">
+                                                                {{tarifa.nombre}}
+                                                            </option>
+                                                        </select>
+                                                    </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="text-right">
+                                                    <button class="btn" type="button"
+                                                        data-background-color="green">Agregar</button>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
                                                 <div class="text-right">
                                                     <button class="btn btn-deep-orange" type="button"
                                                         data-background-color="green" data-toggle="modal" data-target="#modalNuevaTarifaForm">Nueva
@@ -48,35 +65,29 @@
                                             </div>
                                         </div>
                                         <div class="col-md-12">
-                                            <table class="table table-sm">
-                                                <thead>
-                                                    <tr>
-                                                        <th scope="col">#</th>
-                                                        <th scope="col">First</th>
-                                                        <th scope="col">Last</th>
-                                                        <th scope="col">Handle</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <th scope="row">1</th>
-                                                        <td>Mark</td>
-                                                        <td>Otto</td>
-                                                        <td>@mdo</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">2</th>
-                                                        <td>Jacob</td>
-                                                        <td>Thornton</td>
-                                                        <td>@fat</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">3</th>
-                                                        <td colspan="2">Larry the Bird</td>
-                                                        <td>@twitter</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
+                                            <div class="table-responsive">
+                                                <table class="table table-sm table-hover">
+                                                        <thead>
+                                                            <tr>
+                                                                <th scope="col">#</th>
+                                                                <th scope="col">Nombre</th>
+                                                                <th scope="col">Precio</th>
+                                                                <th scope="col">Estado</th>
+                                                                <th scope="col">Opciones</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <!-- <tbody>
+                                                            <tr *ngFor="let tarifa of tarifas; index as i">
+                                                                <th scope="row">{{ i + 1 }}</th>
+                                                                <td class="hidden">{{tarifa._id}}</td>
+                                                                <td>{{tarifa.nombre}}</td>
+                                                                <td>{{tarifa.valor}}</td>
+                                                                <td>{{tarifa.estado}}</td>
+                                                                <td>Opciones</td>
+                                                            </tr>
+                                                        </tbody> -->
+                                                    </table>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -114,7 +125,7 @@
                     </div>
                     <div class="text-right">
                         <button type="submit" class="btn btn-success btn-fill">Guardar Cancha</button>
-                        <button class="btn btn-deep-orange" type="button">Cancelar</button>
+                        <button class="btn btn-deep-orange" type="button" href="/canchas/" [routerLink]="['/canchas/']">Cancelar</button>
                     </div>
                 </form>
             </div>
@@ -134,9 +145,9 @@
                     <span aria-hidden="true">x</span>
                 </button>
             </div>
-            <form #registrarTarifa="ngForm" (ngSubmit)="onSubmit(registrarTarifa)">
+            <form #registrarTarifa="ngForm" (ngSubmit)="onSubmitTarifa(registrarTarifa)">
                 <div class="modal-body">
-                    <!-- <input type="hidden" name="establecimientoId" #establecimientoId="ngModel" [(ngModel)]="establecimiento._id"/> -->
+                    <input type="hidden" name="establecimientoId" #establecimientoId="ngModel" [(ngModel)]="establecimiento._id"/>
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-md-12">
@@ -476,7 +487,7 @@
                 <div class="modal-footer d-flex justify-content-center">
                     <button type="submit" class="btn btn-success btn-fill">Guardar tarifa</button>
                     &nbsp;
-                    <button class="btn btn-deep-orange" type="button" data-dismiss="modal">Cancelar</button>
+                    <button id="cancelarModalTarifa" class="btn btn-deep-orange" type="button" data-dismiss="modal">Cancelar</button>
                 </div>
             </form>
         </div>

@@ -5,10 +5,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { EditarCanchaComponent } from './editar-cancha/editar-cancha.component';
 import { canchasRoutes } from './canchas.routing';
+import { MostrarCanchasComponent } from './mostrar-canchas/mostrar-canchas.component';
 
 @NgModule({
   declarations: [
     EditarCanchaComponent,
+    MostrarCanchasComponent,
   ],
   imports: [
     CommonModule,

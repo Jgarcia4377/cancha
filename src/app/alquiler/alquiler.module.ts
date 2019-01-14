@@ -4,15 +4,16 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { alquilerComponent } from './alquiler.component';
-import { UserRoutes } from './alquiler.routing';
+import { AlquilerRoutes } from './alquiler.routing';
 
 @NgModule({
     imports: [
         CommonModule,
-        RouterModule.forChild(UserRoutes),
-        FormsModule
+        RouterModule.forChild(AlquilerRoutes),
+        FormsModule,
+        ReactiveFormsModule
     ],
     declarations: [alquilerComponent]
 })
 
-export class alquilerModule {}
+export class AlquilerModule {}
