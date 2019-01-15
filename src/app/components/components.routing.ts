@@ -7,7 +7,7 @@ import { NotificationsComponent } from './notifications/notifications.component'
 import { PanelsComponent } from './panels/panels.component';
 import { SweetAlertComponent } from './sweetalert/sweetalert.component';
 import { TypographyComponent } from './typography/typography.component';
-import { UsuariosComponent } from './usuarios/usuarios.component';
+import { TarifaComponent } from './tarifa/tarifa.component';
 
 
 export const ComponentsRoutes: Routes = [
@@ -55,8 +55,8 @@ export const ComponentsRoutes: Routes = [
     },{
         path: '',
         children:[{
-            path: 'usuarios',
-            component: UsuariosComponent
+            path: 'tarifa',
+            component: TarifaComponent
         }]
     }
 ];

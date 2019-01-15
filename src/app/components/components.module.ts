@@ -12,6 +12,7 @@ import { PanelsComponent } from './panels/panels.component';
 import { SweetAlertComponent } from './sweetalert/sweetalert.component';
 import { TypographyComponent } from './typography/typography.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
+import { TarifaComponent } from './tarifa/tarifa.component';
 
 @NgModule({
   imports: [
@@ -27,7 +28,8 @@ import { UsuariosComponent } from './usuarios/usuarios.component';
       PanelsComponent,
       SweetAlertComponent,
       TypographyComponent,
-      UsuariosComponent
+      UsuariosComponent,
+      TarifaComponent
   ]
 })
 

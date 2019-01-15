@@ -4,13 +4,8 @@ import { alquilerComponent } from './alquiler.component';
 
 export const AlquilerRoutes: Routes = [
     {
-        path: '',
-        children:[
-            {
-                path:'',
-                component:alquilerComponent
-            },
-
-        ],
+        path:'',
+        component:alquilerComponent
+       
 }
 ];

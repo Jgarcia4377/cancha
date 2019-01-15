@@ -1,7 +1,9 @@
 import { Routes } from '@angular/router';
 
 import { EstablecimientoComponent } from './establecimiento.component';
-import {misCanchasComponent} from './misCanchas/misCanchas.component';
+
+import {MostrarCanchasComponent} from './mostrar-canchas/mostrar-canchas.component';
+import {EditarCanchaComponent} from './editar-cancha/editar-cancha.component';
 
 export const UserRoutes: Routes = [
     {
@@ -10,18 +12,16 @@ export const UserRoutes: Routes = [
       children: [ {
         path: '',
         component: EstablecimientoComponent
-    }]},{
-        path: '',
-        children: [ {
+    },{
+       
           path: 'misCanchas',
-          component: misCanchasComponent
-        }]
+          component: EditarCanchaComponent
+        
         },{
-          path: '',
-          children: [ {
-            path: 'misCanchas/:page',
-            component: misCanchasComponent
+         
+            path: 'editarCancha',
+            component: MostrarCanchasComponent
+          
           }]
-          }
-
+        }
 ];

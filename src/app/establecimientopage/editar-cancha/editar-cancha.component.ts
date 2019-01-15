@@ -12,7 +12,7 @@ declare var $: any;
 @Component({
   selector: 'app-editar-cancha',
   templateUrl: './editar-cancha.component.html',
-  styleUrls: ['./editar-cancha.component.css'],
+  //styleUrls: ['./editar-cancha.component.css'],
   providers: [CanchasService, TarifaService]
 })
 export class EditarCanchaComponent implements OnInit, DoCheck {

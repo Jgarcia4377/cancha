@@ -6,13 +6,14 @@ import { CanchasService } from '../../services/canchas.service';
 @Component({
   selector: 'app-mostrar-canchas',
   templateUrl: './mostrar-canchas.component.html',
-  styleUrls: ['./mostrar-canchas.component.css'],
+  //styleUrls: ['./mostrar-canchas.component.css'],
   providers: [CanchasService],
 })
 export class MostrarCanchasComponent implements OnInit, DoCheck {
   public identity;
   public title:String;
   public newCancha: Canchas;
+  public canchas;
   public variable;
   public page;
   public next_page;
