@@ -102,7 +102,7 @@ aoColumnDefs: [{
 bSortable: false,
 aTargets: [ 0 ]
 }],
-languaje:{
+"languaje":{
   "sProcessing":     "Procesando...",
   "sLengthMenu":     "Mostrar _MENU_ registros",
   "sZeroRecords":    "No se encontraron resultados",
