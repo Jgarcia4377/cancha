@@ -49,9 +49,8 @@ export class CanchasService{
         //console.log(this.url);
     }
 
-    getCanchas(page=null): Observable <any>{
-        let headers = new HttpHeaders().set('Content-Type','application/json') 
-                                       .set('Authorization', this.getToken());
+    MostrarCanchas(page: any): Observable <any>{
+        let headers = new HttpHeaders().set('Content-Type','application/json');
         return this._http.get(this.url+'canchas/'+page, {headers:headers});        
     }
 

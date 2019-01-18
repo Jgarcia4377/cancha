@@ -5,7 +5,7 @@ import { AuthLayoutComponent } from './layouts/auth/auth-layout.component';
 import { UsuarioGuard } from './services/usuario.guard';
 
 export const AppRoutes: Routes = [
-    { path: '',loadChildren: './alquiler/alquiler.module#AlquilerModule'},
+    { path: '',loadChildren: './inicio/inicio.module#InicioModule'},
    // { path: '',loadChildren: './alquiler/alquiler.module#AlquilerModule'},
     { path: 'login',loadChildren: './login/login.module#LoginModule'}, 
     { path: 'alquiler',loadChildren: './alquiler/alquiler.module#AlquilerModule'},

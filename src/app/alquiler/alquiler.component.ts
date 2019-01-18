@@ -35,7 +35,11 @@ export class alquilerComponent implements OnInit , DoCheck{
     public provincias: Provincia[];
     public cantones;
     public parroquias;
-   
+    public page;
+  public next_page;
+  public prev_page;
+  public pages;
+  public total;
 
    // public alquiler: Alquiler[];
     
@@ -51,7 +55,54 @@ export class alquilerComponent implements OnInit , DoCheck{
 
     }
 
+    actualPage(){
+        this._route.params.subscribe(params =>{
+          let page = +params['page'];
+          this.page = page;
+          if(!page){
+            page=1;
+          }else{
+            this.next_page = page+1;
+            this.prev_page = page-1;
+    
+            if(this.prev_page <= 0){
+              this.prev_page=1;
+            }
+          }
+          //delvolve listado canchas
+          this.getCanchas(page);
+        });
+      }
+    
+      
+      getCanchas(page){
+        this._alquilerService.getCanchas(page).subscribe(
+          response =>{
+            if(!response.canchas){
+              console.log(response.canchas)
+            }else{
+              console.log(response.canchas);
+              this.total = response.total;
+              this.canchas = response.canchas;
+              this.pages = response.pages;
+              if(page > this.pages){
+                this._router.navigate(['/misCanchas']);
+              }
+            }
+          },
+          error=>{
+            var errorMessage = <any>error;
+            console.log(errorMessage);
+            if(errorMessage !=null){
+              console.log(errorMessage);
+            }
+          }
+        );
+      }
+    
+
    ngOnInit(){
+       this.actualPage();
     console.log(this.cancha);
 
     this._otroService.cargarPaises().subscribe(
