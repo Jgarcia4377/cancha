@@ -71,45 +71,21 @@
                                     </thead>
                                     <tbody style="text-align:center;">
                                       <tr>
-                                        <td style="text-align: left;">AVENTURAFC / cancha1(La poderosa)</td>
-                                        <td>09H00</td>
-                                        <td>$20.00</td>
-                                        <td> <button  class="btn btn-success btn-sm">Disponible</button></td>
-                                        <td><button type="button" class="btn btn-primary">Reservar</button></td>
-                                        <td style="display: none"> </td>
-                                      </tr>
-                                      <tr>
-                                        <td style="text-align: left;">AVENTURAFC / cancha2(La Bombonera)</td>
-                                        <td>10H00</td>
-                                        <td>$20.00</td>
-                                        <td> <button  class="btn btn-success  btn-sm">Disponible</button></td>
-                                        <td><button type="button" class="btn btn-primary">Reservar</button></td>
-                                        <td style="display: none"> </td>
-                                      </tr>
-                                      <tr>
-                                        <td style="text-align: left;">REPUBLICA / cancha3(S/N)</td>
-                                        <td>19H00</td>
-                                        <td>$24.00</td>
-                                        <td> <button  class="btn btn-success  btn-sm">Disponible</button></td>
-                                        <td><button type="button" class="btn btn-primary">Reservar</button></td>
-                                        <td style="display: none"> </td>
-                                      </tr>
-                                      <tr>
-                                        <td style="text-align: left;">REPUBLICA / cancha2(S/N)</td>
-                                        <td>16H00</td>
-                                        <td>$20.00</td>
-                                        <td> <button  class="btn btn-success  btn-sm">Disponible</button></td>
-                                        <td><button type="button" class="btn btn-primary">Reservar</button></td>
-                                        <td style="display: none"> </td>
-                                      </tr>
-                                      <tr>
-                                        <td style="text-align: left;">REPUBLICA / cancha1(S/N)</td>
-                                        <td>07H00</td>
-                                        <td>$20.00</td>
-                                        <td> <button  class="btn btn-success  btn-sm">Disponible</button></td>
-                                        <td><button type="button" class="btn btn-primary">Reservar</button></td>
-                                        <td style="display: none"> </td>
-                                      </tr>
+                                            <td class="">{{ i + 1 }}</td>
+                                            <td class=" hidden">{{ cancha._id }}</td>
+                                            <td>{{ cancha.nombre }}</td>
+                                            <td>
+                                                {{
+                                                cancha.dimensiones.ancho +
+                                                " mts de ancho X " +
+                                                cancha.dimensiones.largo +
+                                                "
+                                                mts de largo"
+                                                }}
+                                            <td>{{ cancha.cesped }}</td>
+                                            
+                                            <td class="">{{ cancha.numeroJugadores }}</td>
+                                        </tr>
                                      </tbody>
                                   </table>
                                 </div>
