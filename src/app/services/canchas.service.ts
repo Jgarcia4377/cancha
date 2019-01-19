@@ -36,7 +36,11 @@ export class CanchasService{
         return this.identity;
     }
     
-    
+    getCanchas(page=null): Observable <any>{
+        let headers = new HttpHeaders().set('Content-Type','application/json') 
+                                       .set('Authorization', this.getToken());
+        return this._http.get(this.url+'canchas/'+page, {headers:headers});        
+    }
     
     registerCancha(cancha: Canchas): Observable <any>{
         let params= JSON.stringify(cancha);
