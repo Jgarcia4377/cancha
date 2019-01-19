@@ -7,11 +7,8 @@ export class Canchas{
         public cesped: String,
         public numeroJugadores: Number,
         public estado: Boolean,
-        public diaS: String, 
-        public nocheS: String,
-        public diaFS: String, 
-        public nocheFS: String,
-        public establecimiento: String
+        public establecimiento: String,
+        public misTarifas: Array<any>
     ){}
    
 }

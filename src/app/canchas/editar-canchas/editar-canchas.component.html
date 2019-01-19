@@ -72,14 +72,15 @@
                                             </div>
                                             &nbsp;
                                             <div class="card-content">
-                                                <ul>
-                                                    <li *ngFor="let ta of misTarifas; index as i">
+                                                <ul class="list-group">
+                                                    <li *ngFor="let ta of misTarifas; index as i" class="list-group-item">
+                                                        <input type="hidden" name="miTarifa" #miTarifa="ngModel" [(ngModel)]="newCancha.misTarifas" value="{{ta._id}}" />
                                                         <a href="">
                                                             <strong>
-                                                                {{ta.nombre}}
+                                                                {{ta.nombre}} : 
                                                             </strong>
                                                             <span>
-                                                                {{ta.valor}}
+                                                                ${{ta.valor}}
                                                             </span>
                                                         </a>
                                                     </li>
