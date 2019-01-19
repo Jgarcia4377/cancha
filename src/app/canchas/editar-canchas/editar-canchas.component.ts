@@ -31,6 +31,8 @@ export class EditarCanchasComponent implements OnInit {
   public cancha: Canchas[];
   public tarifa: Tarifa;
   public tarifas;
+  public selectTarifa;
+  public misTarifas = [];
 
   constructor(
     private _canchasService: CanchasService,
@@ -42,15 +44,26 @@ export class EditarCanchasComponent implements OnInit {
     this.title='Registra tu cancha',
     this.newCancha = new Canchas('','',0,0,'',0,true,'','','','',this.establecimiento._id);
     this.tarifa = new Tarifa('','','',true,'',false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false);
+
    }
 
   ngOnInit() {
     this._tarifaService.mostrarMisTarifas().subscribe(
       response=>{
         this.tarifas = response.tarifas;
-         console.log(this.tarifas)
       }
     )
+  }
+
+  agregarTarifa(){
+    this.misTarifas.push(this.selectTarifa);
+    // let misTarifas = Object.keys(this.misTarifas).map(i => this.misTarifas[i])
+    // this.misTarifas = misTarifas;
+    console.log(this.misTarifas);
+  }
+
+  onChange(newValue){
+    this.selectTarifa = newValue;
   }
 
 }
