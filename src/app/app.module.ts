@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
-//import { HttpModule } from '@angular/http';
+import { HttpModule } from '@angular/http';
 import { APP_BASE_HREF } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -20,10 +20,10 @@ import { UsuariosComponent } from './mantenimiento/usuarios/usuarios.component';
 
 //import { alquilerComponent } from './alquiler/alquiler.components';
 
-//modulo de registro
 import { RegistrarModule } from './registrar/registrar.module';
-//import { CanchasModule } from './canchas/canchas.module';
+import { CanchasModule } from './canchas/canchas.module';
 import { InicioModule } from './inicio/inicio.module';
+import { TarifasModule } from './tarifas/tarifas.module'
 @NgModule({
     imports:      [
         BrowserModule,
@@ -34,18 +34,16 @@ import { InicioModule } from './inicio/inicio.module';
         NavbarModule,
         FooterModule,
         RegistrarModule,
-        //CanchasModule,
-        InicioModule
+        CanchasModule,
+        InicioModule,
+        TarifasModule
     ],
     declarations: [
         AppComponent,
         AdminLayoutComponent,
         AuthLayoutComponent,
         MantenimientoComponent,
-        UsuariosComponent,
-  //      alquilerComponent
-        
-        
+        UsuariosComponent
     ],
     providers: [
         UsuarioService,

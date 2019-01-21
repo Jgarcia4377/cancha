@@ -6,7 +6,6 @@ import { UsuarioGuard } from './services/usuario.guard';
 
 export const AppRoutes: Routes = [
     { path: '',loadChildren: './inicio/inicio.module#InicioModule'},
-   // { path: '',loadChildren: './alquiler/alquiler.module#AlquilerModule'},
     { path: 'login',loadChildren: './login/login.module#LoginModule'}, 
     { path: 'alquiler',loadChildren: './alquiler/alquiler.module#AlquilerModule'},
     { path: 'register',loadChildren: './register/register.module#RegisterModule'},
@@ -25,7 +24,7 @@ export const AppRoutes: Routes = [
                     {path: 'perfil',loadChildren: './userpage/user.module#UserModule',canActivate:[UsuarioGuard]},
                     {path: '',loadChildren: './timeline/timeline.module#TimelineModule',canActivate:[UsuarioGuard]},
                     {path: 'canchas',loadChildren: './canchas/canchas.module#CanchasModule',canActivate:[UsuarioGuard]},
-
+                    {path: 'tarifas',loadChildren: './tarifas/tarifas.module#TarifasModule',canActivate:[UsuarioGuard]},
                 ]
     },
     {path: '',component: AuthLayoutComponent,

@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MostrarCanchasComponent } from './mostrar-canchas/mostrar-canchas.component';
 import { EditarCanchasComponent } from './editar-canchas/editar-canchas.component';
+import { TarifasModule } from '../tarifas/tarifas.module';
 
 import { CanchasRoutes } from './canchas.routing';
 
@@ -13,6 +14,8 @@ import { CanchasRoutes } from './canchas.routing';
     CommonModule,
     FormsModule,
     RouterModule.forChild(CanchasRoutes),
-  ]
+    TarifasModule
+  ],
+  exports: [MostrarCanchasComponent, EditarCanchasComponent]
 })
 export class CanchasModule { }

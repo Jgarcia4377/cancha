@@ -45,7 +45,7 @@ export class EditarCanchaComponent implements OnInit, DoCheck {
     this.establecimiento = JSON.parse(localStorage.getItem('establecimiento'))[0];
   
       this.title='Registra tu cancha',
-      this.newCancha = new Canchas('','',0,0,'',0,true,'','','','',this.establecimiento._id);
+      this.newCancha = new Canchas('','',0,0,'',0,true,'',[]);
     this.tarifa = new Tarifa('','','',true,'',false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false);
    }
 

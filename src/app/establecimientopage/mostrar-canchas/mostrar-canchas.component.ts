@@ -25,7 +25,7 @@ export class MostrarCanchasComponent implements OnInit, DoCheck {
     private _router: Router,
     private _canchasService: CanchasService,
   ) {
-    this.newCancha = new Canchas('','',0,0,'',0,true,'','','','','');
+    this.newCancha = new Canchas('','',0,0,'',0,true,'',[]);
    }
 
    ngDoCheck(){

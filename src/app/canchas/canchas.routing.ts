@@ -6,17 +6,19 @@ export const CanchasRoutes: Routes = [
     {
 
       path: '',
-      children: [ {
+      children: [ 
+        {
         path: '',
         component: MostrarCanchasComponent
-    },{
+        },
+        {
           path: 'misCanchas',
           component: MostrarCanchasComponent
-        },{
-         
-            path: 'editar',
-            component: EditarCanchasComponent
-          
-          }]
+        },
+        { 
+          path: 'editar',
+          component: EditarCanchasComponent 
         }
+        ]
+    }
 ];

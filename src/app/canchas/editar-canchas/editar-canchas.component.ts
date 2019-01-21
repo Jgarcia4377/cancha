@@ -44,7 +44,7 @@ export class EditarCanchasComponent implements OnInit, DoCheck {
   ) { 
     this.establecimiento = JSON.parse(localStorage.getItem('establecimiento'))[0];
     this.title='Registra tu cancha',
-    this.newCancha = new Canchas('','',0,0,'',0,true,'','','','',this.establecimiento._id);
+    this.newCancha = new Canchas('','',0,0,'',0,true,'',[]);
     this.tarifa = new Tarifa('','','',true,'',false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false);
 
    }
@@ -73,19 +73,6 @@ export class EditarCanchasComponent implements OnInit, DoCheck {
   onSubmit(editarCancha: NgForm){
     console.log(editarCancha.value);
     // console.log(editarCancha.valid);
-  }
-
-  onSubmitTarifa(registrarTarifa: NgForm){
-    let tarifa = registrarTarifa.value;
-    this.tarifa = new Tarifa('',tarifa.establecimientoId,tarifa.nombreTarifa,tarifa.estadoTarifa,tarifa.valorTarifa,tarifa.lunesTarifa,tarifa.martesTarifa,tarifa.miercolesTarifa,tarifa.juevesTarifa,tarifa.viernesTarifa,tarifa.sabadoTarifa,tarifa.domingoTarifa,false,false,false,false,false,false,tarifa.sieteTarifa,tarifa.ochoTarifa,tarifa.nueveTarifa,tarifa.diezTarifa,tarifa.onceTarifa,tarifa.doceTarifa,tarifa.treceTarifa,tarifa.catorceTarifa,tarifa.quinceTarifa,tarifa.diezyseisTarifa,tarifa.diezysieteTarifa,tarifa.diezyochoTarifa,tarifa.diezynueveTarifa,tarifa.veinteTarifa,tarifa.veinteyunoTarifa,tarifa.veinteydosTarifa,tarifa.veinteytresTarifa,tarifa.ceroTarifa);
-    this._tarifaService.registrarTarifa(this.tarifa).subscribe(
-      response=>{
-        if(response.tarifaGuardada && response.tarifaGuardada._id){
-          this.showNotification('top','right','Tarifa Registrada Correctamente.','success');  
-          $('#cancelarModalTarifa').click();
-        }
-      }
-    )
   }
 
     //notificaciones

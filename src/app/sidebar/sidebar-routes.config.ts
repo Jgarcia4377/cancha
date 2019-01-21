@@ -33,7 +33,7 @@ export const ROUTES: RouteInfo[] = [
     { path: '/pages/lock', title: 'Lock Screen Page', icon:'material-icons' },
     { path: '/usuarios', title: 'Usuarios', icon:'material-icons' },
     { path: '/alquiler', title: 'Alquiler', icon:'material-icons' },
-    { path: '/components/tarifa', title: 'Tarifas', icon:'pe-7s-plugin' }
+    { path: '/tarifas/', title: 'Tarifas', icon:'pe-7s-plugin' }
 
 
 
