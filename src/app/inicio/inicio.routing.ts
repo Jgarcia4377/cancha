@@ -10,13 +10,9 @@ export const InicioRoutes: Routes = [
         children: [ {
             path: '',
             component: CanchasDisponiblesComponent
-        // },{
-        //     path: 'register',
-        //     component: RegisterComponent
-        // },{
-        //     path: 'pricing',
-        //     component: PricingComponent
-        // 
-    }]
+        },{
+            path: 'inicio',
+            component: CanchasDisponiblesComponent
+        }]
     }
 ];
