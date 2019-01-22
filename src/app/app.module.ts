@@ -17,13 +17,19 @@ import { UsuarioService } from './services/usuario.service';
 import { UsuarioGuard } from './services/usuario.guard';
 import { MantenimientoComponent } from './mantenimiento/mantenimiento.component';
 import { UsuariosComponent } from './mantenimiento/usuarios/usuarios.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 //import { alquilerComponent } from './alquiler/alquiler.components';
 
 import { RegistrarModule } from './registrar/registrar.module';
 import { CanchasModule } from './canchas/canchas.module';
 import { InicioModule } from './inicio/inicio.module';
-import { TarifasModule } from './tarifas/tarifas.module'
+import { TarifasModule } from './tarifas/tarifas.module';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+
+import { MaterialModule } from "./material/material.module";
+
+
 @NgModule({
     imports:      [
         BrowserModule,
@@ -36,7 +42,10 @@ import { TarifasModule } from './tarifas/tarifas.module'
         RegistrarModule,
         CanchasModule,
         InicioModule,
-        TarifasModule
+        TarifasModule,
+        BrowserAnimationsModule,
+        NoopAnimationsModule,
+        MaterialModule
     ],
     declarations: [
         AppComponent,

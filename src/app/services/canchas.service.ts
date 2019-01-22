@@ -53,9 +53,9 @@ export class CanchasService{
         //console.log(this.url);
     }
 
-    MostrarCanchas(page: any): Observable <any>{
+    MostrarCanchas(): Observable <any>{
         let headers = new HttpHeaders().set('Content-Type','application/json');
-        return this._http.get(this.url+'canchas/'+page, {headers:headers});        
+        return this._http.get(this.url+'canchas', {headers:headers});        
     }
 
     getCancha(id: any): Observable <any>{

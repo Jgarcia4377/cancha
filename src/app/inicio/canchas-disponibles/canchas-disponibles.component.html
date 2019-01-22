@@ -60,8 +60,60 @@
                                     </div>
 
                                 </div>
-                                <div class="table-responsive">
-                                    <table id="datatable-details-alquiler" class="table table-striped table-bordered table-hover">
+                                <div>
+                                    <div class="mat-elevation-z8">
+                                        <mat-table [dataSource]="listData"  matSort>
+                                          <ng-container matColumnDef="Establecimiento">
+                                            <mat-header-cell *matHeaderCellDef  mat-sort-header>Establecimiento/Cancha</mat-header-cell>
+                                            <mat-cell *matCellDef="let element">{{element.nombre}}</mat-cell>
+                                          </ng-container>
+                                          <ng-container matColumnDef="Especificaciones">
+                                            <mat-header-cell *matHeaderCellDef  mat-sort-header>Especificaciones</mat-header-cell>
+                                            <mat-cell *matCellDef="let element">{{
+                                                element.ancho +
+                                                " mts de ancho X " +
+                                                element.largo +
+                                                "
+                                                mts de largo"
+                                                }}</mat-cell>
+                                          </ng-container>
+                                          <ng-container matColumnDef="Cesped">
+                                            <mat-header-cell *matHeaderCellDef mat-sort-header>Cesped</mat-header-cell>
+                                            <mat-cell *matCellDef="let element">{{element.cesped}}</mat-cell>
+                                          </ng-container>
+                                          <ng-container matColumnDef="NJugadores">
+                                            <mat-header-cell *matHeaderCellDef mat-sort-header>N° Jugadores</mat-header-cell>
+                                            <mat-cell *matCellDef="let element">{{element.numeroJugadores}}</mat-cell>
+                                          </ng-container>
+                                          <!-- <ng-container matColumnDef="departmentName">
+                                            <mat-header-cell *matHeaderCellDef mat-sort-header>Department</mat-header-cell>
+                                            <mat-cell *matCellDef="let element">{{element.departmentName}}</mat-cell>
+                                          </ng-container> -->
+                                          <ng-container matColumnDef="Acción">
+                                            <mat-header-cell *matHeaderCellDef></mat-header-cell>
+                                            <mat-cell *matCellDef="let row">
+                                              <button mat-icon-button><mat-icon>launch</mat-icon></button>
+                                              <button mat-icon-button color="warn"><mat-icon>delete_outline</mat-icon></button>
+                                            </mat-cell>
+                                          </ng-container>
+                                          <ng-container matColumnDef="loading">
+                                            <mat-footer-cell *matFooterCellDef colspan="6">
+                                              Cargando Canchas...
+                                            </mat-footer-cell>
+                                          </ng-container>
+                                          <ng-container matColumnDef="noData">
+                                            <mat-footer-cell *matFooterCellDef colspan="6">
+                                              No data.
+                                            </mat-footer-cell>
+                                          </ng-container>
+                                          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                                          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                                          <mat-footer-row *matFooterRowDef="['loading']" [ngClass]="{'hide':listData!=null}"></mat-footer-row>
+                                          <mat-footer-row *matFooterRowDef="['noData']" [ngClass]="{'hide':!(listData!=null && listData.data.length==0)}"></mat-footer-row>
+                                        </mat-table>
+                                        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" [pageSize]="5" showFirstLastButtons></mat-paginator>
+                                      </div>
+                                    <!-- <table id="datatable-details-alquiler" class="table table-striped table-bordered table-hover">
                                         <thead>
                                             <tr>
                                                 <th>Establecimiento/Cancha</th>
@@ -71,10 +123,10 @@
 
                                             </tr>
                                         </thead>
-                                        <tbody style="text-align:center;">
+                                        <tbody style="text-align:center;" *ngFor="let cancha of canchas; index as i">
                                             <tr>
-                                                <!-- <td class="">{{ i + 1 }}</td> -->
-                                                <!-- <td class=" hidden">{{ cancha._id }}</td> -->
+                                                 <td class="">{{ i + 1 }}</td> 
+                                                <td class=" hidden">{{ cancha._id }}</td> 
                                                 <td>{{ cancha.nombre }}</td>
                                                 <td>
                                                     {{
@@ -86,10 +138,10 @@
                                                     }}
                                                 <td>{{ cancha.cesped }}</td>
 
-                                                <td class="">{{ cancha.numeroJugadores }}</td>
+                                                <td>{{ cancha.numeroJugadores }}</td>
                                             </tr>
                                         </tbody>
-                                    </table>
+                                    </table>-->
                                 </div>
                             </div>
                         </div>
