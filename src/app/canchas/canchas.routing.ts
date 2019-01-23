@@ -12,7 +12,7 @@ export const CanchasRoutes: Routes = [
         component: MostrarCanchasComponent
         },
         {
-          path: 'misCanchas',
+          path: 'canchas',
           component: MostrarCanchasComponent
         },
         { 

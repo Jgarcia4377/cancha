@@ -39,13 +39,12 @@ export class CanchasService{
     getCanchas(page=null): Observable <any>{
         let headers = new HttpHeaders().set('Content-Type','application/json') 
                                        .set('Authorization', this.getToken());
-        return this._http.get(this.url+'canchas/'+page, {headers:headers});        
+        return this._http.get(this.url+'mis-canchas/'+page, {headers:headers});        
     }
     
     registerCancha(cancha: Canchas): Observable <any>{
         let params= JSON.stringify(cancha);
-        let token = JSON.parse(localStorage.getItem('token'));
-                                
+        let token = JSON.parse(localStorage.getItem('token'));               
         let headers = new HttpHeaders().set('Content-Type','application/json')
                                        .set('Authorization', this.getToken());
         return this._http.post(this.url+'registrar-cancha',params,{headers:headers});        

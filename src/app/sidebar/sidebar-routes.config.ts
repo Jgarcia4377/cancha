@@ -20,7 +20,7 @@ export const ROUTES: RouteInfo[] = [
     { path: '/tables/datatables.net', title: 'DataTables.net', icon:'pe-7s-news-paper' },
     { path: '/establecimiento', title: 'Mi Establecimiento', icon:'material-icons' },
     { path: '/establecimiento/:id', title: 'Mi Establecimiento', icon:'material-icons' },
-    { path: '/establecimiento/misCanchas', title: 'Mis Canchas', icon:'material-icons' },
+    { path: '/canchas/canchas', title: 'Mis Canchas', icon:'material-icons' },
     { path: '/establecimiento/editarCancha', title: 'Mis Canchas', icon:'material-icons' },
     { path: '/maps/fullscreen', title: 'Full Screen Map', icon:'pe-7s-map-marker' },
     { path: '/maps/vector', title: 'Vector Map', icon:'pe-7s-map-marker' },
@@ -33,7 +33,7 @@ export const ROUTES: RouteInfo[] = [
     { path: '/pages/lock', title: 'Lock Screen Page', icon:'material-icons' },
     { path: '/usuarios', title: 'Usuarios', icon:'material-icons' },
     { path: '/alquiler', title: 'Alquiler', icon:'material-icons' },
-    { path: '/tarifas/', title: 'Tarifas', icon:'pe-7s-plugin' }
+    { path: '/tarifas/tarifas', title: 'Tarifas', icon:'pe-7s-plugin' }
 
 
 

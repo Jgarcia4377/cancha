@@ -4,11 +4,10 @@ import { MostrarTarifasComponent } from './mostrar-tarifas/mostrar-tarifas.compo
 
 export const TarifasRoutes: Routes = [
     {
-
       path: '',
       children: [ 
         {
-          path: '',
+          path: 'tarifas',
           component: MostrarTarifasComponent
         },
         { 
