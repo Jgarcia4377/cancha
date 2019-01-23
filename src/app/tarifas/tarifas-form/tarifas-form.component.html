@@ -1,4 +1,4 @@
-<form #registrarTarifa="ngForm" (ngSubmit)="onSubmit($event)">
+<form #registrarTarifa="ngForm" (ngSubmit)="onSubmitTarifa(registrarTarifa)">
     <input type="hidden" name="establecimientoId" #establecimientoId="ngModel" [(ngModel)]="establecimiento._id" />
         <div class="container-fluid">
             <div class="row">
@@ -332,6 +332,11 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="col-md-12" style="text-align: right;">
+                    <button type="submit" class="btn btn-success btn-fill">Guardar tarifa</button>
+                    &nbsp;
+                    <button id="cancelarModalTarifa" class="btn btn-deep-orange" type="button" data-dismiss="modal">Cancelar</button>
                 </div>
             </div>
         </div>

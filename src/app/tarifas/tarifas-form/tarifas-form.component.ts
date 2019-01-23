@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, DoCheck } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Tarifa } from '../../models/tarifa';
 import { TarifaService } from '../../services/tarifa.service';
@@ -11,9 +11,9 @@ declare var $: any;
   selector: 'app-tarifas-form',
   templateUrl: './tarifas-form.component.html',
   styleUrls: ['./tarifas-form.component.css'],
-  providers: [TarifaService]
+  providers: [TarifaService,Notificacion]
 })
-export class TarifasFormComponent implements OnInit {
+export class TarifasFormComponent implements OnInit, DoCheck {
   
   public tarifa: Tarifa;
   public notifi: Notificacion;
@@ -21,6 +21,7 @@ export class TarifasFormComponent implements OnInit {
   
   constructor(
     private _tarifaService: TarifaService,
+    private _notificacion: Notificacion
   ) {    this.establecimiento = JSON.parse(localStorage.getItem('establecimiento'))[0];
   this.tarifa = new Tarifa('','','',true,'',false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false); }
 
@@ -38,11 +39,17 @@ export class TarifasFormComponent implements OnInit {
     this._tarifaService.registrarTarifa(this.tarifa).subscribe(
       response=>{
         if(response.tarifaGuardada && response.tarifaGuardada._id){
-          this.notifi.showNotification('top','right','Tarifa Registrada Correctamente.','success');  
+
           $('#cancelarModalTarifa').click();
+          this._notificacion.showNotification('top','right','Tarifa Registrada Correctamente.','success');  
+          
         }
       }
     )
+  }
+
+  ngDoCheck(){
+    
   }
 
 }
