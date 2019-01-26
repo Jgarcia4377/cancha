@@ -48,7 +48,7 @@
                   </div>
                   <div class="col-md-12">
          
-                      <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
+                      <table datatable [dtOptions]="dtOptions" class="row-border hover">
                         <thead>
                           <tr>
                             <th>#</th>
@@ -58,7 +58,7 @@
                             <th>Opciones</th>
                           </tr>
                         </thead>
-                        <tbody>
+                        <tbody *ngIf="canchas?.length != 0">
                           <tr *ngFor="let cancha of canchas; index as i">
                             <td>{{ i + 1 }}</td>
                             <td>{{cancha.establecimiento.razonSocial}} / {{ cancha.nombre }}</td>
@@ -68,6 +68,11 @@
                             </td>
                             <td>{{cancha.establecimiento.canton}}</td>
                             <td><button>Reservar</button></td>
+                          </tr>
+                        </tbody>
+                        <tbody *ngIf="canchas?.length == 0">
+                          <tr>
+                              <td colspan="5" class="no-data-available">No data!</td>
                           </tr>
                         </tbody>
                       </table>

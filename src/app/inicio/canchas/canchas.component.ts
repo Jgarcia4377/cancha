@@ -1,10 +1,14 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Http, Response } from '@angular/http';
-import { Subject } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
+import { HttpClient, HttpResponse,HttpHeaders } from '@angular/common/http';
 import { Canchas } from '../../models/canchas';
 import { CanchasService } from '../../services/canchas.service';
 
-import 'rxjs/add/operator/map';
+class DataTablesResponse {
+  canchas: any[];
+  draw: number;
+  recordsFiltered: number;
+  total: number;
+}
 
 @Component({
   selector: 'app-canchas',
@@ -12,47 +16,65 @@ import 'rxjs/add/operator/map';
   styleUrls: ['./canchas.component.css'],
   providers: [CanchasService],
 })
-export class CanchasComponent implements OnInit, OnDestroy {
+export class CanchasComponent implements OnInit {
   dtOptions: DataTables.Settings = {};
   canchas: Canchas[] = [];
   // dtTrigger: Subject = new Subject();
 
   constructor(
-  // private _http: Http,
-  private _canchasService: CanchasService,
-  ) { 
-
-  }
+    private _http: HttpClient,
+    private _canchasService: CanchasService,
+  ) {}
 
   ngOnInit(){
+    const that = this;
+    let headers = new HttpHeaders().set('Content-Type','application/json');
+    let pagina = 1;
+
     this.dtOptions = {
       pagingType: 'full_numbers',
-      pageLength: 2
-    }
-
-    this._canchasService.getAllCanchas().subscribe(
-      response =>{
-        if(!response.canchas){
-          console.log(response.canchas)
-        }else{
-          console.log(response.canchas);
-          this.canchas = response.canchas;
-        }
+      pageLength: 10,
+      serverSide: true,
+      processing: true,
+      autoWidth: true,
+      ajax: (dataTablesParameters: any, callback) => {
+        that._http
+          .post<DataTablesResponse>(
+            'http://localhost:3000/api/canchas/'+pagina,
+            dataTablesParameters, {}
+          ).subscribe(resp => {
+            that.canchas = resp.canchas;
+            callback({
+              recordsTotal: resp.total,
+              recordsFiltered: resp.total,
+              data: []
+            });
+          });
       },
-      error=>{
-        var errorMessage = <any>error;
-        console.log(errorMessage);
-        if(errorMessage !=null){
-          console.log(errorMessage);
-        }
-      }
-    );
+      columns: [{ data: '#' }, { data: 'Establecimiento' }, { data: 'Especificaciones' }, { data: 'Ciudad' }, { data: 'Opciones' }]
+    }
+    // this._canchasService.getAllCanchas().subscribe(
+    //   response =>{
+    //     if(!response.canchas){
+    //       console.log(response.canchas)
+    //     }else{
+    //       console.log(response.canchas);
+    //       this.canchas = response.canchas;
+    //       console.log(response.canchas.length);
+    //       recordsTotal: response.canchas.length;
+    //       recordsFiltered: '';
+    //     }
+    //   },
+    //   error=>{
+    //     var errorMessage = <any>error;
+    //     console.log(errorMessage);
+    //     if(errorMessage !=null){
+    //       console.log(errorMessage);
+    //     }
+    //   }
+    // );
   };
 
-  ngOnDestroy(): void {
-    // Do not forget to unsubscribe the event
-    // this.dtTrigger.unsubscribe();
-  }
 
   // private extractData(res: Response) {
   //   const body = res.json();
