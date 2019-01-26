@@ -6,15 +6,19 @@ import { CanchasDisponiblesComponent } from './canchas-disponibles/canchas-dispo
 import { InicioRoutes } from './inicio.routing';
 import { MaterialModule } from "../material/material.module";
 
+import { BrowserModule } from '@angular/platform-browser';
+import { DataTablesModule } from 'angular-datatables';
+import { CanchasComponent } from './canchas/canchas.component';
 
 @NgModule({
-  declarations: [CanchasDisponiblesComponent],
+  declarations: [CanchasDisponiblesComponent, CanchasComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(InicioRoutes),
     FormsModule,
     ReactiveFormsModule,
-    MaterialModule
+    MaterialModule,
+    DataTablesModule
     ]
 })
 export class InicioModule { }

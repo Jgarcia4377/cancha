@@ -20,7 +20,9 @@
               "src/assets",
               "src/favicon.ico"
             ],
-            "styles": [],
+            "styles": [
+              "node_modules/datatables.net-dt/css/jquery.dataTables.css"
+            ],
             "scripts": [
               "node_modules/jquery/dist/jquery.js",
               "node_modules/bootstrap/dist/js/bootstrap.js",
@@ -116,7 +118,9 @@
               "src/assets/js/core/jquery.validate.min.js",
               "src/assets/js/material-bootstrap-wizard.js"
             ],
-            "styles": [],
+            "styles": [
+              "node_modules/datatables.net-dt/css/jquery.dataTables.css"
+            ],
             "assets": [
               "src/assets",
               "src/favicon.ico"

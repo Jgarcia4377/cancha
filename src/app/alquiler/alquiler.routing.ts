@@ -1,11 +1,19 @@
 import { Routes } from '@angular/router';
-
-import { alquilerComponent } from './alquiler.component';
+import { CrearAlquilerComponent } from './crear-alquiler/crear-alquiler.component';
 
 export const AlquilerRoutes: Routes = [
     {
-        path:'',
-        component:alquilerComponent
-       
-}
+
+      path: '',
+      children: [ 
+        {
+        path: '',
+        component: CrearAlquilerComponent
+        },
+        {
+          path: 'crear',
+          component: CrearAlquilerComponent
+        }
+        ]
+    }
 ];

@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 
 import { CanchasDisponiblesComponent } from './canchas-disponibles/canchas-disponibles.component';
+import { CanchasComponent } from './canchas/canchas.component';
 
 
 export const InicioRoutes: Routes = [
@@ -12,7 +13,8 @@ export const InicioRoutes: Routes = [
             component: CanchasDisponiblesComponent
         },{
             path: 'inicio',
-            component: CanchasDisponiblesComponent
-        }]
+            component: CanchasComponent
+        },
+        { path: '', redirectTo: 'inicio', pathMatch: 'full' }]
     }
 ];
