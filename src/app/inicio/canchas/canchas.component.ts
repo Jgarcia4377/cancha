@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpResponse,HttpHeaders } from '@angular/common/http';
 import { Canchas } from '../../models/canchas';
 import { CanchasService } from '../../services/canchas.service';
+import { EstablecimientoService } from '../../services/establecimiento.service';
 
 class DataTablesResponse {
   canchas: any[];
@@ -14,22 +15,28 @@ class DataTablesResponse {
   selector: 'app-canchas',
   templateUrl: './canchas.component.html',
   styleUrls: ['./canchas.component.css'],
-  providers: [CanchasService],
+  providers: [CanchasService,EstablecimientoService],
 })
 export class CanchasComponent implements OnInit {
   dtOptions: DataTables.Settings = {};
   canchas: Canchas[] = [];
+  private provincia = 'Manabí';
+  private canton;
+  private parroquia;
+  private establecimientos = [];
+  private buscarPorEstablecimiento = false;
+  private canchasDisponiblesEn = 'Portoviejo';
   // dtTrigger: Subject = new Subject();
 
   constructor(
     private _http: HttpClient,
     private _canchasService: CanchasService,
+    private _establecimientoService: EstablecimientoService
   ) {}
 
   ngOnInit(){
     const that = this;
     let headers = new HttpHeaders().set('Content-Type','application/json');
-    let pagina = 1;
 
     this.dtOptions = {
       pagingType: 'full_numbers',
@@ -40,7 +47,7 @@ export class CanchasComponent implements OnInit {
       ajax: (dataTablesParameters: any, callback) => {
         that._http
           .post<DataTablesResponse>(
-            'http://localhost:3000/api/canchas/'+pagina,
+            'http://localhost:3000/api/canchas/',
             dataTablesParameters, {}
           ).subscribe(resp => {
             that.canchas = resp.canchas;
@@ -51,7 +58,7 @@ export class CanchasComponent implements OnInit {
             });
           });
       },
-      columns: [{ data: '#' }, { data: 'Establecimiento' }, { data: 'Especificaciones' }, { data: 'Ciudad' }, { data: 'Opciones' }]
+      columns: [{ data: '#' }, { data: 'Establecimiento' }, { data: 'Especificaciones' }, { data: 'Ciudad' }]
     }
     // this._canchasService.getAllCanchas().subscribe(
     //   response =>{
@@ -73,6 +80,23 @@ export class CanchasComponent implements OnInit {
     //     }
     //   }
     // );
+    this._establecimientoService.getEstablecimientosByUbicacion(this.provincia,this.canton,this.parroquia).subscribe(
+      response =>{
+        if(!response.establecimientos){
+          console.log(response.canchas)
+        }else{
+          this.establecimientos = response.establecimientos;
+          console.log(this.establecimientos);
+        }
+      },
+      error=>{
+        var errorMessage = <any>error;
+        console.log(errorMessage);
+        if(errorMessage !=null){
+          console.log(errorMessage);
+        }
+      }
+    )
   };
 
 

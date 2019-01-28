@@ -78,6 +78,12 @@ export class EstablecimientoService{
         let headers = new HttpHeaders().set('Content-Type','application/json')                        
         return this._http.get(this.url+'establecimientos/'+pagina, {headers:headers});        
     }
+
+    getEstablecimientosByUbicacion(provincia,canton,parroquia): Observable <any>{
+        let params = JSON.stringify({'provincia':provincia,'canton':canton,'parroquia':parroquia});
+        let headers = new HttpHeaders().set('Content-Type','application/json')                        
+        return this._http.post(this.url+'establecimientos', params, {headers:headers});        
+    }
     
 }
 

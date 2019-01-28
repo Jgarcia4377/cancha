@@ -59,7 +59,7 @@ displayedColumns: string[] = ['Establecimiento', 'Especificaciones', 'Cesped', '
 
   ngOnInit() {
 
-    this._CanchasService.MostrarCanchas().subscribe(
+    this._CanchasService.getAllCanchas().subscribe(
       list => {
        console.log(list);
         let array = list.map(item => {

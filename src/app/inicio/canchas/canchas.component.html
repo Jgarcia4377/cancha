@@ -31,52 +31,131 @@
       </div>
     </div>
   </nav>
-
-  <div class="full-page register-page" style="background-color:white;">
+  <div class="full-page register-page">
     <div class="container">
       <div class="row">
         <div class="col-md-12">
           <div class="row">
-            <div class="card card-signup">
+            <div class="card">
               <div class="col-md-12">
                 <div class="row">
-                  <div class="col-md-12">
-                    <h4 class="text-left">Canchas disponibles en: <b>Portoviejo</b>&nbsp;&nbsp;&nbsp;&nbsp;<a style="cursor:pointer"
-                        data-toggle="modal" data-target="#modalCambiarCiudad"><u>
-                          <font color="blue" size=1>Cambiar Ubicación</font>
-                        </u></a></h4>
-                  </div>
-                  <div class="col-md-12">
-         
-                      <table datatable [dtOptions]="dtOptions" class="row-border hover">
+                    <div class="col-md-12">
+                            <form method="get" action="/" class="form-horizontal">
+                                <div class="card-content">
+                                    <div class="row">
+                                        <label class="col-sm-2 label-on-left">Ubicacion</label>
+                                        <span class="col-sm-2 label-on-right">{{canchasDisponiblesEn}}                        
+                                          <a style="cursor:pointer;" data-toggle="modal" data-target="#modalCambiarCiudad">
+                                            <u>
+                                              <font color="blue" size=1>Cambiar Ubicación</font>
+                                            </u>
+                                          </a>
+                                        </span>
+                                  
+                                    </div>
+                                    <div class="row">
+                                        <label class="col-sm-2 label-on-left">Fecha</label>
+                                        <div class="col-sm-3">
+                                            <div class="form-group label-floating is-empty">
+                                                <label class="control-label"></label>
+                                                <input type="date" class="form-control">
+                                            </div>
+                                        </div>
+                                        <label class="col-sm-2 label-on-left">Hora</label>
+                                        <div class="col-sm-3">
+                                            <div class="form-group label-floating is-empty">
+                                                <label class="control-label"></label>
+                                                <input type="time" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row" *ngIf="buscarPorEstablecimiento">
+                                          <label class="col-sm-2 label-on-left">Establecimiento</label>
+                                          <div class="col-md-8 form-group">
+                                          <select name="selectEstablecimiento" class="form-control" #selectEstablecimiento="ngModel" [(ngModel)]="establecimiento"
+                                           (ngModelChange)="onChangeEstablecimiento($event)">
+                                            <option value="todas" selected>todas</option>
+                                            <option *ngFor="let est of establecimientos" [ngValue]="est">
+                                              {{est.razonSocial}}
+                                            </option>
+                                          </select>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4 col-sm-offset-2 checkbox-radios">
+                                            <div class="checkbox" id="patop-0">
+                                                <label>
+                                                    <input type="checkbox" name="buscarXEstablecimientoCheckboxes" #buscarXEstablecimientoCheckboxes="ngModel" [(ngModel)]="buscarPorEstablecimiento"> Buscar por establecimiento
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 label-on-left pad-0" style="padding-top: 0;"> 
+                                          <button type="submit" class="btn btn-success btn-sm" style="margin-top:0">Buscar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                  
+                    </div>
+
+                  <div class="col-md-12" *ngIf="!buscarPorEstablecimiento">
+                      <h6 class="text-left">Canchas disponibles en: <span>{{canchasDisponiblesEn}}</span>&nbsp;&nbsp;&nbsp;&nbsp;</h6>
+                      <table class="table table-hover">
                         <thead>
                           <tr>
                             <th>#</th>
-                            <th>Establecimiento / cancha</th>
+                            <th>Establecimiento</th>
                             <th>Especifaciones</th>
                             <th>Ciudad</th>
                             <th>Opciones</th>
                           </tr>
                         </thead>
-                        <tbody *ngIf="canchas?.length != 0">
-                          <tr *ngFor="let cancha of canchas; index as i">
+                        <tbody *ngIf="establecimientos?.length != 0">
+                          <tr *ngFor="let esta of establecimientos; index as i">
                             <td>{{ i + 1 }}</td>
-                            <td>{{cancha.establecimiento.razonSocial}} / {{ cancha.nombre }}</td>
+                            <td>{{esta.razonSocial}}</td>
                             <td>
-                              Dimensiones: {{ cancha.dimensiones.ancho }} de ancho x {{ cancha.dimensiones.largo }} de largo.
-                              Cesped: {{ cancha.cesped }}. Número de jugadores: {{cancha.numeroJugadores}}.
                             </td>
-                            <td>{{cancha.establecimiento.canton}}</td>
-                            <td><button>Reservar</button></td>
+                            <td>{{esta.canton}}</td>
+                            <td><button class="btn btn-dark">Ir</button></td>
                           </tr>
                         </tbody>
-                        <tbody *ngIf="canchas?.length == 0">
+                        <tbody *ngIf="establecimientos?.length == 0">
                           <tr>
                               <td colspan="5" class="no-data-available">No data!</td>
                           </tr>
                         </tbody>
                       </table>
-           
+
+                  </div>
+                  <div class="col-md-12" *ngIf="buscarPorEstablecimiento">
+                      <table datatable [dtOptions]="dtOptions" class="row-border hover">
+                          <thead>
+                            <tr>
+                              <th>#</th>
+                              <th>Establecimiento / Cancha</th>
+                              <th>Especifaciones</th>
+                              <th>Ciudad</th>
+                            </tr>
+                          </thead>
+                          <tbody *ngIf="canchas?.length != 0">
+                            <tr *ngFor="let cancha of canchas; index as i">
+                              <td>{{ i + 1 }}</td>
+                              <td>{{cancha.establecimiento.razonSocial}} / {{ cancha.nombre }}</td>
+                              <td>
+                                Dimensiones: {{ cancha.dimensiones.ancho }} de ancho x {{ cancha.dimensiones.largo }} de largo.
+                                Cesped: {{ cancha.cesped }}. Número de jugadores: {{cancha.numeroJugadores}}.
+                              </td>
+                              <td>{{cancha.establecimiento.canton}}</td>
+                             
+                            </tr>
+                          </tbody>
+                          <tbody *ngIf="canchas?.length == 0">
+                            <tr>
+                                <td colspan="5" class="no-data-available">No data!</td>
+                            </tr>
+                          </tbody>
+                        </table>
                   </div>
                 </div>
               </div>
@@ -113,6 +192,9 @@
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">Salir</span>
           </button>
+        </div>
+        <div class="modal-body">
+            <app-select-ubicacion></app-select-ubicacion>
         </div>
       </div>
     </div>

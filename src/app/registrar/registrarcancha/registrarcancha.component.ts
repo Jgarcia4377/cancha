@@ -135,7 +135,7 @@ export class RegistrarcanchaComponent implements OnInit, OnChanges, AfterViewIni
 
     }
 
-console.log(this.provincias);
+    console.log(this.provincias);
 
     //cargar las provincias
     this._otroService.cargarProvincias().subscribe(

@@ -24,6 +24,7 @@ import { InicioModule } from './inicio/inicio.module';
 import { TarifasModule } from './tarifas/tarifas.module';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from "./material/material.module";
+import { ComponentesModule } from './componentes/componentes.module';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { MaterialModule } from "./material/material.module";
         TarifasModule,
         BrowserAnimationsModule,
         NoopAnimationsModule,
-        MaterialModule
+        MaterialModule,
+        ComponentesModule
     ],
     declarations: [
         AppComponent,
