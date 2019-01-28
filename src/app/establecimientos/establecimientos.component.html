@@ -3,6 +3,122 @@
     <div class="row">
       <div class="col-md-12">
         <div class="card">
+            <div class="main-content">
+                <div class="container-fluid">
+                    <h3>Seleccionar Cancha</h3>
+                    <div class="row">
+                        <div class="col-md-12">
+                            
+                                <div>
+                                    <!-- <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="newCancha._id" /> -->
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon">
+                                                                <i class="material-icons">calendar_today</i>
+                                                            </span>
+                                                            <div class="form-group label-floating">
+                                                                <!-- <label class="control-label">Canchas</label> -->
+                                                                <select name="selectTarifa" class="form-control">
+                                                                    <option value="todas" selected>Canchas</option>
+                                                                   <option *ngFor="let cancha of canchas">
+                                                                     {{cancha.nombre}}
+                                                                  </option>
+                                                    </select>
+                                                            </div>
+                                                        </div>
+                                                      </div>
+                                                  <div class="col-md-4">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            <i class="material-icons">calendar_today</i>
+                                                        </span>
+                                                        <div class="form-group label-floating">
+                                                            <!-- <label class="control-label">Email</label> -->
+                                                            <input type="date" class="form-control" name="correo">
+                                                        </div>
+                                                    </div>
+                                                  </div>
+                                                  <div class="col-md-4">
+                                                      <div class="input-group">
+                                                          <span class="input-group-addon">
+                                                              <i class="material-icons">calendar_today</i>
+                                                          </span>
+                                                          <div class="form-group label-floating">
+                                                              <!-- <label class="control-label">Horas DIsponibles</label> -->
+                                                              <select name="selectTarifa" class="form-control">
+                                                                  <option value="todas" selected>Horas</option>
+                                                                <option *ngFor="let cancha of canchas">
+                                                                                                                   
+                                                                   {{cancha.misTarifas}}
+                                                                </option>
+                                                  </select>
+                                                          </div>
+                                                      </div>
+                                                    </div>
+                                                    &nbsp;
+                                                    <div class="card">
+                                                        <div class="card-header card-header-icon" style="float: left;"
+                                                            data-background-color="green">
+                                                            Mis tarifas
+                                                        </div>
+                                                        &nbsp;
+                                                        <div class="card-content">
+                                                            <input type="hidden">
+                                                            <ul class="list-group">
+                                                                <li *ngFor="let ta of misTarifas; index as i" class="list-group-item">
+                                                                    <a href=" ">
+                                                                        <strong>
+                                                                            {{ta.nombre}} : 
+                                                                        </strong>
+                                                                        <span>
+                                                                            ${{ta.valor}}
+                                                                        </span>
+                                                                    </a>
+                                                                </li>
+                                                            </ul>
+                                                            <!-- <div class="table-responsive">
+                                                                <table class="table table-striped table-bordered table-hover" id="datatable-details-alquiler" ng-table="tableTarifa" show-filter="true">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th class="">#</th>
+                                                                            <th class="">Nombre</th>
+                                                                            <th class="">Valor</th>
+                                                                            <th class="">Estado</th>
+                                                                            <th class="">Opciones</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <tr *ngFor="let ta of tarifasMias; index as i">
+                                                                            <td class="">{{ i + 1 }}</td>
+                                                                            <td class=" hidden">{{ ta._id }}</td>
+                                                                            <td>{{ ta.nombre }}</td>
+                                                                            <td>{{ ta.valor }}</td>
+                                                                            <td>{{ ta.estado }}</td>
+                                                                            <td></td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div> -->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                           
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
           <!-- <button class="card-header card-header-icon btn btn-success" style="float: right;" data-background-color="green"
             data-toggle="modal" data-target="#modalRegistrarCanchaForm">
             Nueva Cancha
@@ -52,15 +168,4 @@
       </div>
     </div>
   </div>
-
-
-
-
-
-
-
-
-
-
-
 </div>

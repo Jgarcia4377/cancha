@@ -17,9 +17,11 @@ export class EstablecimientosComponent implements OnInit {
     private _canchasService: CanchasService,
   ) { }
 
+ 
+
   ngOnInit() {
     // const idEstablecimiento = this._route.snapshot.params['idE'];
-    const idEstablecimiento = '5c3ad0ba0a9c4b2e840f487f';
+    const idEstablecimiento = '5c3bde54f2e5363988a9aedc';
     this.getCanchaByEstablecimiento(idEstablecimiento);
   }
 
