@@ -16,6 +16,7 @@ export const AppRoutes: Routes = [
                     {path: 'components',loadChildren: './components/components.module#ComponentsModule',canActivate:[UsuarioGuard]},
                     {path: 'forms',loadChildren: './forms/forms.module#Forms',canActivate:[UsuarioGuard]},
                     {path: 'establecimiento',loadChildren: './establecimientopage/establecimiento.module#EstablecimientoModule',canActivate:[UsuarioGuard]},
+                    {path: 'detalle',loadChildren: './establecimientos/establecimientos.module#EstablecimientosModule',canActivate:[UsuarioGuard]},
                     {path: 'alquiler',loadChildren: './alquiler/alquiler.module#AlquilerModule',canActivate:[UsuarioGuard]},
                     {path: 'tables',loadChildren: './tables/tables.module#TablesModule',canActivate:[UsuarioGuard]},
                     {path: 'widgets',loadChildren: './widgets/widgets.module#WidgetsModule',canActivate:[UsuarioGuard]},

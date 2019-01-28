@@ -25,6 +25,7 @@ import { TarifasModule } from './tarifas/tarifas.module';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from "./material/material.module";
 import { ComponentesModule } from './componentes/componentes.module';
+import { EstablecimientosComponent } from './establecimientos/establecimientos.component';
 
 
 @NgModule({
@@ -50,7 +51,8 @@ import { ComponentesModule } from './componentes/componentes.module';
         AdminLayoutComponent,
         AuthLayoutComponent,
         MantenimientoComponent,
-        UsuariosComponent
+        UsuariosComponent,
+        //EstablecimientosComponent
     ],
     providers: [
         UsuarioService,

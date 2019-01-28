@@ -63,10 +63,10 @@ export class CanchasService{
         return this._http.get(this.url+'cancha/'+id, {headers:headers});        
     }
 
-  
-
-
-
+    getAllCanchasByEstablecimiento(idEstablecimiento: any): Observable <any>{
+        let headers = new HttpHeaders().set('Content-Type','application/json');
+        return this._http.get(this.url+'canchas/'+idEstablecimiento, {headers:headers});        
+    }
     
 }
 
