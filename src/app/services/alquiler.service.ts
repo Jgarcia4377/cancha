@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable'; 
 import {Canchas} from '../models/canchas';
+import {Alquiler} from '../models/alquiler';
 import {GLOBAL} from './global';
 
 
@@ -61,6 +62,16 @@ export class AlquilerService{
         return this._http.get(this.url+'cancha/'+id, {headers:headers});        
     }
 
+    registerAlquiler(alquiler: Alquiler): Observable <any>{
+        let params= JSON.stringify(alquiler);
+        let token = JSON.parse(localStorage.getItem('token'));
+                                
+        let headers = new HttpHeaders().set('Content-Type','application/json')
+                                       .set('Authorization', this.getToken());
+        return this._http.post(this.url+'registrar-alquiler',params,{headers:headers});        
+        //console.log(user_to_register);
+        //console.log(this.url);
+    }
   
 
 

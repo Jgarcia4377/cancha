@@ -8,9 +8,10 @@
                     <h3>Seleccionar Cancha</h3>
                     <div class="row">
                         <div class="col-md-12">
-                            
+                          <!-- <form #crearAlquiler="ngForm" (ngSubmit)="onSubmit(crearAlquiler)">  -->
+                                <form>
                                 <div>
-                                    <!-- <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="newCancha._id" /> -->
+                                    <!-- <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="NewAlquiler._id" /> -->
                                     <div class="container-fluid">
                                         <div class="row">
                                             <div class="col-md-12">
@@ -51,19 +52,51 @@
                                                               <!-- <label class="control-label">Horas DIsponibles</label> -->
                                                               <select name="selectTarifa" class="form-control">
                                                                   <option value="todas" selected>Horas</option>
-                                                                <option *ngFor="let cancha of canchas">
+                                                                <!-- <option *ngFor="let cancha of canchas">
                                                                                                                    
-                                                                   {{cancha.misTarifas}}
-                                                                </option>
+                                                                   {{cancha.misTarifas.nombre}}
+                                                                </option> -->
+                                                                <option value="cero">00H00</option>
+                                                                <option value="una">01H00</option>
+                                                                <option value="dos">02H00</option>
+                                                                <option value="tres">03H00</option>
+                                                                <option value="cuatro">04H00</option>
+                                                                <option value="cinco">05H00</option>
+                                                                <option value="seis">06H00</option>
+                                                                <option value="siete">07H00</option>
+                                                                <option value="ocho">08H00</option>
+                                                                <option value="nueve">09H00</option>
+                                                                <option value="diez">10H00</option>
+                                                                <option value="once">11H00</option>
+                                                                <option value="doce">12H00</option>
+                                                                <option value="trece">13H00</option>
+                                                                <option value="catorce">14H00</option>
+                                                                <option value="quince">15H00</option>
+                                                                <option value="diezyseis">16H00</option>
+                                                                <option value="diezysiete">17H00</option>
+                                                                <option value="diezyocho">18H00</option>
+                                                                <option value="diezynueve">19H00</option>
+                                                                <option value="veinte">20H00</option>
+                                                                <option value="veinteyuno">21H00</option>
+                                                                <option value="veinteydos">22H00</option>
+                                                                <option value="veinteytres">23H00</option>
                                                   </select>
                                                           </div>
                                                       </div>
+                                                    
                                                     </div>
+                                                    &nbsp;
+                                                    <div class="col-md-12">
+                                                        <button class="btn btn-sm" style="float: right;" type="button" 
+                                                        data-background-color="green">Pre Alquiler</button>
+                                                    </div>
+                                                   
+
                                                     &nbsp;
                                                     <div class="card">
                                                         <div class="card-header card-header-icon" style="float: left;"
                                                             data-background-color="green">
-                                                            Mis tarifas
+                                                            Mis alquileres
                                                         </div>
                                                         &nbsp;
                                                         <div class="card-content">
@@ -111,60 +144,13 @@
                                         </div>
                                     </div>
                                 </div>
-                                
-                          
+                          </form>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="card">
-          <!-- <button class="card-header card-header-icon btn btn-success" style="float: right;" data-background-color="green"
-            data-toggle="modal" data-target="#modalRegistrarCanchaForm">
-            Nueva Cancha
-          </button> -->
-          <div class="card-header card-header-icon" style="float: right;" data-background-color="green"  href="C:\Users\JGarc\OneDrive\Documentos\Cacicustech\mangol\frontend\src\app\establecimientopage\editar-cancha\editar-cancha.component.html">
-          Canchas
-          </div>
-         
-
-          <div class="card-content">
-            <h4 class="card-title">Mis Canchas</h4>
-            <div class="table-responsive">
-              <table class="table table-hover">
-                <thead>
-                  <tr>
-                    <th class="">#</th>
-                    <th class="">Nombre</th>
-                    <th class="">Dimensiones</th>
-                    <th class="">Césped</th>
-                    <th class="">N° jugadores</th>
-                   
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let cancha of canchas; index as i">
-                    <td class="">{{ i + 1 }}</td>
-                    <td class=" hidden">{{ cancha._id }}</td>
-                    <td>{{ cancha.nombre }}</td>
-                    <td>
-                      {{
-                      cancha.dimensiones.ancho +
-                      " mts de ancho X " +
-                      cancha.dimensiones.largo +
-                      "
-                      mts de largo"
-                      }}
-                    </td>
-                    <td>{{ cancha.cesped }}</td>
-                    <td class="">{{ cancha.numeroJugadores }}</td>
-                
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
+       
       </div>
     </div>
   </div>
