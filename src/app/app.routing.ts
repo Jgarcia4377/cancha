@@ -5,7 +5,9 @@ import { AuthLayoutComponent } from './layouts/auth/auth-layout.component';
 import { UsuarioGuard } from './services/usuario.guard';
 
 export const AppRoutes: Routes = [
+    // { path: '', loadChildren: './inicio/inicio.module#InicioModule'},
     { path: '', loadChildren: './inicio/inicio.module#InicioModule'},
+    // { path: 'inicio/:id', loadChildren: './inicio/inicio.module#InicioModule'},
     { path: 'login',loadChildren: './login/login.module#LoginModule'}, 
     { path: 'register',loadChildren: './register/register.module#RegisterModule'},
     { path: 'register-establecimiento',loadChildren: './registercancha/registercancha.module#RegisterCanchaModule'}, 
@@ -17,6 +19,7 @@ export const AppRoutes: Routes = [
                     {path: 'forms',loadChildren: './forms/forms.module#Forms',canActivate:[UsuarioGuard]},
                     {path: 'establecimiento',loadChildren: './establecimientopage/establecimiento.module#EstablecimientoModule',canActivate:[UsuarioGuard]},
                     {path: 'detalle',loadChildren: './establecimientos/establecimientos.module#EstablecimientosModule',canActivate:[UsuarioGuard]},
+                    {path: 'detalle/:id',loadChildren: './establecimientos/establecimientos.module#EstablecimientosModule',canActivate:[UsuarioGuard]},
                     {path: 'alquiler',loadChildren: './alquiler/alquiler.module#AlquilerModule',canActivate:[UsuarioGuard]},
                     {path: 'tables',loadChildren: './tables/tables.module#TablesModule',canActivate:[UsuarioGuard]},
                     {path: 'widgets',loadChildren: './widgets/widgets.module#WidgetsModule',canActivate:[UsuarioGuard]},

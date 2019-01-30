@@ -16,7 +16,8 @@ export class EstablecimientosComponent implements OnInit , DoCheck{
   public canchas;
   public NewAlquiler: Alquiler;
   public misAlquiler = [];
-  public idEstablecimiento = '5c3ad0ba0a9c4b2e840f487f';
+  // public idEstablecimiento;
+  // public idEstablecimiento = '5c3ad0ba0a9c4b2e840f487f';
   public identity;
   constructor(
     private _route: ActivatedRoute,
@@ -69,14 +70,15 @@ export class EstablecimientosComponent implements OnInit , DoCheck{
  
 
   ngOnInit() {
-    // const idEstablecimiento = this._route.snapshot.params['idE'];
-   
-    this.getCanchaByEstablecimiento(this.idEstablecimiento);
+     let id = this._route.snapshot.paramMap.get('id');
+     
+    this.getCanchaByEstablecimiento(id);
+    console.log(id);
 
   }
 
-  getCanchaByEstablecimiento(idEstablecimiento){
-    this._canchasService.getAllCanchasByEstablecimiento(idEstablecimiento).subscribe(
+  getCanchaByEstablecimiento(id){
+    this._canchasService.getAllCanchasByEstablecimiento(id).subscribe(
       response =>{
         if(!response.canchas){
           console.log(response.canchas)
