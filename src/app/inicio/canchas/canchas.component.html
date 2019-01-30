@@ -117,7 +117,7 @@
                             <td>
                             </td>
                             <td>{{esta.canton}}</td>
-                            <td><button class="btn btn-dark">Ir</button></td>
+                            <td><button class="btn btn-dark" [routerLink]="['/detalle', esta._id]" >Ir</button></td>
                           </tr>
                         </tbody>
                         <tbody *ngIf="establecimientos?.length == 0">
