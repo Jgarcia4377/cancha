@@ -4,12 +4,12 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { RegisterComponent } from './register.component';
-import { UserRoutes } from './register.routing';
+import { RegisterRoutes } from './register.routing';
 
 @NgModule({
     imports: [
         CommonModule,
-        RouterModule.forChild(UserRoutes),
+        RouterModule.forChild(RegisterRoutes),
         FormsModule
     ],
     declarations: [RegisterComponent]

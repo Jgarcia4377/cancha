@@ -16,9 +16,9 @@ export class SelectUbicacionComponent implements OnInit {
   public provincias: Provincia[];
   public cantones = [];
   public parroquias = [];
-  private provincia = '';
-  private canton = '';
-  private parroquia = '';
+  public provincia = '';
+  public canton = '';
+  public parroquia = '';
   
 
   constructor(private _otroService: OtroService) { 

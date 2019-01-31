@@ -17,7 +17,7 @@ import { UsuarioService } from './services/usuario.service';
 import { UsuarioGuard } from './services/usuario.guard';
 import { MantenimientoComponent } from './mantenimiento/mantenimiento.component';
 import { UsuariosComponent } from './mantenimiento/usuarios/usuarios.component';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RegistrarModule } from './registrar/registrar.module';
 import { CanchasModule } from './canchas/canchas.module';
 import { InicioModule } from './inicio/inicio.module';
@@ -26,6 +26,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from "./material/material.module";
 import { ComponentesModule } from './componentes/componentes.module';
 import { EstablecimientosComponent } from './establecimientos/establecimientos.component';
+import { InicioComponent } from './inicio/inicio.component';
 
 
 @NgModule({
@@ -37,21 +38,22 @@ import { EstablecimientosComponent } from './establecimientos/establecimientos.c
         SidebarModule,
         NavbarModule,
         FooterModule,
-        RegistrarModule,
-        CanchasModule,
-        InicioModule,
-        TarifasModule,
-        BrowserAnimationsModule,
-        NoopAnimationsModule,
-        MaterialModule,
-        ComponentesModule
+        // RegistrarModule,
+        // CanchasModule,
+        // InicioModule,
+        // TarifasModule,
+        // BrowserAnimationsModule,
+        // NoopAnimationsModule,
+        // MaterialModule,
+        // ComponentesModule
     ],
     declarations: [
         AppComponent,
         AdminLayoutComponent,
         AuthLayoutComponent,
-        MantenimientoComponent,
-        UsuariosComponent,
+        // MantenimientoComponent,
+        // UsuariosComponent,
+        InicioComponent
         //EstablecimientosComponent
     ],
     providers: [

@@ -6,12 +6,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EstablecimientosComponent } from './establecimientos.component';
 
 
-import { UserRoutes } from './establecimientos.routing';
+import { EstablecimientoRoutes } from './establecimientos.routing';
 
 @NgModule({
     imports: [
         CommonModule,
-        RouterModule.forChild(UserRoutes),
+        RouterModule.forChild(EstablecimientoRoutes),
         FormsModule
     ],
     declarations: [EstablecimientosComponent]

@@ -7,7 +7,7 @@ import { RegistrarusuarioComponent } from './registrarusuario/registrarusuario.c
 
 const registrarRoutes: Routes = [
     {
-        path: 'registrar',
+        path: '',
         children:[
             {path:'canchas',component:RegistrarcanchaComponent},
             {path:'usuarios', component: RegistrarusuarioComponent}

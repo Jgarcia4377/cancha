@@ -27,9 +27,9 @@ export class RegistrarcanchaComponent implements OnInit, OnChanges, AfterViewIni
   public provincias: Provincia[];
   public cantones;
   public parroquias;
-  private provincia;
-  private canton;
-  private parroquia;
+  public provincia;
+  public canton;
+  public parroquia;
   //@Input() selectProvincia: Provincia[];
   // readURL(input) {
   //   if (input.files && input.files[0]) {

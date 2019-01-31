@@ -4,8 +4,6 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { EstablecimientoComponent } from './establecimiento.component';
-import {MostrarCanchasComponent} from './mostrar-canchas/mostrar-canchas.component';
-import {EditarCanchaComponent} from './editar-cancha/editar-cancha.component';
 
 import { UserRoutes } from './establecimiento.routing';
 
@@ -15,8 +13,7 @@ import { UserRoutes } from './establecimiento.routing';
         RouterModule.forChild(UserRoutes),
         FormsModule
     ],
-    declarations: [EstablecimientoComponent,
-       MostrarCanchasComponent,EditarCanchaComponent]
+    declarations: [EstablecimientoComponent]
 })
 
 export class EstablecimientoModule {}

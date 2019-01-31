@@ -20,12 +20,12 @@ class DataTablesResponse {
 export class CanchasComponent implements OnInit {
   dtOptions: DataTables.Settings = {};
   canchas: Canchas[] = [];
-  private provincia = 'Manabí';
-  private canton;
-  private parroquia;
-  private establecimientos = [];
-  private buscarPorEstablecimiento = false;
-  private canchasDisponiblesEn = 'Portoviejo';
+  public provincia = 'Manabí';
+  public canton;
+  public parroquia;
+  public establecimientos = [];
+  public buscarPorEstablecimiento = false;
+  public canchasDisponiblesEn = 'Portoviejo';
   // dtTrigger: Subject = new Subject();
 
   constructor(

@@ -38,6 +38,7 @@ export class EditarCanchasComponent implements OnInit, DoCheck {
   public selectTarifa;
   public misTarifas = [];
   public misTarifasIds = [];
+  public tarifaAgregada;
 
   constructor(
     private _canchasService: CanchasService,
